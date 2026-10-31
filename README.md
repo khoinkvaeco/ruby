@@ -9,6 +9,8 @@ Trang web tĩnh (HTML/CSS/JS thuần, không cần cài đặt) tổng hợp ki�
 | `lap-trinh.html` | Học lập trình Python từ đầu: 11 bài, bài tập có lời giải, khung chạy thử code (Pyodide) |
 | `trac-nghiem.html?mon=<id>` | Trắc nghiệm tự kiểm tra: 79 câu, mỗi lượt 10 câu ngẫu nhiên, đảo thứ tự lựa chọn, giải thích ngay, xem lại câu sai, lưu điểm cao nhất |
 | `phien-ban.html` | Có gì mới: số phiên bản hiện tại và lịch sử các lần cập nhật |
+| `cap-nhat-2026.html` | Chương trình lớp 9 năm 2026 có gì mới so với 2018 (SGK dùng chung, Thông tư 17/2025, giáo dục AI, năng lực số, thi vào 10) — kèm nguồn |
+| `ban-do.html` | Bản đồ thế giới tương tác (OpenStreetMap), Việt Nam 63 → 34 tỉnh (bảng tra cứu tự kiểm 34/63), liên kết bản đồ chính thức |
 | `on-thi.html` | Kế hoạch ôn thi vào 10, thời khoá biểu mẫu, mẹo làm bài, đếm ngược ngày thi |
 
 ## Chạy

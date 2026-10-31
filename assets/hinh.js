@@ -547,13 +547,13 @@
       return s + chu(46, 20, 'triệu người', ' font-size="11"');
     })()) };
 
-  H['cac-vung'] = { chu: 'Sơ đồ vị trí tương đối của 6 vùng kinh tế – xã hội từ Bắc vào Nam (sơ đồ đơn giản hoá để dễ nhớ, KHÔNG phải bản đồ — khi học hãy dùng Atlat/bản đồ chính thức).',
-    svg: svg('cac-vung', 360, 330, (function () {
+  H['cac-vung'] = { chu: 'Sơ đồ vị trí tương đối của 6 vùng kinh tế – xã hội (theo Nghị quyết 252/2025/QH15, 34 tỉnh, thành) từ Bắc vào Nam — sơ đồ đơn giản hoá để dễ nhớ, KHÔNG phải bản đồ; khi học hãy dùng Atlat/bản đồ chính thức. Số trong ngoặc là số tỉnh, thành của vùng.',
+    svg: svg('cac-vung', 360, 350, (function () {
       function v(x, y, w, h, s, m) { return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="10" style="fill:' + m + ';opacity:.22;stroke:' + m + '"/>' + (function () { var d = s.split('|'), r = ''; d.forEach(function (t, i) { r += chu(x + w / 2, y + h / 2 + 4 + (i - (d.length - 1) / 2) * 15, t, ' text-anchor="middle" font-size="12" font-weight="600"'); }); return r; })(); }
-      return v(20, 10, 200, 60, 'Trung du và|miền núi Bắc Bộ', XANH) + v(150, 76, 110, 44, 'ĐB sông Hồng', HONG) +
-        v(190, 126, 100, 120, 'Bắc Trung Bộ|và Duyên hải|Nam Trung Bộ', LAM) + v(90, 180, 95, 66, 'Tây Nguyên', CAM) +
-        v(130, 252, 140, 34, 'Đông Nam Bộ', '#7c3aed') + v(40, 292, 150, 34, 'ĐB sông Cửu Long', '#0891b2') +
-        chu(300, 30, 'Bắc ↑', ' font-size="12"') + chu(300, 320, 'Nam ↓', ' font-size="12"') + chu(300, 160, 'Biển', ' font-size="11"') + chu(300, 176, 'Đông →', ' font-size="11"');
+      return v(20, 10, 200, 58, 'Trung du và|miền núi phía Bắc (9)', XANH) + v(150, 74, 120, 42, 'ĐB sông Hồng (6)', HONG) +
+        v(175, 122, 105, 54, 'Bắc Trung Bộ|(5)', LAM) + v(95, 182, 200, 82, 'Duyên hải Nam Trung Bộ|và Tây Nguyên (6)', CAM) +
+        v(130, 270, 140, 32, 'Đông Nam Bộ (3)', '#7c3aed') + v(40, 308, 160, 34, 'ĐB sông Cửu Long (5)', '#0891b2') +
+        chu(300, 30, 'Bắc ↑', ' font-size="12"') + chu(300, 338, 'Nam ↓', ' font-size="12"') + chu(304, 196, 'Biển', ' font-size="11"') + chu(304, 212, 'Đông →', ' font-size="11"');
     })()) };
 
   /* ---- GDCD ---- */

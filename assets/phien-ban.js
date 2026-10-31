@@ -2,9 +2,16 @@
 // roi doi ?v=... trong cac the <script>/<link> cua moi trang HTML cho khop (chay `node tools/kiem-tra.js` de soat).
 // ?v= khien trinh duyet tai tep moi thay vi dung ban cu trong bo nho dem.
 window.PHIEN_BAN = {
-  so: '1.5.1',
+  so: '1.6.0',
   ngay: '31/10/2026',
   lichSu: [
+    { so: '1.6.0', ngay: '31/10/2026', moi: [
+      'Trang mới "Chương trình 2026 có gì mới?": sách giáo khoa dùng chung (Kết nối tri thức), Thông tư 17/2025 sửa Lịch sử và Địa lí, giáo dục AI từ 2026–2027, Khung năng lực số, Đề án tiếng Anh, thi vào 10 (quy định hiện hành + dự thảo 2 môn) — kèm nguồn',
+      'Địa lí các vùng cập nhật theo 34 tỉnh, thành và 6 vùng kinh tế – xã hội mới (bài học, sơ đồ, bài tập, trắc nghiệm)',
+      'Trang mới "Bản đồ": bản đồ thế giới tương tác, so sánh Việt Nam 63 → 34 tỉnh với bảng tra cứu tỉnh cũ → mới, liên kết bản đồ hành chính chính thức và công cụ luyện bản đồ',
+      'Học lập trình: bài 13 Trí tuệ nhân tạo (AI) — học máy là gì, tự viết mô hình k láng giềng gần nhất và hồi quy tuyến tính bằng Python, dùng AI an toàn, 6 bài tập',
+      'Ôn thi vào 10: mục "Thi những môn nào năm 2027"; Tin học thêm Khung năng lực số; Tiếng Anh thêm Đề án tiếng Anh ngôn ngữ thứ hai'
+    ] },
     { so: '1.5.1', ngay: '31/10/2026', moi: [
       'Trang môn học: bỏ khung tên chủ đề dính trên đầu (trùng với mục lục, che 21 % màn hình) — nay chỉ thanh menu 60 px ở lại khi cuộn',
       'Cột nội dung rộng hơn (trang môn tối đa 1400 px, mục lục gọn lại, bỏ giới hạn độ dài dòng)',

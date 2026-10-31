@@ -303,3 +303,17 @@ aside.muc-luc a.ml-muc{display:flex;padding:8px}
 @media (max-width:900px){ .nut-ml{display:none} }
 .hang-hinh{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px;margin:14px 0;align-items:start}
 .hang-hinh figure.hinh{margin:0;max-width:none}
+
+/* ---- Trang ban do ---- */
+.khung-ban-do{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--vien);background:var(--nen)}
+.khung-ban-do iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ghi-nguon{font-size:.85rem;color:var(--phu)}
+.so-sanh{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:8px 0 14px}
+.ss-o{display:flex;align-items:center;gap:12px;padding:12px 18px;border:1px solid var(--vien);border-radius:14px;background:var(--nen)}
+.ss-o.moi{background:var(--chinh-nhat);border-color:var(--chinh)}
+.ss-so{font-size:2.2rem;font-weight:800;color:var(--chinh);line-height:1}
+.ss-mui{font-size:1.8rem;color:var(--phu)}
+tr.giu-nguyen td:nth-child(3){color:var(--phu);font-style:italic}
+@media (max-width:760px){ .khung-ban-do{aspect-ratio:4/5} }
+/* Chu nam DUOI iframe: iframe tai xong thi che mat; khong tai duoc thi nguoi dung van thay loi chi dan */
+.ban-do-cho{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:var(--phu)}

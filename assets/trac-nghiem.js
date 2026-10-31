@@ -70,9 +70,11 @@ window.TRAC_NGHIEM = {
     { h: 'Hiệp định Pa-ri về chấm dứt chiến tranh ở Việt Nam được kí năm:', c: ['1968', '1972', '1973', '1975'], d: 2, g: 'Ngày 27/1/1973.' },
     { h: 'Công cuộc Đổi mới ở Việt Nam bắt đầu từ:', c: ['Đại hội IV (1976)', 'Đại hội V (1982)', 'Đại hội VI (1986)', 'Đại hội VII (1991)'], d: 2, g: 'Đại hội VI của Đảng, tháng 12/1986.' },
     { h: 'Việt Nam gia nhập ASEAN năm:', c: ['1967', '1986', '1995', '2007'], d: 2, g: 'Ngày 28/7/1995. (2007 là năm gia nhập WTO.)' },
-    { h: 'Vùng trồng cà phê lớn nhất nước ta là:', c: ['Đồng bằng sông Hồng', 'Tây Nguyên', 'Đồng bằng sông Cửu Long', 'Bắc Trung Bộ'], d: 1, g: 'Nhờ đất badan màu mỡ và khí hậu cận xích đạo.' },
-    { h: 'Vùng sản xuất lúa gạo lớn nhất nước ta là:', c: ['Đồng bằng sông Hồng', 'Đông Nam Bộ', 'Đồng bằng sông Cửu Long', 'Duyên hải Nam Trung Bộ'], d: 2, g: 'Đồng bằng sông Cửu Long là vựa lúa lớn nhất cả nước.' },
-    { h: 'Vùng có kinh tế phát triển năng động nhất, có ngành dầu khí là:', c: ['Đông Nam Bộ', 'Tây Nguyên', 'Trung du và miền núi Bắc Bộ', 'Bắc Trung Bộ'], d: 0, g: 'Trung tâm là TP. Hồ Chí Minh; dầu khí ở thềm lục địa.' }
+    { h: 'Khu vực trồng cà phê lớn nhất nước ta là:', c: ['Đồng bằng sông Hồng', 'Tây Nguyên', 'Đồng bằng sông Cửu Long', 'Bắc Trung Bộ'], d: 1, g: 'Nhờ đất badan màu mỡ và khí hậu cận xích đạo. Từ 2025, Tây Nguyên thuộc vùng Duyên hải Nam Trung Bộ và Tây Nguyên.' },
+    { h: 'Vùng sản xuất lúa gạo lớn nhất nước ta là:', c: ['Đồng bằng sông Hồng', 'Đông Nam Bộ', 'Đồng bằng sông Cửu Long', 'Bắc Trung Bộ'], d: 2, g: 'Đồng bằng sông Cửu Long là vựa lúa lớn nhất cả nước.' },
+    { h: 'Vùng có kinh tế phát triển năng động nhất, có ngành dầu khí là:', c: ['Đông Nam Bộ', 'Duyên hải Nam Trung Bộ và Tây Nguyên', 'Trung du và miền núi phía Bắc', 'Bắc Trung Bộ'], d: 0, g: 'Trung tâm là TP. Hồ Chí Minh; dầu khí ở thềm lục địa.' },
+    { h: 'Từ ngày 1/7/2025, Việt Nam có bao nhiêu tỉnh, thành phố trực thuộc Trung ương?', c: ['63', '34', '28', '6'], d: 1, g: '34 đơn vị: 28 tỉnh và 6 thành phố (Hà Nội, Huế, Hải Phòng, Đà Nẵng, TP. Hồ Chí Minh, Cần Thơ).' },
+    { h: 'Theo cách chia từ năm 2025, khu vực Tây Nguyên thuộc vùng kinh tế – xã hội nào?', c: ['Tây Nguyên', 'Bắc Trung Bộ', 'Duyên hải Nam Trung Bộ và Tây Nguyên', 'Đông Nam Bộ'], d: 2, g: 'Nghị quyết 252/2025/QH15 tổ chức 6 vùng; vùng Duyên hải Nam Trung Bộ và Tây Nguyên gồm Đà Nẵng, Quảng Ngãi, Gia Lai, Đắk Lắk, Khánh Hoà, Lâm Đồng.' }
   ],
   gdcd: [
     { h: 'Khoan dung là:', c: ['bỏ qua mọi sai lầm của người khác', 'tôn trọng, thông cảm và sẵn sàng tha thứ khi người khác biết hối hận', 'không quan tâm đến người khác', 'luôn nhường nhịn để tránh va chạm'], d: 1, g: 'Khoan dung không phải là dung túng cho cái sai.' },

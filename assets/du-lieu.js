@@ -1,4 +1,4 @@
-// Du lieu kien thuc cac mon lop 9 (chuong trinh GDPT 2018).
+// Du lieu kien thuc cac mon lop 9 (chuong trinh GDPT 2018, cap nhat theo cac van ban sua doi den 2026 — xem cap-nhat-2026.html).
 // Moi mon: id (dung tren URL mon.html?mon=id), ten, bieu tuong, mo ta, danh sach bai.
 // Noi dung de dang HTML de co the chen bang, cong thuc, meo.
 window.MON = [];
@@ -403,17 +403,19 @@ MON.push({
 <li>Công nghiệp: khai khoáng, năng lượng, chế biến, điện tử. Dịch vụ: giao thông, thương mại, du lịch, bưu chính viễn thông.</li></ul>
 <figure class="hinh" data-hinh="dan-so"></figure>` },
 
-    { id: 'dia-vung', ten: 'Địa lí: Các vùng kinh tế', noi: `
+    { id: 'dia-vung', ten: 'Địa lí: Các vùng kinh tế – xã hội', noi: `
+<div class="meo">🆕 <b>Cập nhật 2025–2026:</b> từ 1/7/2025 nước ta có <b>34 tỉnh, thành phố</b> (28 tỉnh + 6 thành phố trực thuộc Trung ương: Hà Nội, Huế, Hải Phòng, Đà Nẵng, TP. Hồ Chí Minh, Cần Thơ). Theo Nghị quyết 252/2025/QH15, cả nước tổ chức thành <b>6 vùng kinh tế – xã hội mới</b>; chương trình môn Lịch sử và Địa lí đã được sửa theo Thông tư 17/2025/TT-BGDĐT (ví dụ: "Trung du và miền núi Bắc Bộ" đổi thành "Trung du và miền núi phía Bắc"). Sách cũ của anh chị khoá trước dùng cách chia vùng khác — hãy học theo cách chia mới dưới đây và theo hướng dẫn của thầy cô.</div>
+<p>🗺️ Xem <a href="ban-do.html#viet-nam">bản đồ Việt Nam trước – sau sắp xếp và bảng tra 63 → 34 tỉnh</a>, <a href="ban-do.html#the-gioi">bản đồ thế giới tương tác</a>.</p>
 <figure class="hinh" data-hinh="cac-vung"></figure>
-<div class="cuon"><table><tr><th>Vùng</th><th>Thế mạnh nổi bật</th></tr>
-<tr><td>Trung du và miền núi Bắc Bộ</td><td>Khoáng sản, thuỷ điện (Hoà Bình, Sơn La), cây chè, chăn nuôi trâu bò.</td></tr>
-<tr><td>Đồng bằng sông Hồng</td><td>Dân cư đông, thâm canh lúa, công nghiệp và dịch vụ phát triển (Hà Nội, Hải Phòng).</td></tr>
-<tr><td>Bắc Trung Bộ & Duyên hải Nam Trung Bộ</td><td>Kinh tế biển, du lịch (Huế, Hội An, Nha Trang), nghề cá, cảng biển.</td></tr>
-<tr><td>Tây Nguyên</td><td>Đất badan, cây cà phê, hồ tiêu, cao su; thuỷ điện; bô-xít.</td></tr>
-<tr><td>Đông Nam Bộ</td><td>Kinh tế phát triển nhất, TP. Hồ Chí Minh; dầu khí, công nghiệp, cây công nghiệp lâu năm.</td></tr>
-<tr><td>Đồng bằng sông Cửu Long</td><td>Vựa lúa lớn nhất cả nước, thuỷ sản, trái cây; thách thức xâm nhập mặn, biến đổi khí hậu.</td></tr></table></div>
+<div class="cuon"><table><tr><th>Vùng</th><th>Các tỉnh, thành phố</th><th>Thế mạnh nổi bật</th></tr>
+<tr><td>Trung du và miền núi phía Bắc</td><td>Lai Châu, Điện Biên, Sơn La, Lào Cai, Tuyên Quang, Cao Bằng, Lạng Sơn, Thái Nguyên, Phú Thọ (9)</td><td>Khoáng sản, thuỷ điện (Hoà Bình, Sơn La), cây chè, cây dược liệu, chăn nuôi trâu bò, du lịch vùng núi.</td></tr>
+<tr><td>Đồng bằng sông Hồng</td><td>Hà Nội, Hải Phòng, Quảng Ninh, Bắc Ninh, Hưng Yên, Ninh Bình (6)</td><td>Dân cư đông, thâm canh lúa, công nghiệp – dịch vụ phát triển, cảng biển, du lịch (vịnh Hạ Long).</td></tr>
+<tr><td>Bắc Trung Bộ</td><td>Thanh Hoá, Nghệ An, Hà Tĩnh, Quảng Trị, Huế (5)</td><td>Kinh tế biển, cảng nước sâu, du lịch di sản (Huế, Phong Nha – Kẻ Bàng), lâm nghiệp.</td></tr>
+<tr><td>Duyên hải Nam Trung Bộ và Tây Nguyên</td><td>Đà Nẵng, Quảng Ngãi, Gia Lai, Đắk Lắk, Khánh Hoà, Lâm Đồng (6)</td><td>Ven biển: cảng biển, du lịch biển (Nha Trang, Đà Nẵng, Hội An), nghề cá, làm muối. Khu vực Tây Nguyên: đất badan, cà phê, hồ tiêu, cao su, chè; thuỷ điện; bô-xít.</td></tr>
+<tr><td>Đông Nam Bộ</td><td>TP. Hồ Chí Minh, Đồng Nai, Tây Ninh (3)</td><td>Kinh tế phát triển năng động nhất, công nghiệp – dịch vụ, dầu khí ở thềm lục địa, cây công nghiệp lâu năm.</td></tr>
+<tr><td>Đồng bằng sông Cửu Long</td><td>Cần Thơ, Đồng Tháp, Vĩnh Long, An Giang, Cà Mau (5)</td><td>Vựa lúa lớn nhất cả nước, thuỷ sản, trái cây; thách thức xâm nhập mặn, sạt lở, biến đổi khí hậu.</td></tr></table></div>
 <p><b>Biển đảo Việt Nam:</b> bảo vệ chủ quyền Hoàng Sa, Trường Sa; phát triển tổng hợp kinh tế biển: khai thác hải sản, khoáng sản, du lịch, giao thông vận tải biển.</p>
-<div class="meo">💡 Luyện kĩ năng: đọc Atlat/biểu đồ, nhận xét bảng số liệu (tăng/giảm bao nhiêu lần, bao nhiêu %).</div>` }
+<div class="meo">💡 Luyện kĩ năng: đọc Atlat/biểu đồ, nhận xét bảng số liệu (tăng/giảm bao nhiêu lần, bao nhiêu %). Mẹo nhớ số tỉnh mỗi vùng: <b>9 – 6 – 5 – 6 – 3 – 5</b> (tổng 34).</div>` }
   ]
 });
 

@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Học lập trình – Góc học tập của Minh Khuê</title>
-<link rel="stylesheet" href="assets/style.css?v=1.5.1">
-<script src="assets/phien-ban.js?v=1.5.1"></script>
-<script src="assets/trang.js?v=1.5.1"></script>
-<script src="assets/hinh.js?v=1.5.1"></script>
+<link rel="stylesheet" href="assets/style.css?v=1.6.0">
+<script src="assets/phien-ban.js?v=1.6.0"></script>
+<script src="assets/trang.js?v=1.6.0"></script>
+<script src="assets/hinh.js?v=1.6.0"></script>
 </head>
 <body>
 <main class="khung">
@@ -33,6 +33,7 @@
   <a href="#sua-loi">10. Đọc lỗi & sửa lỗi</a>
   <a href="#tiep-theo">11. Học gì tiếp theo?</a>
   <a href="#luyen-tap">12. Bài tập luyện thêm</a>
+  <a href="#ai">13. Trí tuệ nhân tạo (AI) 🆕</a>
   <a href="#san-choi">▶ Khung chạy thử code</a>
 </aside>
 
@@ -399,6 +400,86 @@ else:
     print("Không có", x)
 print("Tìm tuần tự cần khoảng", a.index(x) + 1, "bước")</code></pre></details></div></div>
   <div class="meo">💡 Muốn luyện thêm? Các trang chấm bài tự động: <a href="https://oj.vnoi.info" target="_blank" rel="noopener">VNOI</a>, <a href="https://codeforces.com" target="_blank" rel="noopener">Codeforces</a> (bắt đầu từ bài dễ nhất), hoặc thử lập trình lại các bài Toán 9 (giải hệ phương trình, tính Δ, thống kê tần số).</div>
+</section>
+
+<section class="bai" id="ai">
+  <h2>13. Trí tuệ nhân tạo (AI) — hiểu, dùng đúng và tự làm thử</h2>
+  <div class="meo">🆕 Từ năm học 2026–2027, Bộ GD&amp;ĐT đưa giáo dục AI vào trường phổ thông (Quyết định 2422/QĐ-BGDĐT): hiểu kiến thức nền tảng, biết vận dụng, tư duy phản biện, kiểm chứng thông tin và dùng AI an toàn, có đạo đức. Bài này giúp Minh Khuê chuẩn bị trước — <a href="cap-nhat-2026.html">xem các thay đổi năm 2026</a>.</div>
+  <h3>AI là gì?</h3>
+  <p><b>Trí tuệ nhân tạo</b> là các chương trình máy tính làm được những việc trước đây cần trí thông minh của con người: nhận diện khuôn mặt, hiểu giọng nói, dịch ngôn ngữ, gợi ý video, trò chuyện… Khác với chương trình thông thường (người viết sẵn từng luật <code>if … else</code>), nhiều hệ thống AI <b>tự rút ra quy luật từ dữ liệu</b> — gọi là <b>học máy</b> (machine learning).</p>
+  <div class="cuon"><table>
+    <tr><th>Bước</th><th>Ý nghĩa</th><th>Ví dụ: lọc thư rác</th></tr>
+    <tr><td>1. Thu thập dữ liệu</td><td>Nhiều ví dụ đã biết đáp án</td><td>10 000 email đã đánh dấu "rác" / "không rác"</td></tr>
+    <tr><td>2. Huấn luyện</td><td>Máy tìm quy luật trong dữ liệu</td><td>Thư rác hay có "trúng thưởng", "bấm ngay"…</td></tr>
+    <tr><td>3. Mô hình</td><td>Kết quả của việc học</td><td>Bộ lọc thư rác</td></tr>
+    <tr><td>4. Dự đoán</td><td>Áp dụng cho dữ liệu mới</td><td>Email mới đến → đưa vào thư mục Spam?</td></tr>
+  </table></div>
+  <p><b>Chatbot AI</b> (AI tạo sinh) học từ lượng văn bản khổng lồ để đoán từ tiếp theo hợp lí nhất. Vì là "đoán", nó có thể trả lời <b>trôi chảy nhưng sai</b> (gọi là "ảo giác") — luôn phải kiểm chứng.</p>
+  <div class="meo">⚠️ <b>Dữ liệu quyết định chất lượng:</b> dữ liệu ít, sai hoặc lệch thì mô hình học sai theo. Ví dụ nếu chỉ huấn luyện nhận diện mèo bằng ảnh mèo trắng, mô hình có thể không nhận ra mèo đen — đó là <b>thiên kiến dữ liệu</b>.</div>
+
+  <h3>Tự làm một "AI" nhỏ: phân loại quả bằng láng giềng gần nhất</h3>
+  <p>Ý tưởng: muốn đoán một quả mới là cam hay chuối, tìm <b>những quả đã biết giống nó nhất</b> (gần nhất về cân nặng và độ dài) rồi theo số đông. Đây là thuật toán <b>k láng giềng gần nhất</b> (k-NN) — hoàn toàn học từ dữ liệu, không có luật viết tay.</p>
+<pre><code># Dữ liệu huấn luyện: (cân nặng gam, độ dài cm, nhãn)
+du_lieu = [
+    (150, 7, "cam"), (170, 8, "cam"), (140, 7, "cam"), (160, 7.5, "cam"),
+    (120, 18, "chuối"), (130, 20, "chuối"), (110, 17, "chuối"), (125, 19, "chuối"),
+]
+
+def khoang_cach(a, b):
+    return ((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5
+
+def du_doan(qua_moi, k=3):
+    # sắp xếp các quả đã biết theo độ "giống" quả mới
+    gan = sorted(du_lieu, key=lambda d: khoang_cach(d, qua_moi))[:k]
+    nhan = [d[2] for d in gan]
+    return max(set(nhan), key=nhan.count)   # nhãn xuất hiện nhiều nhất
+
+for qua in [(155, 7.2), (118, 18.5), (140, 12)]:
+    print(qua, "→", du_doan(qua))</code></pre>
+
+  <h3>AI "học" quy luật từ số liệu: dự đoán điểm theo giờ tự học</h3>
+  <p>Cho số liệu giờ tự học/tuần và điểm của vài bạn. Máy tìm đường thẳng <code>y = a·x + b</code> <b>khớp nhất</b> với dữ liệu (phương pháp bình phương nhỏ nhất) rồi dùng để dự đoán — đây là <b>hồi quy tuyến tính</b>, một trong những mô hình học máy đơn giản nhất, nối thẳng với hàm số bậc nhất ở Toán.</p>
+<pre><code>gio  = [2, 4, 5, 7, 8, 10]          # giờ tự học mỗi tuần
+diem = [5.0, 6.0, 6.5, 7.5, 8.0, 9.0]
+
+n = len(gio)
+tb_x = sum(gio) / n
+tb_y = sum(diem) / n
+a = sum((x - tb_x) * (y - tb_y) for x, y in zip(gio, diem)) / sum((x - tb_x) ** 2 for x in gio)
+b = tb_y - a * tb_x
+print(f"Mô hình học được: điểm ≈ {a:.2f} × giờ + {b:.2f}")
+for x in [3, 6, 12]:
+    print(f"Học {x} giờ/tuần → dự đoán khoảng {a * x + b:.1f} điểm")
+print("Lưu ý: 12 giờ nằm ngoài dữ liệu đã học — dự đoán kém tin cậy hơn!")</code></pre>
+
+  <h3>Dùng AI khi học — đúng cách và an toàn</h3>
+  <div class="cuon"><table>
+    <tr><th>✅ Nên</th><th>❌ Không nên</th></tr>
+    <tr><td>Nhờ AI <b>giải thích</b> một khái niệm, gợi ý hướng giải, chỉ ra lỗi sai trong bài mình đã làm</td><td>Chép nguyên lời giải / bài văn của AI để nộp</td></tr>
+    <tr><td><b>Kiểm chứng</b> câu trả lời bằng sách giáo khoa, nguồn chính thống, hỏi thầy cô</td><td>Tin tuyệt đối vì câu trả lời "nghe rất hợp lí"</td></tr>
+    <tr><td>Nói rõ khi bài làm có dùng AI hỗ trợ</td><td>Đưa họ tên, địa chỉ, ảnh, mật khẩu, thông tin bạn bè vào chatbot</td></tr>
+    <tr><td>Nhận ra ảnh, video, giọng nói có thể bị AI làm giả (deepfake)</td><td>Dùng AI tạo nội dung giả mạo, xúc phạm người khác</td></tr>
+  </table></div>
+
+  <h3>Bài tập</h3>
+  <div class="bt-muc"><span class="nhan m1">🟢 Cơ bản</span></div>
+  <div class="bt"><div class="de"><b>Bài 1.</b> Ứng dụng nào dưới đây <b>có dùng</b> AI: a) máy tính bỏ túi; b) camera nhận diện khuôn mặt mở khoá điện thoại; c) ứng dụng gợi ý video; d) đèn giao thông đổi màu theo giờ cố định?
+    <details><summary>Xem lời giải</summary><b>b) và c)</b> — chúng học từ dữ liệu (khuôn mặt, lịch sử xem). a) và d) chỉ làm theo luật viết sẵn.</details></div></div>
+  <div class="bt"><div class="de"><b>Bài 2.</b> Nêu 4 bước của quá trình học máy và cho một ví dụ trong đời sống.
+    <details><summary>Xem lời giải</summary>Thu thập dữ liệu → huấn luyện → mô hình → dự đoán. Ví dụ: ứng dụng nhận diện cây từ ảnh chụp lá — học từ hàng nghìn ảnh lá đã gắn tên cây.</details></div></div>
+  <div class="bt-muc"><span class="nhan m2">🟡 Vận dụng</span></div>
+  <div class="bt"><div class="de"><b>Bài 3.</b> Trong chương trình phân loại quả, thêm loại "táo" (khoảng 180–200 g, dài 8–9 cm) vào dữ liệu và thử dự đoán quả (190, 8.5). Kết quả thay đổi thế nào nếu k = 1 và k = 5?
+    <details><summary>Xem lời giải</summary><pre><code>du_lieu += [(190, 8.5, "táo"), (200, 9, "táo"), (185, 8, "táo")]
+print(du_doan((190, 8.5), k=1), du_doan((190, 8.5), k=5))</code></pre>Chạy thử: cả k = 1 và k = 5 đều ra <b>táo</b> — với k = 5, năm quả gần nhất là 3 táo + 2 cam nên táo vẫn thắng (3/5). Nếu chỉ có 1–2 quả táo trong dữ liệu thì với k = 5 cam có thể thắng: k nhỏ dễ bị một điểm nhiễu đánh lừa, k lớn dễ bị loại có nhiều dữ liệu hơn "lấn át". Chú ý: cân nặng (gam) lớn hơn độ dài (cm) rất nhiều nên chi phối khoảng cách — AI thật thường <b>chuẩn hoá</b> dữ liệu về cùng thang.</details></div></div>
+  <div class="bt"><div class="de"><b>Bài 4.</b> Bạn hỏi chatbot "Ai là tác giả Truyện Kiều và viết năm nào?" và nhận câu trả lời rất tự tin. Em sẽ làm gì trước khi chép vào vở?
+    <details><summary>Xem lời giải</summary>Đối chiếu với sách giáo khoa Ngữ văn hoặc nguồn chính thống (trang của Bộ, thư viện); nếu các nguồn khác nhau thì hỏi thầy cô. Không coi câu trả lời của AI là bằng chứng.</details></div></div>
+  <div class="bt-muc"><span class="nhan m3">🔴 Nâng cao</span></div>
+  <div class="bt"><div class="de"><b>Bài 5.</b> Tính <b>độ chính xác</b> của mô hình phân loại quả: dùng một tập kiểm tra gồm các quả đã biết nhãn nhưng <b>không có</b> trong dữ liệu huấn luyện.
+    <details><summary>Xem lời giải</summary><pre><code>kiem_tra = [((145, 7, 0), "cam"), ((115, 18, 0), "chuối"), ((165, 8, 0), "cam"), ((128, 19.5, 0), "chuối")]
+dung = sum(1 for qua, nhan in kiem_tra if du_doan(qua) == nhan)
+print("Độ chính xác:", dung / len(kiem_tra) * 100, "%")</code></pre>Phải kiểm tra trên dữ liệu <b>mới</b>: kiểm tra trên chính dữ liệu đã học thì mô hình "thuộc bài" nên điểm cao giả.</details></div></div>
+  <div class="bt"><div class="de"><b>Bài 6.</b> Một hệ thống AI tuyển chọn học sinh vào câu lạc bộ được huấn luyện chỉ bằng hồ sơ của các bạn nam những năm trước. Điều gì có thể xảy ra? Cần làm gì?
+    <details><summary>Xem lời giải</summary>Mô hình có thể đánh giá thấp các bạn nữ một cách không công bằng (<b>thiên kiến dữ liệu</b>). Cần dữ liệu đa dạng, cân bằng; kiểm tra kết quả theo từng nhóm; con người phải xem lại quyết định cuối cùng.</details></div></div>
 </section>
 
 <section class="bai" id="san-choi">

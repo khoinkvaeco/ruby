@@ -62,7 +62,7 @@ MO_RONG['su-dia'] = {
 <h3>Ảnh hưởng của dân số đông</h3>
 <p><b>Thuận lợi:</b> nguồn lao động dồi dào, thị trường tiêu thụ lớn. <b>Khó khăn:</b> sức ép về việc làm, nhà ở, giáo dục, y tế, môi trường.</p>
 <h3>Đô thị hoá</h3>
-<p>Tỉ lệ dân thành thị ngày càng tăng; các đô thị lớn: Hà Nội, TP. Hồ Chí Minh, Hải Phòng, Đà Nẵng, Cần Thơ.</p>
+<p>Tỉ lệ dân thành thị ngày càng tăng; 6 thành phố trực thuộc Trung ương: Hà Nội, Huế, Hải Phòng, Đà Nẵng, TP. Hồ Chí Minh, Cần Thơ.</p>
 <div class="cong-thuc">Mật độ dân số = Số dân / Diện tích (người/km²)<br>Tốc độ tăng = (Giá trị năm sau − năm trước) / năm trước × 100 %</div>`,
     bt: [
       [1, 'Việt Nam có bao nhiêu dân tộc? Dân tộc nào đông nhất?', '<b>54 dân tộc</b>; dân tộc Kinh (Việt) đông nhất (khoảng 85 %).'],
@@ -74,14 +74,16 @@ MO_RONG['su-dia'] = {
   'dia-vung': { ly: `
 <h3>Bí quyết học các vùng kinh tế</h3>
 <p>Với mỗi vùng, nắm 4 ý: <b>vị trí – điều kiện tự nhiên – dân cư – các ngành kinh tế nổi bật</b>, và trả lời "vì sao vùng này mạnh về ngành đó".</p>
-<ul><li><b>Tây Nguyên</b> trồng cà phê: đất badan màu mỡ, khí hậu cận xích đạo có mùa khô để phơi sấy.</li>
+<ul><li><b>Khu vực Tây Nguyên</b> (nay thuộc vùng Duyên hải Nam Trung Bộ và Tây Nguyên) trồng cà phê: đất badan màu mỡ, khí hậu cận xích đạo có mùa khô để phơi sấy.</li>
 <li><b>ĐB sông Cửu Long</b> là vựa lúa: đồng bằng rộng lớn, đất phù sa, khí hậu nóng ẩm, nguồn nước dồi dào. Thách thức: xâm nhập mặn, sạt lở, biến đổi khí hậu.</li>
 <li><b>Đông Nam Bộ</b> phát triển nhất: vị trí thuận lợi, lao động có tay nghề, cơ sở hạ tầng tốt, có dầu khí, thu hút đầu tư.</li></ul>`,
     bt: [
-      [1, 'Kể tên 6 vùng kinh tế – xã hội của nước ta.', 'Trung du và miền núi Bắc Bộ; Đồng bằng sông Hồng; Bắc Trung Bộ và Duyên hải Nam Trung Bộ; Tây Nguyên; Đông Nam Bộ; Đồng bằng sông Cửu Long.'],
-      [1, 'Vùng nào trồng nhiều chè nhất nước ta?', '<b>Trung du và miền núi Bắc Bộ</b>.'],
-      [2, 'Vì sao Tây Nguyên trở thành vùng trồng cà phê lớn nhất cả nước?', 'Đất badan màu mỡ, diện tích lớn; khí hậu cận xích đạo, có mùa khô thuận lợi phơi sấy, bảo quản; có kinh nghiệm và thị trường.'],
-      [2, 'Nêu thế mạnh phát triển kinh tế biển của vùng Duyên hải Nam Trung Bộ.', 'Bờ biển dài, nhiều vũng vịnh nước sâu → cảng biển; nhiều bãi biển đẹp → du lịch (Nha Trang, Mũi Né); ngư trường lớn → đánh bắt, nuôi trồng thuỷ sản; làm muối.'],
+      [1, 'Kể tên 6 vùng kinh tế – xã hội của nước ta (theo cách chia từ năm 2025).', 'Trung du và miền núi phía Bắc; Đồng bằng sông Hồng; Bắc Trung Bộ; Duyên hải Nam Trung Bộ và Tây Nguyên; Đông Nam Bộ; Đồng bằng sông Cửu Long.'],
+      [1, 'Từ ngày 1/7/2025 nước ta có bao nhiêu tỉnh, thành phố? Kể tên các thành phố trực thuộc Trung ương.', '<b>34</b> tỉnh, thành phố (28 tỉnh, 6 thành phố). Thành phố trực thuộc Trung ương: <b>Hà Nội, Huế, Hải Phòng, Đà Nẵng, TP. Hồ Chí Minh, Cần Thơ</b>.'],
+      [1, 'Vùng nào trồng nhiều chè nhất nước ta?', '<b>Trung du và miền núi phía Bắc</b> (tên cũ: Trung du và miền núi Bắc Bộ).'],
+      [2, 'Vì sao khu vực Tây Nguyên trở thành nơi trồng cà phê lớn nhất cả nước?', 'Đất badan màu mỡ, diện tích lớn; khí hậu cận xích đạo, có mùa khô thuận lợi phơi sấy, bảo quản; có kinh nghiệm và thị trường.'],
+      [2, 'Nêu thế mạnh phát triển kinh tế biển của dải ven biển vùng Duyên hải Nam Trung Bộ và Tây Nguyên.', 'Bờ biển dài, nhiều vũng vịnh nước sâu → cảng biển; nhiều bãi biển đẹp → du lịch (Nha Trang, Mũi Né); ngư trường lớn → đánh bắt, nuôi trồng thuỷ sản; làm muối.'],
+      [3, 'Vùng Duyên hải Nam Trung Bộ và Tây Nguyên kết hợp dải ven biển với khu vực cao nguyên. Sự kết hợp này đem lại thuận lợi gì cho phát triển kinh tế?', 'Hai khu vực bổ sung cho nhau: Tây Nguyên có nông sản (cà phê, hồ tiêu, cao su), thuỷ điện, khoáng sản bô-xít; ven biển có cảng biển, du lịch, thuỷ sản. Nông sản và khoáng sản Tây Nguyên xuất khẩu qua các cảng ven biển; hình thành các trục giao thông Đông – Tây nối cao nguyên với biển; mở rộng không gian phát triển du lịch "biển – rừng".'],
       [3, 'Đồng bằng sông Cửu Long đang gặp những thách thức nào? Đề xuất giải pháp.', 'Thách thức: xâm nhập mặn, hạn hán, sạt lở bờ sông, nước biển dâng do biến đổi khí hậu. Giải pháp: chuyển đổi cơ cấu cây trồng – vật nuôi thích ứng (lúa – tôm), xây công trình trữ nước ngọt, trồng rừng ngập mặn, sử dụng nước tiết kiệm.']
     ] }
 };
@@ -122,6 +124,7 @@ MO_RONG.tin = {
 <ul><li>Tiêu đề giật gân, kêu gọi "chia sẻ ngay"; không có nguồn hoặc nguồn lạ.</li>
 <li>Đường link lạ, tên miền gần giống trang thật (vietcombank → vietcornbank).</li>
 <li>Đề nghị chuyển tiền, cung cấp mật khẩu, mã OTP; "trúng thưởng" bất ngờ.</li></ul>
+<p>🆕 <b>Khung năng lực số cho người học</b> (Thông tư 02/2025/TT-BGDĐT): 6 miền năng lực, 24 năng lực thành phần — gồm khai thác dữ liệu và thông tin, giao tiếp và hợp tác trên môi trường số, sáng tạo nội dung số, an toàn số, giải quyết vấn đề và ứng dụng trí tuệ nhân tạo. Từ năm học 2026–2027 có thêm nội dung giáo dục AI — xem bài <a href="lap-trinh.html#ai">Trí tuệ nhân tạo</a>.</p>
 <p><b>Mật khẩu mạnh:</b> ít nhất 12 kí tự, có chữ hoa, chữ thường, số và kí hiệu; mỗi tài khoản một mật khẩu; bật xác thực hai lớp.</p>`,
     bt: [
       [1, 'Nêu 3 tiêu chí đánh giá độ tin cậy của một thông tin trên mạng.', 'Nguồn (trang chính thống?), tác giả (rõ ràng, có chuyên môn?), thời gian (còn cập nhật?) — và đối chiếu nhiều nguồn.'],

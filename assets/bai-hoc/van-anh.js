@@ -88,6 +88,7 @@ MO_RONG.anh = {
 <tr><td>Tourism</td><td>destination, package tour, sightseeing, itinerary (lịch trình), souvenir</td></tr>
 <tr><td>Electronic Devices</td><td>device, screen, charge (sạc), robot vacuum, smartwatch, 3D printer</td></tr>
 <tr><td>Career Choices</td><td>career, vocational school, qualification, salary, skill, apply for</td></tr></table></div>
+<p>🆕 Theo Quyết định 2371/QĐ-TTg (27/10/2025), Đề án <b>"Đưa tiếng Anh thành ngôn ngữ thứ hai trong trường học"</b> giai đoạn 2025–2035 được triển khai theo lộ trình từng địa phương — tiếng Anh sẽ được dùng nhiều hơn trong trường. Sách Tiếng Anh 9 dùng chung toàn quốc từ 2026–2027 là bộ <i>Global Success</i> (Kết nối tri thức).</p>
 <div class="meo">💡 Học từ theo <b>cụm</b> (collocation): take part in, look forward to, make a decision, do housework — dễ dùng hơn học từ rời.</div>`,
     bt: [
       [1, 'Chọn từ đúng: My village is famous for its (craft / crafty) of making conical hats.', '<b>craft</b> (danh từ: nghề thủ công).'],

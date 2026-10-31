@@ -40,7 +40,7 @@
 
     var chan = document.createElement('footer');
     var pb = window.PHIEN_BAN;
-    chan.innerHTML = '<div class="khung">Góc học tập của Minh Khuê · Lớp 9 · Chương trình GDPT 2018<br>' +
+    chan.innerHTML = '<div class="khung">Góc học tập của Minh Khuê · Lớp 9 · Chương trình GDPT 2018 (cập nhật đến 2026) · SGK Kết nối tri thức · <a href="cap-nhat-2026.html">Có gì mới năm 2026?</a><br>' +
       'Nội dung tóm tắt để ôn tập — luôn đối chiếu với sách giáo khoa và lời thầy cô.' +
       (pb ? '<br><a href="phien-ban.html" id="nhanPhienBan">Phiên bản ' + pb.so + ' · cập nhật ' + pb.ngay + ' · Có gì mới?</a>' : '') + '</div>';
     document.body.appendChild(chan);
