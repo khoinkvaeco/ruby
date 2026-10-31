@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Học lập trình – Góc học tập của Minh Khuê</title>
-<link rel="stylesheet" href="assets/style.css?v=1.3.0">
-<script src="assets/phien-ban.js?v=1.3.0"></script>
-<script src="assets/trang.js?v=1.3.0"></script>
-<script src="assets/hinh.js?v=1.3.0"></script>
+<link rel="stylesheet" href="assets/style.css?v=1.4.0">
+<script src="assets/phien-ban.js?v=1.4.0"></script>
+<script src="assets/trang.js?v=1.4.0"></script>
+<script src="assets/hinh.js?v=1.4.0"></script>
 </head>
 <body>
 <main class="khung">
@@ -31,6 +31,7 @@
   <a href="#du-an">9. Dự án nhỏ</a>
   <a href="#sua-loi">10. Đọc lỗi & sửa lỗi</a>
   <a href="#tiep-theo">11. Học gì tiếp theo?</a>
+  <a href="#luyen-tap">12. Bài tập luyện thêm</a>
   <a href="#san-choi">▶ Khung chạy thử code</a>
 </aside>
 
@@ -289,6 +290,114 @@ print("Điểm trung bình:", round(tb, 2))</code></pre>
     <li><b>Trí tuệ nhân tạo</b>: khi đã vững Python, thử <a href="https://www.kaggle.com/learn" target="_blank" rel="noopener">Kaggle Learn</a>.</li>
   </ul>
   <div class="meo">🤖 Dùng AI như một <b>gia sư</b>: hỏi "vì sao code này lỗi", "giải thích dòng này" — đừng nhờ viết hộ cả bài, vì như vậy sẽ không học được gì.</div>
+</section>
+
+<section class="bai" id="luyen-tap">
+  <h2>12. Bài tập luyện thêm — từ cơ bản đến nâng cao</h2>
+  <p>Tự làm trước, bí quá mới mở lời giải. Mỗi lời giải có nút <b>▶ Thử ngay</b> để chạy.</p>
+  <div class="bt-muc"><span class="nhan m1">🟢 Cơ bản</span></div>
+  <div class="bt"><div class="de"><b>Bài 1.</b> Nhập tên, in ra lời chào "Chào &lt;tên&gt;, chúc học tốt!".
+    <details><summary>Xem lời giải</summary><pre><code>ten = input("Tên bạn là gì? ")
+print(f"Chào {ten}, chúc học tốt!")</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 2.</b> Nhập số nguyên n, cho biết n chẵn hay lẻ.
+    <details><summary>Xem lời giải</summary><pre><code>n = int(input("n = "))
+if n % 2 == 0:
+    print(n, "là số chẵn")
+else:
+    print(n, "là số lẻ")</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 3.</b> Nhập nhiệt độ độ C, đổi sang độ F (F = C × 1,8 + 32).
+    <details><summary>Xem lời giải</summary><pre><code>c = float(input("Độ C: "))
+print("Độ F:", c * 1.8 + 32)</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 4.</b> In các số từ 1 đến 20 chia hết cho 3.
+    <details><summary>Xem lời giải</summary><pre><code>for i in range(1, 21):
+    if i % 3 == 0:
+        print(i, end=" ")</code></pre></details></div></div>
+
+  <div class="bt-muc"><span class="nhan m2">🟡 Vận dụng</span></div>
+  <div class="bt"><div class="de"><b>Bài 5.</b> Nhập cân nặng (kg) và chiều cao (m), tính chỉ số BMI = cân nặng / chiều cao² và nhận xét: &lt; 18,5 gầy; &lt; 23 bình thường; còn lại thừa cân.
+    <details><summary>Xem lời giải</summary><pre><code>can = float(input("Cân nặng (kg): "))
+cao = float(input("Chiều cao (m): "))
+bmi = can / cao ** 2
+print("BMI =", round(bmi, 1))
+if bmi < 18.5:
+    print("Hơi gầy — ăn uống đủ chất nhé")
+elif bmi < 23:
+    print("Bình thường 👍")
+else:
+    print("Thừa cân — vận động nhiều hơn nhé")</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 6.</b> Tính tổng các chữ số của một số nguyên dương (ví dụ 2026 → 10).
+    <details><summary>Xem lời giải</summary><pre><code>n = 2026
+tong = 0
+while n > 0:
+    tong += n % 10   # lấy chữ số cuối
+    n //= 10         # bỏ chữ số cuối
+print("Tổng các chữ số:", tong)</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 7.</b> Cho danh sách điểm, in điểm cao nhất, thấp nhất và các điểm trên trung bình — <b>không</b> dùng max(), min().
+    <details><summary>Xem lời giải</summary><pre><code>diem = [7, 9.5, 6, 8, 10, 5.5]
+cao = thap = diem[0]
+for d in diem:
+    if d > cao:
+        cao = d
+    if d < thap:
+        thap = d
+tb = sum(diem) / len(diem)
+print("Cao nhất:", cao, "- Thấp nhất:", thap, "- TB:", round(tb, 2))
+print("Trên trung bình:", [d for d in diem if d > tb])</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 8.</b> Đếm số nguyên âm (a, e, i, o, u) trong một câu tiếng Anh.
+    <details><summary>Xem lời giải</summary><pre><code>cau = "I love learning Python every day"
+dem = 0
+for ch in cau.lower():
+    if ch in "aeiou":
+        dem += 1
+print("Số nguyên âm:", dem)</code></pre></details></div></div>
+
+  <div class="bt-muc"><span class="nhan m3">🔴 Nâng cao</span></div>
+  <div class="bt"><div class="de"><b>Bài 9.</b> In n số đầu tiên của dãy Fibonacci (1, 1, 2, 3, 5, 8, …: mỗi số bằng tổng hai số trước).
+    <details><summary>Xem lời giải</summary><pre><code>n = 15
+a, b = 1, 1
+for _ in range(n):
+    print(a, end=" ")
+    a, b = b, a + b</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 10.</b> Viết hàm <code>la_nguyen_to(n)</code> và dùng nó in mọi số nguyên tố nhỏ hơn 100, kèm số lượng.
+    <details><summary>Xem lời giải</summary><pre><code>def la_nguyen_to(n):
+    if n < 2:
+        return False
+    d = 2
+    while d * d <= n:
+        if n % d == 0:
+            return False
+        d += 1
+    return True
+
+ds = [n for n in range(100) if la_nguyen_to(n)]
+print(ds)
+print("Có", len(ds), "số nguyên tố nhỏ hơn 100")</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 11.</b> Sắp xếp danh sách tăng dần bằng thuật toán <b>sắp xếp nổi bọt</b> (không dùng sort()).
+    <details><summary>Xem lời giải</summary><pre><code>a = [5, 2, 9, 1, 7, 3]
+n = len(a)
+for i in range(n - 1):
+    for j in range(n - 1 - i):
+        if a[j] > a[j + 1]:
+            a[j], a[j + 1] = a[j + 1], a[j]   # đổi chỗ
+print(a)</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 12.</b> <b>Tìm kiếm nhị phân</b>: trong danh sách đã sắp xếp, tìm vị trí của một số, đếm số bước — so sánh với tìm tuần tự.
+    <details><summary>Xem lời giải</summary><pre><code>a = list(range(1, 1001, 3))   # 1, 4, 7, ..., 1000 (đã sắp xếp)
+x = 703
+trai, phai, buoc = 0, len(a) - 1, 0
+while trai <= phai:
+    buoc += 1
+    giua = (trai + phai) // 2
+    if a[giua] == x:
+        print("Tìm thấy", x, "ở vị trí", giua, "sau", buoc, "bước")
+        break
+    elif a[giua] < x:
+        trai = giua + 1
+    else:
+        phai = giua - 1
+else:
+    print("Không có", x)
+print("Tìm tuần tự cần khoảng", a.index(x) + 1, "bước")</code></pre></details></div></div>
+  <div class="meo">💡 Muốn luyện thêm? Các trang chấm bài tự động: <a href="https://oj.vnoi.info" target="_blank" rel="noopener">VNOI</a>, <a href="https://codeforces.com" target="_blank" rel="noopener">Codeforces</a> (bắt đầu từ bài dễ nhất), hoặc thử lập trình lại các bài Toán 9 (giải hệ phương trình, tính Δ, thống kê tần số).</div>
 </section>
 
 <section class="bai" id="san-choi">

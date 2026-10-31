@@ -4,11 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kiến thức các môn – Góc học tập của Minh Khuê</title>
-<link rel="stylesheet" href="assets/style.css?v=1.3.0">
-<script src="assets/phien-ban.js?v=1.3.0"></script>
-<script src="assets/trang.js?v=1.3.0"></script>
-<script src="assets/hinh.js?v=1.3.0"></script>
-<script src="assets/du-lieu.js?v=1.3.0"></script>
+<link rel="stylesheet" href="assets/style.css?v=1.4.0">
+<script src="assets/phien-ban.js?v=1.4.0"></script>
+<script src="assets/trang.js?v=1.4.0"></script>
+<script src="assets/hinh.js?v=1.4.0"></script>
+<script src="assets/du-lieu.js?v=1.4.0"></script>
+<script src="assets/bai-hoc/toan.js?v=1.4.0"></script>
+<script src="assets/bai-hoc/khtn.js?v=1.4.0"></script>
+<script src="assets/bai-hoc/van-anh.js?v=1.4.0"></script>
+<script src="assets/bai-hoc/khac.js?v=1.4.0"></script>
 </head>
 <body>
 <main class="khung" id="noiDung"></main>
@@ -27,18 +31,57 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   document.title = m.ten + ' lớp 9 – Góc học tập của Minh Khuê';
   var mucLuc = m.bai.map(function (b, i) { return '<a href="#' + b.id + '">' + (i + 1) + '. ' + b.ten + '</a>'; }).join('');
+  var MUC = { 1: ['m1', '🟢 Cơ bản'], 2: ['m2', '🟡 Vận dụng'], 3: ['m3', '🔴 Nâng cao'] };
+  var mr = (window.MO_RONG || {})[m.id] || {}, tongBt = 0;
   var cacBai = m.bai.map(function (b, i) {
-    return '<section class="bai" id="' + b.id + '"><h2>' + (i + 1) + '. ' + b.ten + '</h2>' + b.noi + '</section>';
+    var them = mr[b.id] || {}, bt = them.bt || [], html = '';
+    // Bai tap xep tu de den kho; moi muc mot tieu de, moi bai co o "da lam" nho tren may (localStorage)
+    if (bt.length) {
+      html += '<div class="bt-khoi"><h3>📝 Bài tập ôn luyện (' + bt.length + ' bài)</h3>';
+      [1, 2, 3].forEach(function (muc) {
+        var ds = bt.filter(function (x) { return x[0] === muc; });
+        if (!ds.length) return;
+        html += '<div class="bt-muc"><span class="nhan ' + MUC[muc][0] + '">' + MUC[muc][1] + '</span></div>';
+        ds.forEach(function (x) {
+          tongBt++;
+          var k = 'bt:' + m.id + ':' + b.id + ':' + bt.indexOf(x);
+          html += '<div class="bt"><input type="checkbox" data-k="' + k + '" title="Đánh dấu đã làm"><div class="de"><b>Bài ' + (bt.indexOf(x) + 1) + '.</b> ' + x[1] +
+            '<details><summary>Xem lời giải</summary>' + x[2] + '</details></div></div>';
+        });
+      });
+      html += '</div>';
+    }
+    return '<section class="bai" id="' + b.id + '"><h2>' + (i + 1) + '. ' + b.ten + '</h2>' + b.noi +
+      (them.ly ? '<div class="mo-rong">' + them.ly + '</div>' : '') + html + '</section>';
   }).join('');
   // Nut chuyen nhanh sang mon khac
   var monKhac = MON.map(function (x) {
     return '<a href="mon.html?mon=' + x.id + '"' + (x.id === m.id ? ' style="font-weight:700;background:var(--chinh-nhat)"' : '') + '>' + x.bieu + ' ' + x.ten + '</a>';
   }).join('');
   nd.innerHTML = '<div class="bia" style="padding-bottom:0"><h1>' + m.bieu + ' ' + m.ten + ' lớp 9</h1><p>' + m.moTa + '</p></div>' +
+    (tongBt ? '<div class="tien-do" id="tienDo"></div>' : '') +
     '<p style="text-align:center"><a class="nut" style="display:inline-block;text-decoration:none;background:var(--chinh);color:#fff;padding:9px 16px;border-radius:10px" href="trac-nghiem.html?mon=' + m.id + '">📝 Làm trắc nghiệm ' + m.ten + '</a></p>' +
     '<div class="bo-cuc"><aside class="muc-luc"><b>Mục lục</b>' + mucLuc +
     '<hr style="border:0;border-top:1px solid var(--vien)"><b>Môn khác</b>' + monKhac + '</aside><div>' + cacBai + '</div></div>';
   veHinh(nd);
+  // Tien do: dem o "da lam" da tick cua mon nay
+  var tienDo = document.getElementById('tienDo');
+  function capNhatTienDo() {
+    var o = nd.querySelectorAll('.bt input'), x = 0;
+    o.forEach(function (c) { if (c.checked) x++; });
+    if (tienDo) tienDo.innerHTML = '✅ Đã làm <b>' + x + '</b> / ' + o.length + ' bài tập môn ' + m.ten +
+      '<div class="thanh"><div style="width:' + (o.length ? x / o.length * 100 : 0) + '%"></div></div>';
+  }
+  nd.querySelectorAll('.bt input').forEach(function (c) {
+    c.checked = localStorage.getItem(c.dataset.k) === '1';
+    c.closest('.bt').classList.toggle('xong', c.checked);
+    c.addEventListener('change', function () {
+      if (c.checked) localStorage.setItem(c.dataset.k, '1'); else localStorage.removeItem(c.dataset.k);
+      c.closest('.bt').classList.toggle('xong', c.checked);
+      capNhatTienDo();
+    });
+  });
+  capNhatTienDo();
   if (location.hash) { var el = document.querySelector(location.hash); if (el) el.scrollIntoView(); }
 });
 </script>

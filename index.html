@@ -4,10 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Góc học tập của Minh Khuê – Lớp 9</title>
-<link rel="stylesheet" href="assets/style.css?v=1.3.0">
-<script src="assets/phien-ban.js?v=1.3.0"></script>
-<script src="assets/trang.js?v=1.3.0"></script>
-<script src="assets/du-lieu.js?v=1.3.0"></script>
+<link rel="stylesheet" href="assets/style.css?v=1.4.0">
+<script src="assets/phien-ban.js?v=1.4.0"></script>
+<script src="assets/trang.js?v=1.4.0"></script>
+<script src="assets/du-lieu.js?v=1.4.0"></script>
+<script src="assets/bai-hoc/toan.js?v=1.4.0"></script>
+<script src="assets/bai-hoc/khtn.js?v=1.4.0"></script>
+<script src="assets/bai-hoc/van-anh.js?v=1.4.0"></script>
+<script src="assets/bai-hoc/khac.js?v=1.4.0"></script>
 </head>
 <body>
 <main class="khung">
@@ -38,10 +42,11 @@
 <script>
 // Trang chu: ve the mon hoc + tim kiem khong dau tren toan bo bai hoc
 document.addEventListener('DOMContentLoaded', function () {
+  function soBt(id) { var r = (window.MO_RONG || {})[id] || {}, n = 0; Object.keys(r).forEach(function (k) { n += (r[k].bt || []).length; }); return n; }
   var ds = document.getElementById('dsMon');
   ds.innerHTML = MON.map(function (m) {
     return '<a class="the" href="mon.html?mon=' + m.id + '"><div class="bieu">' + m.bieu + '</div><h3>' + m.ten +
-      '</h3><p>' + m.moTa + '</p><p style="margin-top:8px"><span class="nhan">' + m.bai.length + ' chủ đề</span></p></a>';
+      '</h3><p>' + m.moTa + '</p><p style="margin-top:8px"><span class="nhan">' + m.bai.length + ' chủ đề</span><span class="nhan">' + soBt(m.id) + ' bài tập</span></p></a>';
   }).join('');
 
   var LOI = [
@@ -59,7 +64,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var chiMuc = [];
   MON.forEach(function (m) {
     m.bai.forEach(function (b) {
-      var tam = document.createElement('div'); tam.innerHTML = b.noi;
+      var them = ((window.MO_RONG || {})[m.id] || {})[b.id] || {};
+      var tam = document.createElement('div');
+      tam.innerHTML = b.noi + (them.ly || '') + (them.bt || []).map(function (x) { return ' ' + x[1]; }).join('');
       var chu = tam.textContent;
       chiMuc.push({ mon: m, bai: b, chu: chu, khoa: boDau(m.ten + ' ' + b.ten + ' ' + chu) });
     });

@@ -24,6 +24,15 @@ Thêm một bài = thêm một đối tượng vào mảng `bai`; trang môn và
 
 Câu hỏi trắc nghiệm nằm trong `assets/trac-nghiem.js` (khoá = id môn): `h` câu hỏi, `c` các lựa chọn, `d` chỉ số đáp án đúng (từ 0), `g` giải thích.
 
+## Bài học chi tiết và bài tập
+
+Mỗi chủ đề có phần **lí thuyết mở rộng** (dạng bài, phương pháp, ví dụ mẫu, lỗi hay mắc) và **bài tập ôn luyện** ba mức
+🟢 Cơ bản → 🟡 Vận dụng → 🔴 Nâng cao, có lời giải, ô "đã làm" và thanh tiến độ (lưu trên máy). Tổng 269 bài:
+Toán 88 · KHTN 60 · Tiếng Anh 42 · Sử–Địa 27 · Ngữ văn 21 · Tin 14 · GDCD 10 · Công nghệ 7; trang Học lập trình thêm 12 bài.
+
+Nội dung nằm trong `assets/bai-hoc/*.js`, khoá theo `MO_RONG[môn][chủ đề] = { ly: 'HTML', bt: [[mức, đề, lời giải], …] }`
+(mức 1 = cơ bản, 2 = vận dụng, 3 = nâng cao). Tệp mới phải được nạp trong `mon.html` và `index.html` — `tools/kiem-tra.js` sẽ nhắc.
+
 ## Hình minh hoạ
 
 52 hình vẽ bằng SVG trong `assets/hinh.js` (không dùng ảnh ngoài, tự đổi màu theo chế độ sáng/tối), có ở mọi môn,
