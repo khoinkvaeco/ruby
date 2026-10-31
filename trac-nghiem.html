@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trắc nghiệm tự kiểm tra – Góc học tập của Minh Khuê</title>
+<link rel="stylesheet" href="assets/style.css?v=1.6.1">
+<script src="assets/phien-ban.js?v=1.6.1"></script>
+<script src="assets/trang.js?v=1.6.1"></script>
+<script src="assets/du-lieu.js?v=1.6.1"></script>
+<script src="assets/trac-nghiem.js?v=1.6.1"></script>
+</head>
+<body>
+<main class="khung" id="noiDung" style="max-width:760px"></main>
+<script>
+// trac-nghiem.html            -> chon mon (kem diem cao nhat da luu)
+// trac-nghiem.html?mon=toan   -> lam bai: SO_CAU cau ngau nhien, lua chon dao thu tu
+// trac-nghiem.html?mon=tat-ca -> tron cau hoi moi mon
+(function () {
+  var SO_CAU = 10;
+  var nd = document.getElementById('noiDung');
+
+  function tron(a) { // Fisher–Yates: moi lan lam bai mot thu tu khac, khong hoc thuoc vi tri dap an
+    a = a.slice();
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  function el(the, lop, chu) { var e = document.createElement(the); if (lop) e.className = lop; if (chu != null) e.textContent = chu; return e; }
+  function monTheoId(id) { return MON.filter(function (m) { return m.id === id; })[0]; }
+  function diemCao(id) { var v = localStorage.getItem('tn-' + id); return v === null ? null : +v; }
+
+  function trangChon() {
+    nd.innerHTML = '<div class="bia"><h1>📝 Trắc nghiệm tự kiểm tra</h1><p>Mỗi lượt ' + SO_CAU +
+      ' câu ngẫu nhiên, có giải thích ngay sau khi chọn. Điểm cao nhất được lưu trên máy này.</p></div>';
+    var luoi = el('div', 'luoi');
+    var ds = MON.filter(function (m) { return TRAC_NGHIEM[m.id]; }).map(function (m) {
+      return { id: m.id, bieu: m.bieu, ten: m.ten, n: TRAC_NGHIEM[m.id].length };
+    });
+    var tong = ds.reduce(function (s, x) { return s + x.n; }, 0);
+    ds.push({ id: 'tat-ca', bieu: '🎲', ten: 'Trộn tất cả các môn', n: tong });
+    ds.forEach(function (x) {
+      var a = el('a', 'the'); a.href = 'trac-nghiem.html?mon=' + x.id;
+      a.appendChild(el('div', 'bieu', x.bieu));
+      a.appendChild(el('h3', null, x.ten));
+      var d = diemCao(x.id);
+      a.appendChild(el('p', null, x.n + ' câu trong ngân hàng' + (d === null ? '' : ' · Cao nhất: ' + String(d).replace('.', ',') + '/10')));
+      luoi.appendChild(a);
+    });
+    nd.appendChild(luoi);
+  }
+
+  function lamBai(id) {
+    var m = monTheoId(id);
+    var nguon;
+    if (id === 'tat-ca') {
+      nguon = [];
+      Object.keys(TRAC_NGHIEM).forEach(function (k) {
+        var mm = monTheoId(k);
+        TRAC_NGHIEM[k].forEach(function (q) { nguon.push(Object.assign({ mon: mm ? mm.ten : k }, q)); });
+      });
+    } else {
+      nguon = TRAC_NGHIEM[id];
+    }
+    if (!nguon || (!m && id !== 'tat-ca')) { trangChon(); return; }
+    var tieuDe = id === 'tat-ca' ? '🎲 Trộn tất cả các môn' : m.bieu + ' ' + m.ten;
+    document.title = 'Trắc nghiệm ' + (m ? m.ten : 'tổng hợp') + ' – Góc học tập của Minh Khuê';
+
+    // Moi cau: dao lua chon, nho vi tri dap an moi
+    var bo = tron(nguon).slice(0, SO_CAU).map(function (q) {
+      var thuTu = tron(q.c.map(function (_, i) { return i; }));
+      return { q: q, c: thuTu.map(function (i) { return q.c[i]; }), d: thuTu.indexOf(q.d), chon: null };
+    });
+    var i = 0, dung = 0;
+
+    function veCau() {
+      var x = bo[i];
+      nd.innerHTML = '';
+      nd.appendChild(el('h1', null, tieuDe));
+      var thanh = el('div', 'thanh'); var dai = el('div'); dai.style.width = (i / bo.length * 100) + '%'; thanh.appendChild(dai);
+      nd.appendChild(thanh);
+      var cau = el('div', 'cau');
+      cau.appendChild(el('div', 'so', 'Câu ' + (i + 1) + ' / ' + bo.length + (x.q.mon ? ' · ' + x.q.mon : '') + ' · Đúng: ' + dung));
+      cau.appendChild(el('h3', null, x.q.h));
+      var nut = x.c.map(function (chu, k) {
+        var b = el('button', 'lua-chon', String.fromCharCode(65 + k) + '. ' + chu);
+        b.addEventListener('click', function () { traLoi(k); });
+        cau.appendChild(b);
+        return b;
+      });
+      var giai = el('div', 'giai an'); cau.appendChild(giai);
+      var tiep = el('button', 'nut an', i + 1 < bo.length ? 'Câu tiếp →' : 'Xem kết quả 🏁');
+      tiep.addEventListener('click', function () { i++; if (i < bo.length) veCau(); else ketQua(); });
+      cau.appendChild(tiep);
+      nd.appendChild(cau);
+
+      function traLoi(k) {
+        x.chon = k;
+        if (k === x.d) dung++;
+        nut.forEach(function (b, j) {
+          b.disabled = true;
+          if (j === x.d) b.classList.add('dung');
+          else if (j === k) b.classList.add('sai');
+        });
+        giai.textContent = (k === x.d ? '✅ Chính xác! ' : '❌ Chưa đúng. ') + (x.q.g || '');
+        giai.classList.remove('an'); tiep.classList.remove('an'); tiep.focus();
+      }
+    }
+
+    function ketQua() {
+      var diem = Math.round(dung / bo.length * 100) / 10; // thang 10, mot chu so thap phan
+      var cu = diemCao(id);
+      if (cu === null || diem > cu) localStorage.setItem('tn-' + id, diem);
+      nd.innerHTML = '';
+      nd.appendChild(el('h1', null, tieuDe));
+      var the = el('div', 'cau'); the.style.textAlign = 'center';
+      the.appendChild(el('div', 'diem-lon', String(diem).replace('.', ',') + ' / 10'));
+      the.appendChild(el('p', null, 'Đúng ' + dung + ' / ' + bo.length + ' câu. ' +
+        (diem >= 9 ? 'Xuất sắc! 🌟' : diem >= 7 ? 'Tốt lắm! 👍' : diem >= 5 ? 'Khá ổn, ôn thêm chút nữa nhé! 💪' : 'Đọc lại kiến thức rồi thử lại nhé! 📖')));
+      if (cu !== null && diem > cu) the.appendChild(el('p', null, '🎉 Kỉ lục mới! (cũ: ' + String(cu).replace('.', ',') + ')'));
+      var lai = el('button', 'nut', '🔁 Làm lượt mới'); lai.addEventListener('click', function () { lamBai(id); });
+      the.appendChild(lai);
+      var ve = el('button', 'nut phu', '← Chọn môn khác'); ve.addEventListener('click', function () { location.href = 'trac-nghiem.html'; });
+      the.appendChild(ve);
+      if (m) { var xem = el('button', 'nut phu', '📚 Xem kiến thức ' + m.ten); xem.addEventListener('click', function () { location.href = 'mon.html?mon=' + m.id; }); the.appendChild(xem); }
+      nd.appendChild(the);
+
+      var sai = bo.filter(function (x) { return x.chon !== x.d; });
+      if (sai.length) {
+        nd.appendChild(el('h2', 'muc', '🔍 Xem lại câu sai'));
+        sai.forEach(function (x) {
+          var c = el('div', 'cau');
+          c.appendChild(el('h3', null, x.q.h));
+          c.appendChild(el('p', null, '❌ Bạn chọn: ' + x.c[x.chon]));
+          c.appendChild(el('p', null, '✅ Đáp án: ' + x.c[x.d]));
+          if (x.q.g) c.appendChild(el('div', 'giai', x.q.g));
+          nd.appendChild(c);
+        });
+      }
+    }
+    veCau();
+  }
+
+  var id = new URLSearchParams(location.search).get('mon');
+  if (id) lamBai(id); else trangChon();
+})();
+</script>
+</body>
+</html>

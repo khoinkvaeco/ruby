@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiến thức các môn – Góc học tập của Minh Khuê</title>
+<link rel="stylesheet" href="assets/style.css?v=1.6.1">
+<script src="assets/phien-ban.js?v=1.6.1"></script>
+<script src="assets/trang.js?v=1.6.1"></script>
+<script src="assets/hinh.js?v=1.6.1"></script>
+<script src="assets/du-lieu.js?v=1.6.1"></script>
+<script src="assets/bai-hoc/toan.js?v=1.6.1"></script>
+<script src="assets/bai-hoc/khtn.js?v=1.6.1"></script>
+<script src="assets/bai-hoc/van-anh.js?v=1.6.1"></script>
+<script src="assets/bai-hoc/khac.js?v=1.6.1"></script>
+</head>
+<body>
+<main class="khung khung-rong" id="noiDung"></main>
+<script>
+// mon.html?mon=toan#pt-bac-hai
+// Bo cuc (1.5): MOI LAN MOT CHU DE. Truoc day ca mon do vao mot trang (Toan 26.600 px may tinh, 35.400 px dien thoai).
+// - Cot trai: danh sach chu de kem tien do bai tap tung chu de (dien thoai: o chon chu de dinh tren dau).
+// - Giua: chu de dang chon = Li thuyet · Mo rong · Bai tap (thanh chuyen nhanh + loc bai theo muc) + Bai truoc / Bai sau.
+// - #id tren URL chon chu de (lien ket tu o tim kiem trang chu van dung); chu de vua xem nho tren may -> "Tiep tuc hoc".
+(function () {
+  var nd = document.getElementById('noiDung');
+  var MUC = { 1: ['m1', '🟢 Cơ bản'], 2: ['m2', '🟡 Vận dụng'], 3: ['m3', '🔴 Nâng cao'] };
+  var id = new URLSearchParams(location.search).get('mon');
+  var m = MON.filter(function (x) { return x.id === id; })[0];
+  function el(the, lop, html) { var e = document.createElement(the); if (lop) e.className = lop; if (html != null) e.innerHTML = html; return e; }
+  function vachTienDo(t) { return '<div class="thanh nho"><div style="width:' + (t.tong ? t.xong / t.tong * 100 : 0) + '%"></div></div>'; }
+
+  if (!m) { // khong co ?mon= -> luoi cac mon
+    nd.innerHTML = '<div class="dau-trang"><h1>📚 Các môn học lớp 9</h1><p>Chọn một môn để học theo từng chủ đề.</p></div><div class="luoi" id="dsMon"></div>';
+    var luoi = nd.querySelector('#dsMon');
+    MON.forEach(function (x) {
+      var t = tienDo(x.id);
+      luoi.appendChild(el('a', 'the the-mon', '<div class="bieu">' + x.bieu + '</div><h3>' + x.ten + '</h3><p>' + x.moTa + '</p>' +
+        '<div class="the-chan"><span>' + x.bai.length + ' chủ đề · ' + t.tong + ' bài tập</span><span>' + t.xong + '/' + t.tong + '</span></div>' + vachTienDo(t))).href = 'mon.html?mon=' + x.id;
+    });
+    return;
+  }
+
+  document.title = m.ten + ' lớp 9 – Góc học tập của Minh Khuê';
+  var mr = (window.MO_RONG || {})[m.id] || {};
+
+  // ---- Khung trang mon ----
+  nd.innerHTML =
+    '<div class="dau-mon"><div class="dau-mon-chu"><div class="dau-mon-bieu">' + m.bieu + '</div><div><h1>' + m.ten + ' lớp 9</h1><p>' + m.moTa + '</p></div></div>' +
+    '<div class="dau-mon-phai"><div id="tienDoMon" class="tien-do-mon"></div>' +
+    '<a class="nut" href="trac-nghiem.html?mon=' + m.id + '">📝 Trắc nghiệm</a></div></div>' +
+    '<div class="chon-dt"><label for="chonChuDe">Chủ đề</label><select id="chonChuDe"></select></div>' +
+    '<div class="bo-cuc-mon"><aside class="muc-luc" id="mucLuc" aria-label="Danh sách chủ đề"></aside><article id="chuDe" class="chu-de"></article></div>';
+  var mucLuc = nd.querySelector('#mucLuc'), chon = nd.querySelector('#chonChuDe'), vung = nd.querySelector('#chuDe');
+
+  m.bai.forEach(function (b, i) {
+    var o = document.createElement('option'); o.value = b.id; o.textContent = (i + 1) + '. ' + b.ten; chon.appendChild(o);
+  });
+  chon.addEventListener('change', function () { location.hash = chon.value; });
+
+  function veMucLuc(dangId) {
+    var html = '<div class="muc-luc-tieu">Chủ đề</div>';
+    m.bai.forEach(function (b, i) {
+      var t = tienDo(m.id, b.id);
+      html += '<a href="#' + b.id + '" class="ml-muc' + (b.id === dangId ? ' dang' : '') + '"' + (b.id === dangId ? ' aria-current="true"' : '') + '>' +
+        '<span class="ml-so">' + (i + 1) + '</span><span class="ml-ten">' + b.ten + '</span>' +
+        (t.tong ? '<span class="ml-td' + (t.xong === t.tong ? ' du' : '') + '">' + t.xong + '/' + t.tong + '</span>' : '') + '</a>';
+    });
+    html += '<details class="mon-khac"><summary>Môn khác</summary>' + MON.filter(function (x) { return x.id !== m.id; }).map(function (x) {
+      return '<a href="mon.html?mon=' + x.id + '">' + x.bieu + ' ' + x.ten + '</a>';
+    }).join('') + '</details>';
+    mucLuc.innerHTML = html;
+  }
+
+  function veTienDoMon() {
+    var t = tienDo(m.id);
+    nd.querySelector('#tienDoMon').innerHTML = '<div class="tdm-so"><b>' + t.xong + '</b>/' + t.tong + ' bài tập đã làm</div>' + vachTienDo(t);
+  }
+
+  function veChuDe(bid) {
+    var i = Math.max(0, m.bai.findIndex(function (b) { return b.id === bid; }));
+    var b = m.bai[i], them = mr[b.id] || {}, bt = them.bt || [];
+    localStorage.setItem('hoc-do:' + m.id, b.id);
+    localStorage.setItem('hoc-do-cuoi', JSON.stringify({ mon: m.id, bai: b.id }));
+    chon.value = b.id;
+    veMucLuc(b.id);
+
+    var nhay = '<a href="#lt-' + b.id + '" data-cuon>📖 Lí thuyết</a>' + (them.ly ? '<a href="#mr-' + b.id + '" data-cuon>🧠 Mở rộng</a>' : '') +
+      (bt.length ? '<a href="#bt-' + b.id + '" data-cuon>📝 Bài tập <span class="dem">' + bt.length + '</span></a>' : '');
+    var anML = document.querySelector('.bo-cuc-mon').classList.contains('thu-gon');
+    var html = '<div class="chu-de-dau"><div class="chu-de-hang"><div class="chu-de-so">Chủ đề ' + (i + 1) + '/' + m.bai.length + '</div>' +
+      '<button class="nut-ml" id="nutML" aria-pressed="' + anML + '">' + (anML ? '☰ Chủ đề' : '⇤ Ẩn mục lục') + '</button></div><h2>' + b.ten + '</h2>' +
+      '<nav class="nhay" aria-label="Phần trong chủ đề">' + nhay + '</nav></div>' +
+      '<section class="khoi" id="lt-' + b.id + '"><h3 class="khoi-tieu">📖 Lí thuyết trọng tâm</h3>' + b.noi + '</section>';
+    if (them.ly) html += '<section class="khoi" id="mr-' + b.id + '"><h3 class="khoi-tieu">🧠 Mở rộng: dạng bài, ví dụ mẫu, lỗi hay mắc</h3>' + them.ly + '</section>';
+    if (bt.length) {
+      html += '<section class="khoi" id="bt-' + b.id + '"><div class="bt-dau"><h3 class="khoi-tieu">📝 Bài tập ôn luyện</h3><div class="loc" role="group" aria-label="Lọc theo mức">' +
+        '<button class="chip dang" data-loc="0">Tất cả</button>' + [1, 2, 3].map(function (k) {
+          var n = bt.filter(function (x) { return x[0] === k; }).length;
+          return n ? '<button class="chip ' + MUC[k][0] + '" data-loc="' + k + '">' + MUC[k][1] + ' <span class="dem">' + n + '</span></button>' : '';
+        }).join('') + '</div></div><div id="tdChuDe" class="td-chu-de"></div>';
+      [1, 2, 3].forEach(function (k) {
+        var ds = bt.filter(function (x) { return x[0] === k; });
+        if (!ds.length) return;
+        html += '<div class="nhom-muc" data-muc="' + k + '"><div class="bt-muc"><span class="nhan ' + MUC[k][0] + '">' + MUC[k][1] + '</span></div>';
+        ds.forEach(function (x) {
+          var so = bt.indexOf(x);
+          html += '<div class="bt"><input type="checkbox" id="c-' + b.id + '-' + so + '" data-k="bt:' + m.id + ':' + b.id + ':' + so + '" aria-label="Đánh dấu bài ' + (so + 1) + ' đã làm">' +
+            '<div class="de"><label for="c-' + b.id + '-' + so + '"><b>Bài ' + (so + 1) + '.</b></label> ' + x[1] +
+            '<details><summary>Xem lời giải</summary><div class="loi-giai">' + x[2] + '</div></details></div></div>';
+        });
+        html += '</div>';
+      });
+      html += '</section>';
+    }
+    var truoc = m.bai[i - 1], sau = m.bai[i + 1];
+    html += '<nav class="truoc-sau" aria-label="Chuyển chủ đề">' +
+      (truoc ? '<a href="#' + truoc.id + '" class="ts-truoc"><small>← Chủ đề trước</small><span>' + truoc.ten + '</span></a>' : '<span></span>') +
+      (sau ? '<a href="#' + sau.id + '" class="ts-sau"><small>Chủ đề tiếp theo →</small><span>' + sau.ten + '</span></a>'
+           : '<a href="trac-nghiem.html?mon=' + m.id + '" class="ts-sau"><small>Hết chủ đề →</small><span>Làm trắc nghiệm ' + m.ten + '</span></a>') + '</nav>';
+    vung.innerHTML = html;
+    veHinh(vung);
+    // Cac hinh dung LIEN NHAU -> gom vao mot hang luoi: cot rong thi nam canh nhau, hep thi tu xuong dong
+    // (truoc: xep chong doc, moi hinh mot hang, bo trong hai ben cot 1100 px)
+    vung.querySelectorAll('figure.hinh').forEach(function (f) {
+      if (f.parentNode.classList.contains('hang-hinh')) return;
+      var nhom = [f], k = f.nextElementSibling;
+      while (k && k.matches('figure.hinh')) { nhom.push(k); k = k.nextElementSibling; }
+      if (nhom.length < 2) return;
+      var hang = document.createElement('div'); hang.className = 'hang-hinh';
+      f.parentNode.insertBefore(hang, f);
+      nhom.forEach(function (x) { hang.appendChild(x); });
+    });
+
+    // O "da lam": luu tren may, cap nhat tien do chu de + mon + muc luc ngay
+    function capNhat() {
+      var t = tienDo(m.id, b.id), td = vung.querySelector('#tdChuDe');
+      if (td) td.innerHTML = '✅ Chủ đề này: <b>' + t.xong + '</b>/' + t.tong + ' bài' + vachTienDo(t);
+      veTienDoMon(); veMucLuc(b.id);
+    }
+    vung.querySelectorAll('.bt input').forEach(function (c) {
+      c.checked = localStorage.getItem(c.dataset.k) === '1';
+      c.closest('.bt').classList.toggle('xong', c.checked);
+      c.addEventListener('change', function () {
+        if (c.checked) localStorage.setItem(c.dataset.k, '1'); else localStorage.removeItem(c.dataset.k);
+        c.closest('.bt').classList.toggle('xong', c.checked);
+        capNhat();
+      });
+    });
+    vung.querySelectorAll('[data-loc]').forEach(function (nut) {
+      nut.addEventListener('click', function () {
+        var k = nut.dataset.loc;
+        vung.querySelectorAll('[data-loc]').forEach(function (x) { x.classList.toggle('dang', x === nut); });
+        vung.querySelectorAll('.nhom-muc').forEach(function (g) { g.classList.toggle('an', k !== '0' && g.dataset.muc !== k); });
+      });
+    });
+    // Lien ket trong chu de: cuon toi khoi, KHONG doi #hash (hash dung de chon chu de)
+    vung.querySelectorAll('[data-cuon]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); var t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth' }); });
+    });
+    // An / hien muc luc de cot noi dung chiem tron chieu ngang; nho lua chon tren may
+    vung.querySelector('#nutML').addEventListener('click', function () {
+      var an = !document.querySelector('.bo-cuc-mon').classList.contains('thu-gon');
+      localStorage.setItem('an-muc-luc', an ? '1' : '0');
+      datMucLuc(an);
+    });
+    capNhat();
+  }
+
+  function datMucLuc(an) {
+    document.querySelector('.bo-cuc-mon').classList.toggle('thu-gon', an);
+    var n = document.getElementById('nutML');
+    if (n) { n.textContent = an ? '☰ Chủ đề' : '⇤ Ẩn mục lục'; n.setAttribute('aria-pressed', String(an)); }
+  }
+  datMucLuc(localStorage.getItem('an-muc-luc') === '1');
+
+  function theoHash(cuon) {
+    var h = decodeURIComponent(location.hash.slice(1));
+    var bid = m.bai.some(function (b) { return b.id === h; }) ? h : (localStorage.getItem('hoc-do:' + m.id) || m.bai[0].id);
+    veChuDe(bid);
+    if (cuon) window.scrollTo({ top: nd.querySelector('.bo-cuc-mon').offsetTop - 70, behavior: 'smooth' });
+  }
+  window.addEventListener('hashchange', function () { theoHash(true); });
+  theoHash(false);
+})();
+</script>
+</body>
+</html>

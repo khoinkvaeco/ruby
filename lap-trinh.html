@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Học lập trình – Góc học tập của Minh Khuê</title>
+<link rel="stylesheet" href="assets/style.css?v=1.6.1">
+<script src="assets/phien-ban.js?v=1.6.1"></script>
+<script src="assets/trang.js?v=1.6.1"></script>
+<script src="assets/hinh.js?v=1.6.1"></script>
+</head>
+<body>
+<main class="khung">
+<div class="bia" style="padding-bottom:0">
+  <h1>💻 Học lập trình cho học sinh lớp 9</h1>
+  <p>Bắt đầu từ con số 0 với <b>Python</b> — ngôn ngữ dễ đọc, dùng trong chương trình Tin học THPT và cả ở các công ty lớn. Mỗi ví dụ đều có nút <b>▶ Thử ngay</b> để chạy code trên trang.</p>
+</div>
+
+<div class="chon-dt"><label for="chonBai">Bài</label><select id="chonBai"></select></div>
+<div class="bo-cuc co-chon">
+<aside class="muc-luc">
+  <b>Lộ trình</b>
+  <a href="#lo-trinh">0. Lộ trình & công cụ</a>
+  <a href="#bai1">1. Chương trình đầu tiên</a>
+  <a href="#bai2">2. Biến và kiểu dữ liệu</a>
+  <a href="#bai3">3. Nhập dữ liệu & phép toán</a>
+  <a href="#bai4">4. Rẽ nhánh if – elif – else</a>
+  <a href="#bai5">5. Vòng lặp for, while</a>
+  <a href="#bai6">6. Danh sách (list)</a>
+  <a href="#bai7">7. Chuỗi (string)</a>
+  <a href="#bai8">8. Hàm (function)</a>
+  <a href="#du-an">9. Dự án nhỏ</a>
+  <a href="#sua-loi">10. Đọc lỗi & sửa lỗi</a>
+  <a href="#tiep-theo">11. Học gì tiếp theo?</a>
+  <a href="#luyen-tap">12. Bài tập luyện thêm</a>
+  <a href="#ai">13. Trí tuệ nhân tạo (AI) 🆕</a>
+  <a href="#san-choi">▶ Khung chạy thử code</a>
+</aside>
+
+<div>
+<section class="bai" id="lo-trinh">
+  <h2>0. Lộ trình & công cụ</h2>
+  <div class="cuon"><table>
+    <tr><th>Giai đoạn</th><th>Học gì</th><th>Thời gian gợi ý</th></tr>
+    <tr><td>🧩 Khởi động</td><td>Scratch (kéo thả khối) nếu chưa từng lập trình — hiểu tuần tự, rẽ nhánh, lặp.</td><td>1–2 tuần</td></tr>
+    <tr><td>🐍 Python cơ bản</td><td>Các bài 1 → 8 trên trang này + bài tập.</td><td>6–8 tuần</td></tr>
+    <tr><td>🚀 Dự án nhỏ</td><td>Trò chơi đoán số, máy tính, quản lí điểm, vẽ bằng turtle.</td><td>2–4 tuần</td></tr>
+    <tr><td>🌐 Mở rộng</td><td>HTML/CSS/JavaScript làm trang web (như trang này!), hoặc thuật toán thi học sinh giỏi Tin.</td><td>tiếp tục</td></tr>
+  </table></div>
+  <h3>Cài đặt</h3>
+  <ul>
+    <li><b>Thonny</b> (<a href="https://thonny.org" target="_blank" rel="noopener">thonny.org</a>) — phần mềm viết Python đơn giản nhất cho người mới, cài là dùng.</li>
+    <li>Hoặc <b>Python</b> (<a href="https://www.python.org" target="_blank" rel="noopener">python.org</a>) + <b>VS Code</b> khi đã quen.</li>
+    <li>Không cài gì: dùng ngay <a href="#san-choi">khung chạy thử</a> ở cuối trang.</li>
+  </ul>
+  <div class="meo">💡 Bí quyết: <b>gõ lại</b> từng ví dụ bằng tay thay vì chép — ngón tay nhớ cú pháp nhanh hơn mắt. Mỗi ngày 30 phút tốt hơn mỗi tuần 4 tiếng.</div>
+</section>
+
+<section class="bai" id="bai1">
+  <h2>1. Chương trình đầu tiên</h2>
+  <p>Lệnh <code>print()</code> in ra màn hình. Dòng bắt đầu bằng <code>#</code> là <b>chú thích</b>, máy tính bỏ qua.</p>
+<pre><code># Chương trình đầu tiên của Minh Khuê
+print("Xin chào, mình là Minh Khuê!")
+print("Năm nay mình học lớp", 9)</code></pre>
+  <details><summary>✏️ Bài tập: in ra 3 dòng giới thiệu bản thân (tên, môn học yêu thích, sở thích).</summary>
+<pre><code>print("Tên: Minh Khuê")
+print("Môn yêu thích: Toán")
+print("Sở thích: đọc sách, lập trình")</code></pre></details>
+</section>
+
+<section class="bai" id="bai2">
+  <h2>2. Biến và kiểu dữ liệu</h2>
+  <p><b>Biến</b> giống một chiếc hộp có tên, dùng để cất giá trị.</p>
+  <div class="cuon"><table>
+    <tr><th>Kiểu</th><th>Ý nghĩa</th><th>Ví dụ</th></tr>
+    <tr><td><code>int</code></td><td>số nguyên</td><td><code>tuoi = 14</code></td></tr>
+    <tr><td><code>float</code></td><td>số thực</td><td><code>diem = 8.75</code></td></tr>
+    <tr><td><code>str</code></td><td>chuỗi chữ</td><td><code>ten = "Khuê"</code></td></tr>
+    <tr><td><code>bool</code></td><td>đúng / sai</td><td><code>da_lam_bai = True</code></td></tr>
+  </table></div>
+<figure class="hinh" data-hinh="bien-hop"></figure>
+<pre><code>ten = "Minh Khuê"
+tuoi = 14
+diem_toan = 9.5
+print(ten, "năm nay", tuoi, "tuổi")
+print(f"Điểm Toán của {ten} là {diem_toan}")   # f-string: chèn biến vào chuỗi
+print(type(diem_toan))</code></pre>
+  <div class="meo">💡 Đặt tên biến có nghĩa, không dấu, không cách: <code>diem_toan</code> chứ không phải <code>a1</code>.</div>
+</section>
+
+<section class="bai" id="bai3">
+  <h2>3. Nhập dữ liệu & phép toán</h2>
+  <p><code>input()</code> luôn trả về <b>chuỗi</b> → muốn tính toán phải đổi sang số bằng <code>int()</code> hoặc <code>float()</code>.</p>
+  <p>Phép toán: <code>+ - * /</code>, chia lấy nguyên <code>//</code>, chia lấy dư <code>%</code>, luỹ thừa <code>**</code>.</p>
+<pre><code>a = float(input("Nhập cạnh thứ nhất: "))
+b = float(input("Nhập cạnh thứ hai: "))
+c = (a**2 + b**2) ** 0.5          # định lí Pythagore
+print("Cạnh huyền =", round(c, 2))
+print("17 // 5 =", 17 // 5, "; 17 % 5 =", 17 % 5)</code></pre>
+  <details><summary>✏️ Bài tập: nhập bán kính r, in ra chu vi và diện tích hình tròn.</summary>
+<pre><code>import math
+r = float(input("Bán kính: "))
+print("Chu vi:", round(2 * math.pi * r, 2))
+print("Diện tích:", round(math.pi * r ** 2, 2))</code></pre></details>
+</section>
+
+<section class="bai" id="bai4">
+  <h2>4. Rẽ nhánh if – elif – else</h2>
+  <p>Python dùng <b>thụt lề</b> (4 dấu cách) để biết lệnh nào thuộc khối nào. So sánh: <code>== != &lt; &gt; &lt;= &gt;=</code>; kết hợp: <code>and</code>, <code>or</code>, <code>not</code>.</p>
+<figure class="hinh" data-hinh="so-do-khoi"></figure>
+<pre><code>diem = float(input("Nhập điểm trung bình: "))
+if diem >= 8:
+    print("Học lực Tốt 🌟")
+elif diem >= 6.5:
+    print("Học lực Khá 👍")
+elif diem >= 5:
+    print("Học lực Đạt")
+else:
+    print("Cần cố gắng thêm 💪")</code></pre>
+  <details><summary>✏️ Bài tập: nhập một năm, cho biết có phải năm nhuận không (chia hết cho 400, hoặc chia hết cho 4 nhưng không chia hết cho 100).</summary>
+<pre><code>nam = int(input("Năm: "))
+if nam % 400 == 0 or (nam % 4 == 0 and nam % 100 != 0):
+    print(nam, "là năm nhuận")
+else:
+    print(nam, "không phải năm nhuận")</code></pre></details>
+</section>
+
+<section class="bai" id="bai5">
+  <h2>5. Vòng lặp for, while</h2>
+  <p><code>for</code> khi biết trước số lần lặp; <code>while</code> lặp khi điều kiện còn đúng. <code>range(a, b)</code> tạo dãy a, a+1, …, b−1.</p>
+<figure class="hinh" data-hinh="vong-lap"></figure>
+<pre><code># Bảng cửu chương 7
+for i in range(1, 11):
+    print(f"7 x {i} = {7 * i}")
+
+# Tổng các số từ 1 đến 100
+tong = 0
+for so in range(1, 101):
+    tong += so
+print("Tổng 1..100 =", tong)
+
+# while: đếm số chữ số của một số
+n = 2026
+dem = 0
+while n > 0:
+    n //= 10
+    dem += 1
+print("Số chữ số:", dem)</code></pre>
+  <details><summary>✏️ Bài tập: in các số nguyên tố nhỏ hơn 50.</summary>
+<pre><code>for n in range(2, 50):
+    la_nguyen_to = True
+    for d in range(2, int(n ** 0.5) + 1):
+        if n % d == 0:
+            la_nguyen_to = False
+            break
+    if la_nguyen_to:
+        print(n, end=" ")</code></pre></details>
+</section>
+
+<section class="bai" id="bai6">
+  <h2>6. Danh sách (list)</h2>
+<figure class="hinh" data-hinh="list-chi-so"></figure>
+<pre><code>diem = [8.5, 9, 7.25, 10, 6.5]
+print("Điểm đầu tiên:", diem[0])        # chỉ số bắt đầu từ 0
+print("Điểm cuối:", diem[-1])
+diem.append(9.5)                        # thêm vào cuối
+print("Số bài:", len(diem))
+print("Cao nhất:", max(diem), "- Thấp nhất:", min(diem))
+print("Trung bình:", round(sum(diem) / len(diem), 2))
+print("Sắp xếp:", sorted(diem))
+for d in diem:
+    if d >= 9:
+        print("Giỏi quá:", d)</code></pre>
+  <details><summary>✏️ Bài tập: đếm có bao nhiêu điểm dưới 8 trong danh sách trên.</summary>
+<pre><code>diem = [8.5, 9, 7.25, 10, 6.5, 9.5]
+dem = 0
+for d in diem:
+    if d < 8:
+        dem += 1
+print("Số điểm dưới 8:", dem)</code></pre></details>
+</section>
+
+<section class="bai" id="bai7">
+  <h2>7. Chuỗi (string)</h2>
+<pre><code>cau = "Minh Khuê học lập trình"
+print(len(cau))              # độ dài
+print(cau.upper())           # viết hoa
+print(cau.split())           # tách thành các từ
+print(cau[0:4])              # cắt lát: ký tự 0..3
+print("Khuê" in cau)         # kiểm tra chứa
+print(cau.replace("lập trình", "Python"))
+print("ana"[::-1])           # đảo ngược chuỗi</code></pre>
+  <details><summary>✏️ Bài tập: kiểm tra một từ có phải "palindrome" (đọc xuôi ngược như nhau) không.</summary>
+<pre><code>tu = input("Nhập một từ: ").lower()
+if tu == tu[::-1]:
+    print("Là palindrome!")
+else:
+    print("Không phải palindrome")</code></pre></details>
+</section>
+
+<section class="bai" id="bai8">
+  <h2>8. Hàm (function)</h2>
+  <p>Hàm gom một đoạn code để dùng lại nhiều lần. <code>def</code> để định nghĩa, <code>return</code> để trả kết quả.</p>
+<pre><code>def dien_tich_tam_giac(day, cao):
+    return day * cao / 2
+
+def xep_loai(diem):
+    if diem >= 8:
+        return "Tốt"
+    elif diem >= 6.5:
+        return "Khá"
+    elif diem >= 5:
+        return "Đạt"
+    return "Chưa đạt"
+
+print(dien_tich_tam_giac(6, 4))
+for d in [9, 7, 4.5]:
+    print(d, "→", xep_loai(d))</code></pre>
+  <details><summary>✏️ Bài tập: viết hàm <code>ucln(a, b)</code> tìm ước chung lớn nhất bằng thuật toán Euclid.</summary>
+<pre><code>def ucln(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+print(ucln(48, 36))   # 12</code></pre></details>
+</section>
+
+<section class="bai" id="du-an">
+  <h2>9. Dự án nhỏ</h2>
+  <h3>🎲 Trò chơi đoán số</h3>
+<pre><code>import random
+bi_mat = random.randint(1, 100)
+so_lan = 0
+while True:
+    doan = int(input("Đoán số từ 1 đến 100: "))
+    so_lan += 1
+    if doan < bi_mat:
+        print("Lớn hơn nữa!")
+    elif doan > bi_mat:
+        print("Nhỏ hơn chút!")
+    else:
+        print(f"Chính xác! Bạn đoán đúng sau {so_lan} lần 🎉")
+        break</code></pre>
+  <h3>📐 Giải phương trình bậc hai (kết hợp Toán 9!)</h3>
+<pre><code>import math
+a = float(input("a = "))
+b = float(input("b = "))
+c = float(input("c = "))
+if a == 0:
+    print("Không phải phương trình bậc hai")
+else:
+    delta = b * b - 4 * a * c
+    print("Δ =", delta)
+    if delta > 0:
+        x1 = (-b + math.sqrt(delta)) / (2 * a)
+        x2 = (-b - math.sqrt(delta)) / (2 * a)
+        print("Hai nghiệm phân biệt:", x1, x2)
+    elif delta == 0:
+        print("Nghiệm kép: x =", -b / (2 * a))
+    else:
+        print("Phương trình vô nghiệm")</code></pre>
+  <h3>📊 Sổ điểm mini</h3>
+<pre><code>so_diem = {"Toán": 9, "Văn": 8, "Anh": 9.5, "KHTN": 8.5}
+for mon, d in so_diem.items():
+    print(f"{mon:6} {d:5} {'★' * round(d)}")
+tb = sum(so_diem.values()) / len(so_diem)
+print("Điểm trung bình:", round(tb, 2))</code></pre>
+  <div class="meo">💡 Thử nâng cấp: giới hạn trò đoán số tối đa 7 lần; sổ điểm cho phép nhập thêm môn bằng <code>input()</code>.</div>
+</section>
+
+<section class="bai" id="sua-loi">
+  <h2>10. Đọc lỗi & sửa lỗi</h2>
+  <div class="cuon"><table>
+    <tr><th>Lỗi</th><th>Nghĩa là</th><th>Cách sửa</th></tr>
+    <tr><td><code>SyntaxError</code></td><td>Sai cú pháp</td><td>Kiểm tra dấu <code>:</code> sau if/for/def, dấu ngoặc, dấu nháy.</td></tr>
+    <tr><td><code>IndentationError</code></td><td>Thụt lề sai</td><td>Dùng đều 4 dấu cách cho mỗi khối.</td></tr>
+    <tr><td><code>NameError</code></td><td>Dùng biến chưa có</td><td>Kiểm tra chính tả tên biến, gán trước khi dùng.</td></tr>
+    <tr><td><code>TypeError</code></td><td>Sai kiểu dữ liệu</td><td>Ví dụ cộng chuỗi với số → đổi bằng <code>int()</code> / <code>str()</code>.</td></tr>
+    <tr><td><code>ValueError</code></td><td>Giá trị không hợp lệ</td><td><code>int("abc")</code> — kiểm tra dữ liệu nhập.</td></tr>
+    <tr><td><code>ZeroDivisionError</code></td><td>Chia cho 0</td><td>Kiểm tra mẫu số trước khi chia.</td></tr>
+  </table></div>
+  <div class="meo">💡 Đọc lỗi từ <b>dòng cuối</b> lên: dòng cuối cho biết loại lỗi, phía trên cho biết dòng code số mấy. Thêm <code>print()</code> để xem giá trị biến ở từng bước.</div>
+</section>
+
+<section class="bai" id="tiep-theo">
+  <h2>11. Học gì tiếp theo?</h2>
+  <ul>
+    <li><b>Thuật toán</b>: tìm kiếm tuần tự / nhị phân, sắp xếp (nổi bọt, chọn), đệ quy — nền tảng thi học sinh giỏi Tin. Luyện đề tại <a href="https://codeforces.com" target="_blank" rel="noopener">Codeforces</a>, <a href="https://oj.vnoi.info" target="_blank" rel="noopener">VNOI</a>.</li>
+    <li><b>Web</b>: HTML (khung), CSS (trang trí), JavaScript (tương tác) — <a href="https://www.freecodecamp.org" target="_blank" rel="noopener">freeCodeCamp</a>, <a href="https://developer.mozilla.org/vi/docs/Learn" target="_blank" rel="noopener">MDN</a>.</li>
+    <li><b>Trò chơi</b>: thư viện <code>pygame</code> trong Python, hoặc Scratch nâng cao.</li>
+    <li><b>Khoa học máy tính</b>: khoá <a href="https://cs50.harvard.edu/x/" target="_blank" rel="noopener">CS50</a> (Harvard, miễn phí, có phụ đề).</li>
+    <li><b>Trí tuệ nhân tạo</b>: khi đã vững Python, thử <a href="https://www.kaggle.com/learn" target="_blank" rel="noopener">Kaggle Learn</a>.</li>
+  </ul>
+  <div class="meo">🤖 Dùng AI như một <b>gia sư</b>: hỏi "vì sao code này lỗi", "giải thích dòng này" — đừng nhờ viết hộ cả bài, vì như vậy sẽ không học được gì.</div>
+</section>
+
+<section class="bai" id="luyen-tap">
+  <h2>12. Bài tập luyện thêm — từ cơ bản đến nâng cao</h2>
+  <p>Tự làm trước, bí quá mới mở lời giải. Mỗi lời giải có nút <b>▶ Thử ngay</b> để chạy.</p>
+  <div class="bt-muc"><span class="nhan m1">🟢 Cơ bản</span></div>
+  <div class="bt"><div class="de"><b>Bài 1.</b> Nhập tên, in ra lời chào "Chào &lt;tên&gt;, chúc học tốt!".
+    <details><summary>Xem lời giải</summary><pre><code>ten = input("Tên bạn là gì? ")
+print(f"Chào {ten}, chúc học tốt!")</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 2.</b> Nhập số nguyên n, cho biết n chẵn hay lẻ.
+    <details><summary>Xem lời giải</summary><pre><code>n = int(input("n = "))
+if n % 2 == 0:
+    print(n, "là số chẵn")
+else:
+    print(n, "là số lẻ")</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 3.</b> Nhập nhiệt độ độ C, đổi sang độ F (F = C × 1,8 + 32).
+    <details><summary>Xem lời giải</summary><pre><code>c = float(input("Độ C: "))
+print("Độ F:", c * 1.8 + 32)</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 4.</b> In các số từ 1 đến 20 chia hết cho 3.
+    <details><summary>Xem lời giải</summary><pre><code>for i in range(1, 21):
+    if i % 3 == 0:
+        print(i, end=" ")</code></pre></details></div></div>
+
+  <div class="bt-muc"><span class="nhan m2">🟡 Vận dụng</span></div>
+  <div class="bt"><div class="de"><b>Bài 5.</b> Nhập cân nặng (kg) và chiều cao (m), tính chỉ số BMI = cân nặng / chiều cao² và nhận xét: &lt; 18,5 gầy; &lt; 23 bình thường; còn lại thừa cân.
+    <details><summary>Xem lời giải</summary><pre><code>can = float(input("Cân nặng (kg): "))
+cao = float(input("Chiều cao (m): "))
+bmi = can / cao ** 2
+print("BMI =", round(bmi, 1))
+if bmi < 18.5:
+    print("Hơi gầy — ăn uống đủ chất nhé")
+elif bmi < 23:
+    print("Bình thường 👍")
+else:
+    print("Thừa cân — vận động nhiều hơn nhé")</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 6.</b> Tính tổng các chữ số của một số nguyên dương (ví dụ 2026 → 10).
+    <details><summary>Xem lời giải</summary><pre><code>n = 2026
+tong = 0
+while n > 0:
+    tong += n % 10   # lấy chữ số cuối
+    n //= 10         # bỏ chữ số cuối
+print("Tổng các chữ số:", tong)</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 7.</b> Cho danh sách điểm, in điểm cao nhất, thấp nhất và các điểm trên trung bình — <b>không</b> dùng max(), min().
+    <details><summary>Xem lời giải</summary><pre><code>diem = [7, 9.5, 6, 8, 10, 5.5]
+cao = thap = diem[0]
+for d in diem:
+    if d > cao:
+        cao = d
+    if d < thap:
+        thap = d
+tb = sum(diem) / len(diem)
+print("Cao nhất:", cao, "- Thấp nhất:", thap, "- TB:", round(tb, 2))
+print("Trên trung bình:", [d for d in diem if d > tb])</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 8.</b> Đếm số nguyên âm (a, e, i, o, u) trong một câu tiếng Anh.
+    <details><summary>Xem lời giải</summary><pre><code>cau = "I love learning Python every day"
+dem = 0
+for ch in cau.lower():
+    if ch in "aeiou":
+        dem += 1
+print("Số nguyên âm:", dem)</code></pre></details></div></div>
+
+  <div class="bt-muc"><span class="nhan m3">🔴 Nâng cao</span></div>
+  <div class="bt"><div class="de"><b>Bài 9.</b> In n số đầu tiên của dãy Fibonacci (1, 1, 2, 3, 5, 8, …: mỗi số bằng tổng hai số trước).
+    <details><summary>Xem lời giải</summary><pre><code>n = 15
+a, b = 1, 1
+for _ in range(n):
+    print(a, end=" ")
+    a, b = b, a + b</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 10.</b> Viết hàm <code>la_nguyen_to(n)</code> và dùng nó in mọi số nguyên tố nhỏ hơn 100, kèm số lượng.
+    <details><summary>Xem lời giải</summary><pre><code>def la_nguyen_to(n):
+    if n < 2:
+        return False
+    d = 2
+    while d * d <= n:
+        if n % d == 0:
+            return False
+        d += 1
+    return True
+
+ds = [n for n in range(100) if la_nguyen_to(n)]
+print(ds)
+print("Có", len(ds), "số nguyên tố nhỏ hơn 100")</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 11.</b> Sắp xếp danh sách tăng dần bằng thuật toán <b>sắp xếp nổi bọt</b> (không dùng sort()).
+    <details><summary>Xem lời giải</summary><pre><code>a = [5, 2, 9, 1, 7, 3]
+n = len(a)
+for i in range(n - 1):
+    for j in range(n - 1 - i):
+        if a[j] > a[j + 1]:
+            a[j], a[j + 1] = a[j + 1], a[j]   # đổi chỗ
+print(a)</code></pre></details></div></div>
+  <div class="bt"><div class="de"><b>Bài 12.</b> <b>Tìm kiếm nhị phân</b>: trong danh sách đã sắp xếp, tìm vị trí của một số, đếm số bước — so sánh với tìm tuần tự.
+    <details><summary>Xem lời giải</summary><pre><code>a = list(range(1, 1001, 3))   # 1, 4, 7, ..., 1000 (đã sắp xếp)
+x = 703
+trai, phai, buoc = 0, len(a) - 1, 0
+while trai <= phai:
+    buoc += 1
+    giua = (trai + phai) // 2
+    if a[giua] == x:
+        print("Tìm thấy", x, "ở vị trí", giua, "sau", buoc, "bước")
+        break
+    elif a[giua] < x:
+        trai = giua + 1
+    else:
+        phai = giua - 1
+else:
+    print("Không có", x)
+print("Tìm tuần tự cần khoảng", a.index(x) + 1, "bước")</code></pre></details></div></div>
+  <div class="meo">💡 Muốn luyện thêm? Các trang chấm bài tự động: <a href="https://oj.vnoi.info" target="_blank" rel="noopener">VNOI</a>, <a href="https://codeforces.com" target="_blank" rel="noopener">Codeforces</a> (bắt đầu từ bài dễ nhất), hoặc thử lập trình lại các bài Toán 9 (giải hệ phương trình, tính Δ, thống kê tần số).</div>
+</section>
+
+<section class="bai" id="ai">
+  <h2>13. Trí tuệ nhân tạo (AI) — hiểu, dùng đúng và tự làm thử</h2>
+  <div class="meo">🆕 Từ năm học 2026–2027, Bộ GD&amp;ĐT đưa giáo dục AI vào trường phổ thông (Quyết định 2422/QĐ-BGDĐT): hiểu kiến thức nền tảng, biết vận dụng, tư duy phản biện, kiểm chứng thông tin và dùng AI an toàn, có đạo đức. Bài này giúp Minh Khuê chuẩn bị trước — <a href="cap-nhat-2026.html">xem các thay đổi năm 2026</a>.</div>
+  <h3>AI là gì?</h3>
+  <p><b>Trí tuệ nhân tạo</b> là các chương trình máy tính làm được những việc trước đây cần trí thông minh của con người: nhận diện khuôn mặt, hiểu giọng nói, dịch ngôn ngữ, gợi ý video, trò chuyện… Khác với chương trình thông thường (người viết sẵn từng luật <code>if … else</code>), nhiều hệ thống AI <b>tự rút ra quy luật từ dữ liệu</b> — gọi là <b>học máy</b> (machine learning).</p>
+  <div class="cuon"><table>
+    <tr><th>Bước</th><th>Ý nghĩa</th><th>Ví dụ: lọc thư rác</th></tr>
+    <tr><td>1. Thu thập dữ liệu</td><td>Nhiều ví dụ đã biết đáp án</td><td>10 000 email đã đánh dấu "rác" / "không rác"</td></tr>
+    <tr><td>2. Huấn luyện</td><td>Máy tìm quy luật trong dữ liệu</td><td>Thư rác hay có "trúng thưởng", "bấm ngay"…</td></tr>
+    <tr><td>3. Mô hình</td><td>Kết quả của việc học</td><td>Bộ lọc thư rác</td></tr>
+    <tr><td>4. Dự đoán</td><td>Áp dụng cho dữ liệu mới</td><td>Email mới đến → đưa vào thư mục Spam?</td></tr>
+  </table></div>
+  <p><b>Chatbot AI</b> (AI tạo sinh) học từ lượng văn bản khổng lồ để đoán từ tiếp theo hợp lí nhất. Vì là "đoán", nó có thể trả lời <b>trôi chảy nhưng sai</b> (gọi là "ảo giác") — luôn phải kiểm chứng.</p>
+  <div class="meo">⚠️ <b>Dữ liệu quyết định chất lượng:</b> dữ liệu ít, sai hoặc lệch thì mô hình học sai theo. Ví dụ nếu chỉ huấn luyện nhận diện mèo bằng ảnh mèo trắng, mô hình có thể không nhận ra mèo đen — đó là <b>thiên kiến dữ liệu</b>.</div>
+
+  <h3>Tự làm một "AI" nhỏ: phân loại quả bằng láng giềng gần nhất</h3>
+  <p>Ý tưởng: muốn đoán một quả mới là cam hay chuối, tìm <b>những quả đã biết giống nó nhất</b> (gần nhất về cân nặng và độ dài) rồi theo số đông. Đây là thuật toán <b>k láng giềng gần nhất</b> (k-NN) — hoàn toàn học từ dữ liệu, không có luật viết tay.</p>
+<pre><code># Dữ liệu huấn luyện: (cân nặng gam, độ dài cm, nhãn)
+du_lieu = [
+    (150, 7, "cam"), (170, 8, "cam"), (140, 7, "cam"), (160, 7.5, "cam"),
+    (120, 18, "chuối"), (130, 20, "chuối"), (110, 17, "chuối"), (125, 19, "chuối"),
+]
+
+def khoang_cach(a, b):
+    return ((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5
+
+def du_doan(qua_moi, k=3):
+    # sắp xếp các quả đã biết theo độ "giống" quả mới
+    gan = sorted(du_lieu, key=lambda d: khoang_cach(d, qua_moi))[:k]
+    nhan = [d[2] for d in gan]
+    return max(set(nhan), key=nhan.count)   # nhãn xuất hiện nhiều nhất
+
+for qua in [(155, 7.2), (118, 18.5), (140, 12)]:
+    print(qua, "→", du_doan(qua))</code></pre>
+
+  <h3>AI "học" quy luật từ số liệu: dự đoán điểm theo giờ tự học</h3>
+  <p>Cho số liệu giờ tự học/tuần và điểm của vài bạn. Máy tìm đường thẳng <code>y = a·x + b</code> <b>khớp nhất</b> với dữ liệu (phương pháp bình phương nhỏ nhất) rồi dùng để dự đoán — đây là <b>hồi quy tuyến tính</b>, một trong những mô hình học máy đơn giản nhất, nối thẳng với hàm số bậc nhất ở Toán.</p>
+<pre><code>gio  = [2, 4, 5, 7, 8, 10]          # giờ tự học mỗi tuần
+diem = [5.0, 6.0, 6.5, 7.5, 8.0, 9.0]
+
+n = len(gio)
+tb_x = sum(gio) / n
+tb_y = sum(diem) / n
+a = sum((x - tb_x) * (y - tb_y) for x, y in zip(gio, diem)) / sum((x - tb_x) ** 2 for x in gio)
+b = tb_y - a * tb_x
+print(f"Mô hình học được: điểm ≈ {a:.2f} × giờ + {b:.2f}")
+for x in [3, 6, 12]:
+    print(f"Học {x} giờ/tuần → dự đoán khoảng {a * x + b:.1f} điểm")
+print("Lưu ý: 12 giờ nằm ngoài dữ liệu đã học — dự đoán kém tin cậy hơn!")</code></pre>
+
+  <h3>Dùng AI khi học — đúng cách và an toàn</h3>
+  <div class="cuon"><table>
+    <tr><th>✅ Nên</th><th>❌ Không nên</th></tr>
+    <tr><td>Nhờ AI <b>giải thích</b> một khái niệm, gợi ý hướng giải, chỉ ra lỗi sai trong bài mình đã làm</td><td>Chép nguyên lời giải / bài văn của AI để nộp</td></tr>
+    <tr><td><b>Kiểm chứng</b> câu trả lời bằng sách giáo khoa, nguồn chính thống, hỏi thầy cô</td><td>Tin tuyệt đối vì câu trả lời "nghe rất hợp lí"</td></tr>
+    <tr><td>Nói rõ khi bài làm có dùng AI hỗ trợ</td><td>Đưa họ tên, địa chỉ, ảnh, mật khẩu, thông tin bạn bè vào chatbot</td></tr>
+    <tr><td>Nhận ra ảnh, video, giọng nói có thể bị AI làm giả (deepfake)</td><td>Dùng AI tạo nội dung giả mạo, xúc phạm người khác</td></tr>
+  </table></div>
+
+  <h3>Bài tập</h3>
+  <div class="bt-muc"><span class="nhan m1">🟢 Cơ bản</span></div>
+  <div class="bt"><div class="de"><b>Bài 1.</b> Ứng dụng nào dưới đây <b>có dùng</b> AI: a) máy tính bỏ túi; b) camera nhận diện khuôn mặt mở khoá điện thoại; c) ứng dụng gợi ý video; d) đèn giao thông đổi màu theo giờ cố định?
+    <details><summary>Xem lời giải</summary><b>b) và c)</b> — chúng học từ dữ liệu (khuôn mặt, lịch sử xem). a) và d) chỉ làm theo luật viết sẵn.</details></div></div>
+  <div class="bt"><div class="de"><b>Bài 2.</b> Nêu 4 bước của quá trình học máy và cho một ví dụ trong đời sống.
+    <details><summary>Xem lời giải</summary>Thu thập dữ liệu → huấn luyện → mô hình → dự đoán. Ví dụ: ứng dụng nhận diện cây từ ảnh chụp lá — học từ hàng nghìn ảnh lá đã gắn tên cây.</details></div></div>
+  <div class="bt-muc"><span class="nhan m2">🟡 Vận dụng</span></div>
+  <div class="bt"><div class="de"><b>Bài 3.</b> Trong chương trình phân loại quả, thêm loại "táo" (khoảng 180–200 g, dài 8–9 cm) vào dữ liệu và thử dự đoán quả (190, 8.5). Kết quả thay đổi thế nào nếu k = 1 và k = 5?
+    <details><summary>Xem lời giải</summary><pre><code>du_lieu += [(190, 8.5, "táo"), (200, 9, "táo"), (185, 8, "táo")]
+print(du_doan((190, 8.5), k=1), du_doan((190, 8.5), k=5))</code></pre>Chạy thử: cả k = 1 và k = 5 đều ra <b>táo</b> — với k = 5, năm quả gần nhất là 3 táo + 2 cam nên táo vẫn thắng (3/5). Nếu chỉ có 1–2 quả táo trong dữ liệu thì với k = 5 cam có thể thắng: k nhỏ dễ bị một điểm nhiễu đánh lừa, k lớn dễ bị loại có nhiều dữ liệu hơn "lấn át". Chú ý: cân nặng (gam) lớn hơn độ dài (cm) rất nhiều nên chi phối khoảng cách — AI thật thường <b>chuẩn hoá</b> dữ liệu về cùng thang.</details></div></div>
+  <div class="bt"><div class="de"><b>Bài 4.</b> Bạn hỏi chatbot "Ai là tác giả Truyện Kiều và viết năm nào?" và nhận câu trả lời rất tự tin. Em sẽ làm gì trước khi chép vào vở?
+    <details><summary>Xem lời giải</summary>Đối chiếu với sách giáo khoa Ngữ văn hoặc nguồn chính thống (trang của Bộ, thư viện); nếu các nguồn khác nhau thì hỏi thầy cô. Không coi câu trả lời của AI là bằng chứng.</details></div></div>
+  <div class="bt-muc"><span class="nhan m3">🔴 Nâng cao</span></div>
+  <div class="bt"><div class="de"><b>Bài 5.</b> Tính <b>độ chính xác</b> của mô hình phân loại quả: dùng một tập kiểm tra gồm các quả đã biết nhãn nhưng <b>không có</b> trong dữ liệu huấn luyện.
+    <details><summary>Xem lời giải</summary><pre><code>kiem_tra = [((145, 7, 0), "cam"), ((115, 18, 0), "chuối"), ((165, 8, 0), "cam"), ((128, 19.5, 0), "chuối")]
+dung = sum(1 for qua, nhan in kiem_tra if du_doan(qua) == nhan)
+print("Độ chính xác:", dung / len(kiem_tra) * 100, "%")</code></pre>Phải kiểm tra trên dữ liệu <b>mới</b>: kiểm tra trên chính dữ liệu đã học thì mô hình "thuộc bài" nên điểm cao giả.</details></div></div>
+  <div class="bt"><div class="de"><b>Bài 6.</b> Một hệ thống AI tuyển chọn học sinh vào câu lạc bộ được huấn luyện chỉ bằng hồ sơ của các bạn nam những năm trước. Điều gì có thể xảy ra? Cần làm gì?
+    <details><summary>Xem lời giải</summary>Mô hình có thể đánh giá thấp các bạn nữ một cách không công bằng (<b>thiên kiến dữ liệu</b>). Cần dữ liệu đa dạng, cân bằng; kiểm tra kết quả theo từng nhóm; con người phải xem lại quyết định cuối cùng.</details></div></div>
+</section>
+
+<section class="bai" id="san-choi">
+  <h2>▶ Khung chạy thử Python</h2>
+  <p>Gõ code rồi bấm <b>Chạy</b>. Lần đầu cần mạng để tải bộ chạy Python (Pyodide, vài giây). Lệnh <code>input()</code> sẽ hiện hộp nhập.</p>
+  <textarea id="soan" class="soan" spellcheck="false">print("Xin chào Minh Khuê! 🌸")
+for i in range(1, 6):
+    print("⭐" * i)</textarea>
+  <div>
+    <button class="nut" id="nutChay">▶ Chạy</button>
+    <button class="nut phu" id="nutXoa">🧹 Xoá kết quả</button>
+    <span id="trangThai" style="color:var(--phu)"></span>
+  </div>
+  <div id="ketQua" class="ket-qua"></div>
+</section>
+</div>
+</div>
+</main>
+
+<script>
+// Khung chay Python: nap Pyodide (Python bien dich sang WebAssembly) KHI BAM CHAY lan dau,
+// de nguoi chi doc bai khong phai tai ~10 MB. Code chay ngay trong trinh duyet, khong gui di dau.
+(function () {
+  var PYODIDE = 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/';
+  var soan = document.getElementById('soan'), ketQua = document.getElementById('ketQua');
+  var trangThai = document.getElementById('trangThai'), nutChay = document.getElementById('nutChay');
+  var py = null, dangNap = null;
+
+  function ghi(chu, loi) {
+    var s = document.createElement('span');
+    if (loi) s.className = 'loi';
+    s.textContent = chu + '\n';
+    ketQua.appendChild(s);
+  }
+
+  function napPython() {
+    if (py) return Promise.resolve(py);
+    if (dangNap) return dangNap;
+    trangThai.textContent = '⏳ Đang tải Python…';
+    dangNap = new Promise(function (ok, hong) {
+      var the = document.createElement('script');
+      the.src = PYODIDE + 'pyodide.js';
+      the.onload = function () { loadPyodide({ indexURL: PYODIDE }).then(ok, hong); };
+      the.onerror = function () { hong(new Error('Không tải được Python — kiểm tra kết nối mạng.')); };
+      document.head.appendChild(the);
+    }).then(function (p) {
+      py = p;
+      p.setStdout({ batched: function (s) { ghi(s); } });
+      p.setStderr({ batched: function (s) { ghi(s, true); } });
+      // input() -> hop nhap cua trinh duyet
+      p.setStdin({ stdin: function () { var v = prompt('Chương trình cần nhập dữ liệu:'); return v === null ? '' : v; } });
+      return p;
+    }, function (e) { dangNap = null; throw e; });
+    return dangNap;
+  }
+
+  nutChay.addEventListener('click', function () {
+    nutChay.disabled = true;
+    napPython().then(function (p) {
+      trangThai.textContent = '🏃 Đang chạy…';
+      return p.runPythonAsync(soan.value);
+    }).then(function () {
+      trangThai.textContent = '✅ Xong';
+    }).catch(function (e) {
+      // Chi giu phan cuoi cua thong bao loi Python cho de doc
+      var tb = String(e.message || e).trim().split('\n');
+      ghi(tb.slice(-2).join('\n'), true);
+      trangThai.textContent = '❌ Có lỗi — đọc dòng đỏ bên dưới';
+    }).then(function () { nutChay.disabled = false; });
+  });
+
+  document.getElementById('nutXoa').addEventListener('click', function () { ketQua.innerHTML = ''; trangThai.textContent = ''; });
+
+  // Tab trong o soan = 4 dau cach (thut le Python)
+  soan.addEventListener('keydown', function (e) {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      var a = soan.selectionStart;
+      soan.value = soan.value.slice(0, a) + '    ' + soan.value.slice(soan.selectionEnd);
+      soan.selectionStart = soan.selectionEnd = a + 4;
+    }
+  });
+
+  // Dien thoai: muc luc ben trai an di (truoc day nam CHAN truoc noi dung) -> o chon bai dinh tren dau,
+  // sinh tu chinh cac lien ket cua muc luc nen khong phai khai hai noi. Nut noi "Chay code" toi khung chay.
+  document.addEventListener('DOMContentLoaded', function () {
+    var chon = document.getElementById('chonBai');
+    document.querySelectorAll('aside.muc-luc a[href^="#"]').forEach(function (a) {
+      var o = document.createElement('option'); o.value = a.getAttribute('href'); o.textContent = a.textContent; chon.appendChild(o);
+    });
+    chon.addEventListener('change', function () { var t = document.querySelector(chon.value); if (t) t.scrollIntoView({ behavior: 'smooth' }); });
+    var noi = document.createElement('a');
+    noi.href = '#san-choi'; noi.className = 'nut-noi'; noi.textContent = '▶ Chạy code';
+    document.body.appendChild(noi);
+  });
+
+  // Gan nut "Thu ngay" vao moi vi du code: chep vao khung chay va cuon xuong
+  document.addEventListener('DOMContentLoaded', function () {
+    veHinh();
+    document.querySelectorAll('section.bai pre').forEach(function (pre) {
+      var nut = document.createElement('button');
+      nut.className = 'nut'; nut.textContent = '▶ Thử ngay';
+      nut.addEventListener('click', function () {
+        soan.value = pre.textContent;
+        ketQua.innerHTML = '';
+        document.getElementById('san-choi').scrollIntoView({ behavior: 'smooth' });
+      });
+      pre.insertAdjacentElement('afterend', nut);
+    });
+  });
+})();
+</script>
+</body>
+</html>

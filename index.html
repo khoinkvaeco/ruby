@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Góc học tập của Minh Khuê – Lớp 9</title>
+<link rel="stylesheet" href="assets/style.css?v=1.6.1">
+<script src="assets/phien-ban.js?v=1.6.1"></script>
+<script src="assets/trang.js?v=1.6.1"></script>
+<script src="assets/du-lieu.js?v=1.6.1"></script>
+<script src="assets/bai-hoc/toan.js?v=1.6.1"></script>
+<script src="assets/bai-hoc/khtn.js?v=1.6.1"></script>
+<script src="assets/bai-hoc/van-anh.js?v=1.6.1"></script>
+<script src="assets/bai-hoc/khac.js?v=1.6.1"></script>
+</head>
+<body>
+<main class="khung">
+  <section class="bia-chinh">
+    <div class="bia-chu">
+      <h1>Xin chào, Minh Khuê! 👋</h1>
+      <p id="loiNhan"></p>
+      <div class="o-tim-boc">
+        <input id="oTim" class="o-tim" type="search" placeholder="Tìm kiến thức, bài tập… ví dụ: Vi-ét, định luật Ohm" aria-label="Tìm kiến thức">
+      </div>
+    </div>
+    <div class="bia-so" id="soLieu"></div>
+  </section>
+
+  <div id="ketQuaTim" class="an" aria-live="polite"></div>
+
+  <div id="trangChinh">
+    <a id="tiepTuc" class="tiep-tuc an"></a>
+
+    <div class="muc-dau"><h2>📚 Các môn học</h2><a href="mon.html">Xem tất cả →</a></div>
+    <div class="luoi luoi-mon" id="dsMon"></div>
+
+    <div class="muc-dau"><h2>✨ Luyện thêm</h2></div>
+    <div class="luoi luoi-3">
+      <a class="the the-noi" href="trac-nghiem.html"><div class="bieu">📝</div><div><h3>Trắc nghiệm</h3><p>10 câu ngẫu nhiên mỗi lượt, chấm ngay, có giải thích.</p></div></a>
+      <a class="the the-noi" href="lap-trinh.html"><div class="bieu">💻</div><div><h3>Học lập trình</h3><p>Python từ con số 0, chạy code ngay trên trang.</p></div></a>
+      <a class="the the-noi" href="cap-nhat-2026.html"><div class="bieu">🆕</div><div><h3>Chương trình 2026 có gì mới?</h3><p>Sách giáo khoa dùng chung, 34 tỉnh – 6 vùng mới, giáo dục AI, thi vào 10.</p></div></a>
+      <a class="the the-noi" href="ban-do.html"><div class="bieu">🗺️</div><div><h3>Bản đồ</h3><p>Bản đồ thế giới tương tác, Việt Nam 63 → 34 tỉnh, công cụ luyện bản đồ.</p></div></a>
+      <a class="the the-noi" href="on-thi.html"><div class="bieu">🎯</div><div><h3>Ôn thi vào 10</h3><p>Kế hoạch, mẹo làm bài, đếm ngược ngày thi.</p></div></a>
+    </div>
+  </div>
+</main>
+
+<script>
+// Trang chu (1.5): phan dau gon (chao + o tim + so lieu), the "Tiep tuc hoc" mo dung chu de vua hoc,
+// the mon co tien do bai tap (tienDo() dung chung voi trang mon), tim kiem khong dau tren ca bai tap.
+document.addEventListener('DOMContentLoaded', function () {
+  var LOI = [
+    'Không cần học thật nhiều trong một ngày — chỉ cần ngày nào cũng học. 🌱',
+    'Sai một bài không sao, quan trọng là hiểu vì sao sai. ✍️',
+    'Ngủ đủ giấc cũng là một cách ôn bài hiệu quả. 😴',
+    'Học 25 phút, nghỉ 5 phút — thử phương pháp Pomodoro xem! 🍅',
+    'Giải thích lại cho người khác là cách nhớ lâu nhất. 🗣️',
+    'Mỗi bài code chạy được là một chiến thắng nhỏ. 💻',
+    'Uống nước, vươn vai, rồi học tiếp nào! 💧'
+  ];
+  document.getElementById('loiNhan').textContent = LOI[new Date().getDate() % LOI.length];
+
+  // So lieu tong
+  var tongXong = 0, tongBt = 0, tongCd = 0;
+  MON.forEach(function (m) { var t = tienDo(m.id); tongXong += t.xong; tongBt += t.tong; tongCd += m.bai.length; });
+  document.getElementById('soLieu').innerHTML =
+    '<div><b>' + MON.length + '</b><span>môn</span></div><div><b>' + tongCd + '</b><span>chủ đề</span></div>' +
+    '<div><b>' + tongXong + '<small>/' + tongBt + '</small></b><span>bài tập đã làm</span></div>';
+
+  // Tiep tuc hoc
+  try {
+    var cuoi = JSON.parse(localStorage.getItem('hoc-do-cuoi') || 'null');
+    var mc = cuoi && MON.filter(function (x) { return x.id === cuoi.mon; })[0];
+    var bc = mc && mc.bai.filter(function (x) { return x.id === cuoi.bai; })[0];
+    if (bc) {
+      var tt = document.getElementById('tiepTuc'), t = tienDo(mc.id, bc.id);
+      tt.href = 'mon.html?mon=' + mc.id + '#' + bc.id;
+      tt.innerHTML = '<span class="tt-bieu">' + mc.bieu + '</span><span class="tt-chu"><small>Tiếp tục học · ' + mc.ten + '</small><b></b>' +
+        (t.tong ? '<small>Đã làm ' + t.xong + '/' + t.tong + ' bài tập</small>' : '') + '</span><span class="tt-mui">→</span>';
+      tt.querySelector('b').textContent = bc.ten;
+      tt.classList.remove('an');
+    }
+  } catch (e) { /* du lieu luu hong: bo qua the */ }
+
+  var ds = document.getElementById('dsMon');
+  MON.forEach(function (m) {
+    var t = tienDo(m.id), a = document.createElement('a');
+    a.className = 'the the-mon'; a.href = 'mon.html?mon=' + m.id;
+    a.innerHTML = '<div class="bieu">' + m.bieu + '</div><h3>' + m.ten + '</h3><p>' + m.moTa + '</p>' +
+      '<div class="the-chan"><span>' + m.bai.length + ' chủ đề · ' + t.tong + ' bài tập</span><span>' + (t.xong ? '✅ ' + t.xong + '/' + t.tong : '') + '</span></div>' +
+      '<div class="thanh nho"><div style="width:' + (t.tong ? t.xong / t.tong * 100 : 0) + '%"></div></div>';
+    ds.appendChild(a);
+  });
+
+  // Chi muc tim kiem: chu thuan (bo the HTML) + bo dau, gom ca phan mo rong va de bai tap
+  var chiMuc = [];
+  MON.forEach(function (m) {
+    m.bai.forEach(function (b) {
+      var them = ((window.MO_RONG || {})[m.id] || {})[b.id] || {};
+      var tam = document.createElement('div');
+      tam.innerHTML = b.noi + (them.ly || '') + (them.bt || []).map(function (x) { return ' ' + x[1]; }).join('');
+      var chu = tam.textContent;
+      chiMuc.push({ mon: m, bai: b, chu: chu, khoa: boDau(m.ten + ' ' + b.ten + ' ' + chu) });
+    });
+  });
+
+  var oTim = document.getElementById('oTim'), kq = document.getElementById('ketQuaTim'), chinh = document.getElementById('trangChinh');
+  oTim.addEventListener('input', function () {
+    var q = boDau(oTim.value.trim());
+    if (q.length < 2) { kq.classList.add('an'); chinh.classList.remove('an'); return; }
+    var tu = q.split(/\s+/);
+    var tim = chiMuc.filter(function (x) { return tu.every(function (t) { return x.khoa.indexOf(t) >= 0; }); });
+    // Uu tien bai khop nguyen cum tu, roi bai co ten khop
+    function diem(x) { return (x.khoa.indexOf(q) >= 0 ? 2 : 0) + (boDau(x.bai.ten).indexOf(q) >= 0 ? 1 : 0); }
+    tim.sort(function (a, b) { return diem(b) - diem(a); });
+    chinh.classList.add('an'); kq.classList.remove('an');
+    kq.innerHTML = '';
+    var tieu = document.createElement('p'); tieu.className = 'kq-tieu';
+    tieu.textContent = tim.length ? 'Tìm thấy ' + tim.length + ' chủ đề' : 'Chưa tìm thấy. Thử từ khoá khác nhé!';
+    kq.appendChild(tieu);
+    var luoi = document.createElement('div'); luoi.className = 'luoi';
+    tim.slice(0, 30).forEach(function (x) {
+      var a = document.createElement('a'); a.className = 'the';
+      a.href = 'mon.html?mon=' + x.mon.id + '#' + x.bai.id;
+      var vt = boDau(x.chu).indexOf(tu[0]);
+      var trich = x.chu.substr(Math.max(0, vt - 40), 140).replace(/\s+/g, ' ');
+      a.innerHTML = '<span class="nhan"></span><h3></h3><p></p>';
+      a.querySelector('.nhan').textContent = x.mon.bieu + ' ' + x.mon.ten;
+      a.querySelector('h3').textContent = x.bai.ten;
+      a.querySelector('p').textContent = '…' + trich + '…';
+      luoi.appendChild(a);
+    });
+    kq.appendChild(luoi);
+  });
+});
+</script>
+</body>
+</html>

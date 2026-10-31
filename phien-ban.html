@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Có gì mới – Góc học tập của Minh Khuê</title>
+<link rel="stylesheet" href="assets/style.css?v=1.6.1">
+<script src="assets/phien-ban.js?v=1.6.1"></script>
+<script src="assets/trang.js?v=1.6.1"></script>
+</head>
+<body>
+<main class="khung" style="max-width:760px" id="noiDung"></main>
+<script>
+// Trang "Co gi moi": doc lich su tu PHIEN_BAN (nguon duy nhat), khong chep tay noi dung o day
+document.addEventListener('DOMContentLoaded', function () {
+  var pb = window.PHIEN_BAN, nd = document.getElementById('noiDung');
+  var dau = document.createElement('div'); dau.className = 'bia';
+  dau.innerHTML = '<h1>🆕 Có gì mới</h1><p>Bạn đang xem <b></b>, cập nhật ngày <b></b>.</p>';
+  dau.querySelectorAll('b')[0].textContent = 'phiên bản ' + pb.so;
+  dau.querySelectorAll('b')[1].textContent = pb.ngay;
+  nd.appendChild(dau);
+  pb.lichSu.forEach(function (b, i) {
+    var sec = document.createElement('section'); sec.className = 'bai';
+    var h = document.createElement('h2'); h.textContent = 'Phiên bản ' + b.so + (i === 0 ? ' (hiện tại)' : '');
+    var n = document.createElement('p'); n.style.color = 'var(--phu)'; n.style.marginTop = '-8px'; n.textContent = 'Ngày ' + b.ngay;
+    var ul = document.createElement('ul');
+    b.moi.forEach(function (x) { var li = document.createElement('li'); li.textContent = x; ul.appendChild(li); });
+    sec.appendChild(h); sec.appendChild(n); sec.appendChild(ul); nd.appendChild(sec);
+  });
+  var meo = document.createElement('div'); meo.className = 'meo';
+  meo.textContent = '💡 Không thấy nội dung mới? Bấm tải lại trang (trên máy tính: Ctrl + F5). Khi trên mạng có phiên bản mới hơn bản đang mở, trang sẽ tự hiện nút "🔄 Tải bản mới".';
+  nd.appendChild(meo);
+});
+</script>
+</body>
+</html>
