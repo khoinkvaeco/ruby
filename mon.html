@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiến thức các môn – Góc học tập của Minh Khuê</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/trang.js"></script>
+<script src="assets/du-lieu.js"></script>
+</head>
+<body>
+<main class="khung" id="noiDung"></main>
+<script>
+// mon.html?mon=toan -> hien mot mon; khong co tham so -> danh sach moi mon
+document.addEventListener('DOMContentLoaded', function () {
+  var id = new URLSearchParams(location.search).get('mon');
+  var m = MON.filter(function (x) { return x.id === id; })[0];
+  var nd = document.getElementById('noiDung');
+  if (!m) {
+    nd.innerHTML = '<div class="bia"><h1>📚 Các môn học lớp 9</h1><p>Chọn một môn để xem kiến thức trọng tâm.</p></div><div class="luoi">' +
+      MON.map(function (x) {
+        return '<a class="the" href="mon.html?mon=' + x.id + '"><div class="bieu">' + x.bieu + '</div><h3>' + x.ten + '</h3><p>' + x.moTa + '</p></a>';
+      }).join('') + '</div>';
+    return;
+  }
+  document.title = m.ten + ' lớp 9 – Góc học tập của Minh Khuê';
+  var mucLuc = m.bai.map(function (b, i) { return '<a href="#' + b.id + '">' + (i + 1) + '. ' + b.ten + '</a>'; }).join('');
+  var cacBai = m.bai.map(function (b, i) {
+    return '<section class="bai" id="' + b.id + '"><h2>' + (i + 1) + '. ' + b.ten + '</h2>' + b.noi + '</section>';
+  }).join('');
+  // Nut chuyen nhanh sang mon khac
+  var monKhac = MON.map(function (x) {
+    return '<a href="mon.html?mon=' + x.id + '"' + (x.id === m.id ? ' style="font-weight:700;background:var(--chinh-nhat)"' : '') + '>' + x.bieu + ' ' + x.ten + '</a>';
+  }).join('');
+  nd.innerHTML = '<div class="bia" style="padding-bottom:0"><h1>' + m.bieu + ' ' + m.ten + ' lớp 9</h1><p>' + m.moTa + '</p></div>' +
+    '<div class="bo-cuc"><aside class="muc-luc"><b>Mục lục</b>' + mucLuc +
+    '<hr style="border:0;border-top:1px solid var(--vien)"><b>Môn khác</b>' + monKhac + '</aside><div>' + cacBai + '</div></div>';
+  if (location.hash) { var el = document.querySelector(location.hash); if (el) el.scrollIntoView(); }
+});
+</script>
+</body>
+</html>
