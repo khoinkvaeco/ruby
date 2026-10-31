@@ -283,3 +283,23 @@ aside.muc-luc a.ml-muc{display:flex;padding:8px}
 .bo-cuc > div{min-width:0}
 @media (max-width:900px){ .bo-cuc.co-chon{grid-template-columns:minmax(0,1fr)} }
 @media (max-width:760px){ .bo-cuc{grid-template-columns:minmax(0,1fr)} }
+
+/* ---- 1.5.1: mo rong cot noi dung trang mon (nguoi dung: "noi dung chinh bi che rat nhieu, can mo rong") ----
+   Do o 1544x880: cot noi dung 750 px, doan van 700 px, 187 px (21 % man hinh) bi che boi thanh dau + khung chu de dinh.
+   -> Bo khung chu de dinh (ten chu de da co o muc luc, dinh them la trung lap), trang mon rong toi 1400 px,
+      muc luc 240 px, bo gioi han do dai dong, nut an muc luc. */
+.khung-rong{max-width:1400px}
+.bo-cuc-mon{grid-template-columns:240px minmax(0,1fr);gap:20px}
+.bo-cuc-mon.thu-gon{grid-template-columns:minmax(0,1fr)}
+.bo-cuc-mon.thu-gon .muc-luc{display:none}
+.chu-de-dau{position:static;padding:12px 22px 0}
+.chu-de-hang{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.chu-de-dau h2{margin:0 0 4px}
+.nut-ml{border:1px solid var(--vien);background:var(--nen);color:var(--phu);border-radius:8px;padding:4px 10px;font:inherit;font-size:.82rem;cursor:pointer}
+.nut-ml:hover{color:var(--chinh);border-color:var(--chinh)}
+.khoi > p, .khoi > ul, .khoi > ol, .khoi > details{max-width:none}
+.khoi{scroll-margin-top:calc(var(--cao-dau) + 14px)}
+.khoi figure.hinh{max-width:560px}
+@media (max-width:900px){ .nut-ml{display:none} }
+.hang-hinh{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px;margin:14px 0;align-items:start}
+.hang-hinh figure.hinh{margin:0;max-width:none}

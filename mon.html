@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kiến thức các môn – Góc học tập của Minh Khuê</title>
-<link rel="stylesheet" href="assets/style.css?v=1.5.0">
-<script src="assets/phien-ban.js?v=1.5.0"></script>
-<script src="assets/trang.js?v=1.5.0"></script>
-<script src="assets/hinh.js?v=1.5.0"></script>
-<script src="assets/du-lieu.js?v=1.5.0"></script>
-<script src="assets/bai-hoc/toan.js?v=1.5.0"></script>
-<script src="assets/bai-hoc/khtn.js?v=1.5.0"></script>
-<script src="assets/bai-hoc/van-anh.js?v=1.5.0"></script>
-<script src="assets/bai-hoc/khac.js?v=1.5.0"></script>
+<link rel="stylesheet" href="assets/style.css?v=1.5.1">
+<script src="assets/phien-ban.js?v=1.5.1"></script>
+<script src="assets/trang.js?v=1.5.1"></script>
+<script src="assets/hinh.js?v=1.5.1"></script>
+<script src="assets/du-lieu.js?v=1.5.1"></script>
+<script src="assets/bai-hoc/toan.js?v=1.5.1"></script>
+<script src="assets/bai-hoc/khtn.js?v=1.5.1"></script>
+<script src="assets/bai-hoc/van-anh.js?v=1.5.1"></script>
+<script src="assets/bai-hoc/khac.js?v=1.5.1"></script>
 </head>
 <body>
-<main class="khung" id="noiDung"></main>
+<main class="khung khung-rong" id="noiDung"></main>
 <script>
 // mon.html?mon=toan#pt-bac-hai
 // Bo cuc (1.5): MOI LAN MOT CHU DE. Truoc day ca mon do vao mot trang (Toan 26.600 px may tinh, 35.400 px dien thoai).
@@ -87,7 +87,9 @@
 
     var nhay = '<a href="#lt-' + b.id + '" data-cuon>📖 Lí thuyết</a>' + (them.ly ? '<a href="#mr-' + b.id + '" data-cuon>🧠 Mở rộng</a>' : '') +
       (bt.length ? '<a href="#bt-' + b.id + '" data-cuon>📝 Bài tập <span class="dem">' + bt.length + '</span></a>' : '');
-    var html = '<div class="chu-de-dau"><div class="chu-de-so">Chủ đề ' + (i + 1) + '/' + m.bai.length + '</div><h2>' + b.ten + '</h2>' +
+    var anML = document.querySelector('.bo-cuc-mon').classList.contains('thu-gon');
+    var html = '<div class="chu-de-dau"><div class="chu-de-hang"><div class="chu-de-so">Chủ đề ' + (i + 1) + '/' + m.bai.length + '</div>' +
+      '<button class="nut-ml" id="nutML" aria-pressed="' + anML + '">' + (anML ? '☰ Chủ đề' : '⇤ Ẩn mục lục') + '</button></div><h2>' + b.ten + '</h2>' +
       '<nav class="nhay" aria-label="Phần trong chủ đề">' + nhay + '</nav></div>' +
       '<section class="khoi" id="lt-' + b.id + '"><h3 class="khoi-tieu">📖 Lí thuyết trọng tâm</h3>' + b.noi + '</section>';
     if (them.ly) html += '<section class="khoi" id="mr-' + b.id + '"><h3 class="khoi-tieu">🧠 Mở rộng: dạng bài, ví dụ mẫu, lỗi hay mắc</h3>' + them.ly + '</section>';
@@ -118,6 +120,17 @@
            : '<a href="trac-nghiem.html?mon=' + m.id + '" class="ts-sau"><small>Hết chủ đề →</small><span>Làm trắc nghiệm ' + m.ten + '</span></a>') + '</nav>';
     vung.innerHTML = html;
     veHinh(vung);
+    // Cac hinh dung LIEN NHAU -> gom vao mot hang luoi: cot rong thi nam canh nhau, hep thi tu xuong dong
+    // (truoc: xep chong doc, moi hinh mot hang, bo trong hai ben cot 1100 px)
+    vung.querySelectorAll('figure.hinh').forEach(function (f) {
+      if (f.parentNode.classList.contains('hang-hinh')) return;
+      var nhom = [f], k = f.nextElementSibling;
+      while (k && k.matches('figure.hinh')) { nhom.push(k); k = k.nextElementSibling; }
+      if (nhom.length < 2) return;
+      var hang = document.createElement('div'); hang.className = 'hang-hinh';
+      f.parentNode.insertBefore(hang, f);
+      nhom.forEach(function (x) { hang.appendChild(x); });
+    });
 
     // O "da lam": luu tren may, cap nhat tien do chu de + mon + muc luc ngay
     function capNhat() {
@@ -145,8 +158,21 @@
     vung.querySelectorAll('[data-cuon]').forEach(function (a) {
       a.addEventListener('click', function (e) { e.preventDefault(); var t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth' }); });
     });
+    // An / hien muc luc de cot noi dung chiem tron chieu ngang; nho lua chon tren may
+    vung.querySelector('#nutML').addEventListener('click', function () {
+      var an = !document.querySelector('.bo-cuc-mon').classList.contains('thu-gon');
+      localStorage.setItem('an-muc-luc', an ? '1' : '0');
+      datMucLuc(an);
+    });
     capNhat();
   }
+
+  function datMucLuc(an) {
+    document.querySelector('.bo-cuc-mon').classList.toggle('thu-gon', an);
+    var n = document.getElementById('nutML');
+    if (n) { n.textContent = an ? '☰ Chủ đề' : '⇤ Ẩn mục lục'; n.setAttribute('aria-pressed', String(an)); }
+  }
+  datMucLuc(localStorage.getItem('an-muc-luc') === '1');
 
   function theoHash(cuon) {
     var h = decodeURIComponent(location.hash.slice(1));

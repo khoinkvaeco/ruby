@@ -2,9 +2,14 @@
 // roi doi ?v=... trong cac the <script>/<link> cua moi trang HTML cho khop (chay `node tools/kiem-tra.js` de soat).
 // ?v= khien trinh duyet tai tep moi thay vi dung ban cu trong bo nho dem.
 window.PHIEN_BAN = {
-  so: '1.5.0',
+  so: '1.5.1',
   ngay: '31/10/2026',
   lichSu: [
+    { so: '1.5.1', ngay: '31/10/2026', moi: [
+      'Trang môn học: bỏ khung tên chủ đề dính trên đầu (trùng với mục lục, che 21 % màn hình) — nay chỉ thanh menu 60 px ở lại khi cuộn',
+      'Cột nội dung rộng hơn (trang môn tối đa 1400 px, mục lục gọn lại, bỏ giới hạn độ dài dòng)',
+      'Nút "⇤ Ẩn mục lục" để nội dung chiếm trọn chiều ngang; bấm "☰ Chủ đề" để hiện lại (nhớ lựa chọn trên máy)'
+    ] },
     { so: '1.5.0', ngay: '31/10/2026', moi: [
       'Bố trí lại giao diện: thanh đầu trang gọn một hàng, luôn hiện khi cuộn; trên điện thoại menu gom vào nút ☰',
       'Trang môn học hiện MỖI LẦN MỘT CHỦ ĐỀ (trang Toán từ 26.600 px còn khoảng 1/10) với thanh chuyển nhanh Lí thuyết · Mở rộng · Bài tập, lọc bài tập theo mức, nút Chủ đề trước / tiếp theo',

@@ -30,6 +30,8 @@ Câu hỏi trắc nghiệm nằm trong `assets/trac-nghiem.js` (khoá = id môn)
 - **Trang môn** (`mon.html?mon=<id>#<chủ đề>`) hiện **mỗi lần một chủ đề**: mục lục bên trái có tiến độ từng chủ đề
   (≤ 900 px thay bằng ô chọn chủ đề), thanh chuyển nhanh Lí thuyết · Mở rộng · Bài tập, lọc bài theo mức,
   nút Chủ đề trước / tiếp theo. Chủ đề vừa học được nhớ trên máy → thẻ **Tiếp tục học** ở trang chủ.
+- Từ 1.5.1: trang môn rộng tối đa 1400 px, tên chủ đề **không** dính trên đầu (chỉ thanh menu 60 px), nút "⇤ Ẩn mục lục"
+  cho nội dung chiếm trọn chiều ngang, các hình liền nhau xếp cạnh nhau.
 - Tiến độ bài tập tính ở **một** hàm `tienDo(mon, bai)` (`assets/trang.js`) cho cả trang chủ và trang môn.
 
 ## Bài học chi tiết và bài tập
