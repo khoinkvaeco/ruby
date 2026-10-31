@@ -76,3 +76,16 @@ footer{color:var(--phu);text-align:center;padding:30px 0;font-size:.9rem}
 .thanh{height:8px;background:var(--vien);border-radius:99px;overflow:hidden;margin:8px 0}
 .thanh>div{height:100%;background:var(--chinh);transition:width .3s}
 .diem-lon{font-size:2.6rem;font-weight:800;color:var(--chinh);margin:.2em 0}
+/* Hinh minh hoa SVG — net theo bien mau nen tu doi khi bat che do toi */
+figure.hinh{margin:14px auto;padding:12px;background:var(--nen);border:1px solid var(--vien);border-radius:12px;text-align:center;max-width:520px}
+figure.hinh svg{width:100%;height:auto;color:var(--chu);font-family:inherit;font-size:14px}
+figure.hinh svg text{fill:var(--chu)}
+figure.hinh svg .n{stroke:var(--chu);stroke-width:1.8}
+figure.hinh svg .c{stroke:var(--chinh);stroke-width:2.5}
+figure.hinh svg .p{stroke:var(--phu);stroke-width:1.3;stroke-dasharray:5 4}
+figure.hinh svg .p2{stroke-dasharray:5 4;opacity:.6}
+figure.hinh svg .o{fill:var(--the);stroke:var(--chinh);stroke-width:2}
+figure.hinh svg .o2{fill:var(--the);stroke:var(--chu);stroke-width:2}
+figure.hinh svg .cham{fill:var(--chu)}
+figure.hinh svg .tc{fill:var(--chinh)}
+figure.hinh figcaption{color:var(--phu);font-size:.88rem;margin-top:6px;text-align:left}

@@ -43,6 +43,7 @@ A = 5√2 − 6√2 + 3√2 = 2√2.</details>` },
 <ul><li>Đồ thị là một <b>parabol</b> đỉnh O, nhận Oy làm trục đối xứng.</li>
 <li>a &gt; 0: parabol quay bề lõm lên, y ≥ 0, giá trị nhỏ nhất y = 0 tại x = 0.</li>
 <li>a &lt; 0: parabol quay bề lõm xuống, y ≤ 0, giá trị lớn nhất y = 0 tại x = 0.</li></ul>
+<figure class="hinh" data-hinh="parabol"></figure>
 <p><b>Vẽ đồ thị:</b> lập bảng giá trị với x = −2, −1, 0, 1, 2 rồi nối các điểm bằng đường cong trơn.</p>
 <p><b>Giao parabol (P): y = ax² và đường thẳng (d): y = mx + n</b> — hoành độ giao điểm là nghiệm của <code>ax² − mx − n = 0</code>. Δ &gt; 0: cắt tại 2 điểm; Δ = 0: tiếp xúc; Δ &lt; 0: không cắt.</p>` },
 
@@ -64,6 +65,7 @@ Công thức thu gọn (b = 2b'): Δ' = b'² − ac, x₁,₂ = (−b' ± √Δ'
 
     { id: 'luong-giac', ten: 'Tỉ số lượng giác & hệ thức trong tam giác vuông', noi: `
 <p>Tam giác ABC vuông tại A, góc nhọn B:</p>
+<figure class="hinh" data-hinh="tam-giac"></figure>
 <div class="cong-thuc">sin B = đối/huyền = AC/BC &nbsp;·&nbsp; cos B = kề/huyền = AB/BC<br>tan B = đối/kề = AC/AB &nbsp;·&nbsp; cot B = kề/đối = AB/AC</div>
 <div class="meo">💡 Mẹo nhớ: "<b>Sin đi học, Cos không hư, Tan đoàn kết, Cot kết đoàn</b>" — sin = đối/huyền, cos = kề/huyền, tan = đối/kề, cot = kề/đối.</div>
 <p>Hai góc phụ nhau (α + β = 90°): sin α = cos β, tan α = cot β.</p>
@@ -85,6 +87,7 @@ Công thức thu gọn (b = 2b'): Δ' = b'² − ac, x₁,₂ = (−b' ± √Δ'
 <li><b>Tứ giác nội tiếp</b> ⇔ tổng hai góc đối bằng 180°; hoặc hai đỉnh kề cùng nhìn cạnh nối hai đỉnh còn lại dưới một góc bằng nhau.</li>
 <li>Tam giác: tâm đường tròn <b>ngoại tiếp</b> = giao ba đường trung trực; tâm <b>nội tiếp</b> = giao ba đường phân giác. Tam giác vuông: tâm ngoại tiếp là trung điểm cạnh huyền.</li>
 </ul>
+<figure class="hinh" data-hinh="noi-tiep"></figure><figure class="hinh" data-hinh="tiep-tuyen"></figure>
 <div class="cong-thuc">Độ dài đường tròn C = 2πR &nbsp;·&nbsp; Cung n°: l = πRn/180<br>Diện tích hình tròn S = πR² &nbsp;·&nbsp; Hình quạt n°: S = πR²n/360 = lR/2<br>Hình vành khuyên: S = π(R² − r²)</div>
 <div class="meo">💡 Bài hình thi vào 10 hầu như luôn có câu "chứng minh tứ giác nội tiếp". Tìm hai góc vuông nhìn cùng một cạnh — đó là cách nhanh nhất.</div>` },
 
@@ -93,6 +96,7 @@ Công thức thu gọn (b = 2b'): Δ' = b'² − ac, x₁,₂ = (−b' ± √Δ'
 <tr><td>Hình trụ (bán kính r, chiều cao h)</td><td>S<sub>xq</sub> = 2πrh; S<sub>tp</sub> = 2πrh + 2πr²</td><td>V = πr²h</td></tr>
 <tr><td>Hình nón (đường sinh l)</td><td>S<sub>xq</sub> = πrl; S<sub>tp</sub> = πrl + πr²</td><td>V = ⅓πr²h</td></tr>
 <tr><td>Hình cầu (bán kính R)</td><td>S = 4πR²</td><td>V = 4/3·πR³</td></tr></table></div>
+<figure class="hinh" data-hinh="hinh-khoi"></figure>
 <p>Hình nón: l² = h² + r² (định lí Pythagore).</p>` },
 
     { id: 'da-giac', ten: 'Đa giác đều & phép quay', noi: `
@@ -105,6 +109,7 @@ Công thức thu gọn (b = 2b'): Δ' = b'² − ac, x₁,₂ = (−b' ± √Δ'
 <li>Biểu diễn bằng bảng tần số, biểu đồ cột, biểu đồ hình quạt tròn; số liệu ghép nhóm dùng biểu đồ cột liền nhau (tần số ghép nhóm).</li>
 <li><b>Phép thử ngẫu nhiên</b>, <b>không gian mẫu</b> Ω (tập mọi kết quả có thể).</li></ul>
 <div class="cong-thuc">Xác suất của biến cố A (các kết quả đồng khả năng): P(A) = số kết quả thuận lợi cho A / số phần tử của Ω</div>
+<figure class="hinh" data-hinh="bieu-do-cot"></figure>
 <details><summary>Ví dụ: gieo hai đồng xu</summary>Ω = {SS, SN, NS, NN} có 4 kết quả. P(có đúng một mặt sấp) = 2/4 = 1/2.</details>` }
   ]
 });
@@ -239,7 +244,8 @@ MON.push({
 Cơ năng: W = W<sub>đ</sub> + W<sub>t</sub> (bảo toàn nếu bỏ qua ma sát)<br>
 Công: A = F·s &nbsp;·&nbsp; Công suất: 𝒫 = A / t (đơn vị W; 1 kW = 1000 W)
 </div>
-<p>Đơn vị: m (kg), v (m/s), h (m), F (N), s (m), A (J), t (s).</p>` },
+<p>Đơn vị: m (kg), v (m/s), h (m), F (N), s (m), A (J), t (s).</p>
+<figure class="hinh" data-hinh="con-lac"></figure>` },
 
     { id: 'anh-sang', ten: 'Vật lí: Ánh sáng — khúc xạ, lăng kính, thấu kính', noi: `
 <ul><li><b>Khúc xạ ánh sáng:</b> tia sáng bị gãy khúc tại mặt phân cách hai môi trường. Chiết suất n = c/v.</li>
@@ -247,6 +253,7 @@ Công: A = F·s &nbsp;·&nbsp; Công suất: 𝒫 = A / t (đơn vị W; 1 kW = 
 <li><b>Lăng kính</b> tán sắc ánh sáng trắng thành dải màu đỏ → tím.</li>
 <li><b>Thấu kính hội tụ</b> (rìa mỏng): vật ngoài tiêu cự cho ảnh thật, ngược chiều; vật trong tiêu cự cho ảnh ảo, cùng chiều, lớn hơn vật (kính lúp).</li>
 <li><b>Thấu kính phân kì</b> (rìa dày): luôn cho ảnh ảo, cùng chiều, nhỏ hơn vật.</li></ul>
+<figure class="hinh" data-hinh="khuc-xa"></figure><figure class="hinh" data-hinh="thau-kinh"></figure>
 <p>Ba tia đặc biệt: tia qua quang tâm truyền thẳng; tia song song trục chính → ló qua (hoặc có đường kéo dài qua) tiêu điểm F'; tia qua tiêu điểm F → ló song song trục chính.</p>
 <div class="cong-thuc">Công thức thấu kính (hội tụ, ảnh thật): 1/f = 1/d + 1/d' &nbsp;·&nbsp; Độ phóng đại h'/h = d'/d<br>Kính lúp: số bội giác G = 25/f (f tính bằng cm)</div>` },
 
@@ -257,6 +264,7 @@ Nối tiếp: I = I₁ = I₂ ; U = U₁ + U₂ ; R<sub>tđ</sub> = R₁ + R₂<
 Song song: U = U₁ = U₂ ; I = I₁ + I₂ ; 1/R<sub>tđ</sub> = 1/R₁ + 1/R₂<br>
 Năng lượng điện: W = U·I·t &nbsp;·&nbsp; Công suất điện: 𝒫 = U·I = I²R = U²/R
 </div>
+<figure class="hinh" data-hinh="mach-dien"></figure>
 <p>1 kWh = 3 600 000 J. Số đếm công tơ điện tính bằng kWh ("số điện").</p>
 <details><summary>Ví dụ: R₁ = 6 Ω song song R₂ = 3 Ω</summary>1/R = 1/6 + 1/3 = 1/2 ⇒ R<sub>tđ</sub> = 2 Ω.</details>` },
 
@@ -269,6 +277,7 @@ Năng lượng điện: W = U·I·t &nbsp;·&nbsp; Công suất điện: 𝒫 = 
     { id: 'kim-loai', ten: 'Hoá học: Kim loại & phi kim', noi: `
 <p><b>Dãy hoạt động hoá học:</b> K, Na, Ca, Mg, Al, Zn, Fe, Pb, (H), Cu, Ag, Au</p>
 <div class="meo">💡 Mẹo nhớ: "<b>Khi Nào Cần May Áo Záp Sắt Phải Hỏi Cửa Hàng Á Âu</b>" (K Na Ca Mg Al Zn Fe Pb H Cu Ag Au).</div>
+<figure class="hinh" data-hinh="day-hoat-dong"></figure>
 <ul><li>Kim loại đứng trước H tác dụng với acid (HCl, H₂SO₄ loãng) giải phóng H₂: <code>Zn + 2HCl → ZnCl₂ + H₂↑</code></li>
 <li>Kim loại mạnh hơn (từ Mg trở đi) đẩy kim loại yếu hơn ra khỏi dung dịch muối: <code>Fe + CuSO₄ → FeSO₄ + Cu</code></li>
 <li>K, Na, Ca tác dụng với nước ở nhiệt độ thường: <code>2Na + 2H₂O → 2NaOH + H₂↑</code></li>
@@ -295,15 +304,18 @@ Năng lượng điện: W = U·I·t &nbsp;·&nbsp; Công suất điện: 𝒫 = 
 <li><b>Quy luật phân li:</b> P thuần chủng AA × aa → F₁ 100 % Aa → F₂ tỉ lệ kiểu gen 1AA : 2Aa : 1aa, kiểu hình 3 trội : 1 lặn.</li>
 <li><b>Lai phân tích:</b> lai với cá thể lặn (aa) để biết cá thể trội là AA hay Aa.</li>
 <li><b>Phân li độc lập:</b> AaBb × AaBb → F₂ tỉ lệ kiểu hình 9 : 3 : 3 : 1.</li></ul>
+<figure class="hinh" data-hinh="punnett"></figure>
 <h3>Từ gen đến tính trạng</h3>
 <ul><li><b>DNA</b> (ADN): chuỗi xoắn kép, 4 loại nucleotide A, T, G, C; nguyên tắc bổ sung A–T, G–C. Tự nhân đôi theo nguyên tắc bổ sung và bán bảo toàn.</li>
 <li><b>Phiên mã</b>: DNA → mRNA (A–U, T–A, G–C, C–G). <b>Dịch mã</b>: mRNA → chuỗi amino acid (protein) tại ribosome. Sơ đồ: Gen → mRNA → Protein → Tính trạng.</li>
 <li><b>Đột biến gen</b>: mất, thêm, thay thế cặp nucleotide.</li></ul>
+<figure class="hinh" data-hinh="adn"></figure><figure class="hinh" data-hinh="gen-protein"></figure>
 <h3>Nhiễm sắc thể (NST)</h3>
 <ul><li>Bộ NST lưỡng bội 2n (người: 2n = 46). <b>Nguyên phân</b>: 1 tế bào → 2 tế bào con có bộ NST 2n giống mẹ. <b>Giảm phân</b>: 1 tế bào 2n → 4 tế bào n (giao tử).</li>
 <li>Xác định giới tính ở người: XX (nữ), XY (nam) — tỉ lệ con trai : con gái ≈ 1 : 1.</li>
 <li>Đột biến NST: cấu trúc (mất, lặp, đảo, chuyển đoạn) và số lượng (thể dị bội như Down — 3 NST số 21; thể đa bội).</li>
 <li>Ứng dụng: công nghệ di truyền, chọn giống, chẩn đoán bệnh di truyền; tư vấn hôn nhân (không kết hôn cận huyết).</li></ul>
+<figure class="hinh" data-hinh="phan-bao"></figure>
 <div class="cong-thuc">Một gen có N nucleotide: chiều dài L = N/2 × 3,4 Å; A = T, G = C, N = 2A + 2G</div>` },
 
     { id: 'tien-hoa', ten: 'Sinh học: Tiến hoá', noi: `
@@ -358,7 +370,8 @@ MON.push({
 <tr><td>27/1/1973</td><td>Hiệp định Pa-ri về chấm dứt chiến tranh ở Việt Nam.</td></tr>
 <tr><td>30/4/1975</td><td>Chiến dịch Hồ Chí Minh toàn thắng, thống nhất đất nước.</td></tr>
 <tr><td>12/1986</td><td>Đại hội VI của Đảng mở đầu công cuộc Đổi mới.</td></tr>
-<tr><td>1995, 2007</td><td>Gia nhập ASEAN (1995), WTO (2007).</td></tr></table></div>` },
+<tr><td>1995, 2007</td><td>Gia nhập ASEAN (1995), WTO (2007).</td></tr></table></div>
+<figure class="hinh" data-hinh="moc-su"></figure>` },
 
     { id: 'dia-dan-cu', ten: 'Địa lí: Dân cư và các ngành kinh tế', noi: `
 <ul><li>Việt Nam có 54 dân tộc, dân số đông (hơn 100 triệu người), mật độ cao, phân bố không đều (tập trung ở đồng bằng, ven biển).</li>
@@ -422,6 +435,7 @@ MON.push({
 <ul><li>Các bước: xác định bài toán (đầu vào – đầu ra) → tìm thuật toán → viết chương trình → chạy thử, sửa lỗi.</li>
 <li><b>Thuật toán</b> mô tả bằng ngôn ngữ tự nhiên, sơ đồ khối; ba cấu trúc cơ bản: tuần tự, rẽ nhánh, lặp.</li>
 <li>Chia bài toán lớn thành bài toán nhỏ (chương trình con / hàm).</li></ul>
+<figure class="hinh" data-hinh="so-do-khoi"></figure>
 <p>👉 Xem trang <a href="lap-trinh.html">Học lập trình</a> để thực hành Python.</p>` }
   ]
 });

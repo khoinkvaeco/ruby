@@ -22,3 +22,12 @@ Toàn bộ nội dung các môn nằm trong `assets/du-lieu.js`. Mỗi môn có 
 Thêm một bài = thêm một đối tượng vào mảng `bai`; trang môn và ô tìm kiếm tự cập nhật.
 
 Câu hỏi trắc nghiệm nằm trong `assets/trac-nghiem.js` (khoá = id môn): `h` câu hỏi, `c` các lựa chọn, `d` chỉ số đáp án đúng (từ 0), `g` giải thích.
+
+## Hình minh hoạ
+
+17 hình vẽ bằng SVG trong `assets/hinh.js` (không dùng ảnh ngoài, tự đổi màu theo chế độ sáng/tối):
+Toán 6 (parabol, tam giác vuông, góc nội tiếp, tiếp tuyến, hình khối, biểu đồ cột) · KHTN 9 (con lắc, khúc xạ,
+thấu kính hội tụ, mạch nối tiếp/song song, dãy hoạt động hoá học, DNA, bảng Punnett, gen → tính trạng, nguyên phân/giảm phân)
+· Lịch sử 1 (trục mốc thời gian) · Tin học 1 (sơ đồ khối).
+
+Chèn hình vào bài: đặt `<figure class="hinh" data-hinh="ten-hinh"></figure>` trong nội dung bài ở `du-lieu.js`.
