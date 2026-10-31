@@ -4,51 +4,49 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Góc học tập của Minh Khuê – Lớp 9</title>
-<link rel="stylesheet" href="assets/style.css?v=1.4.0">
-<script src="assets/phien-ban.js?v=1.4.0"></script>
-<script src="assets/trang.js?v=1.4.0"></script>
-<script src="assets/du-lieu.js?v=1.4.0"></script>
-<script src="assets/bai-hoc/toan.js?v=1.4.0"></script>
-<script src="assets/bai-hoc/khtn.js?v=1.4.0"></script>
-<script src="assets/bai-hoc/van-anh.js?v=1.4.0"></script>
-<script src="assets/bai-hoc/khac.js?v=1.4.0"></script>
+<link rel="stylesheet" href="assets/style.css?v=1.5.0">
+<script src="assets/phien-ban.js?v=1.5.0"></script>
+<script src="assets/trang.js?v=1.5.0"></script>
+<script src="assets/du-lieu.js?v=1.5.0"></script>
+<script src="assets/bai-hoc/toan.js?v=1.5.0"></script>
+<script src="assets/bai-hoc/khtn.js?v=1.5.0"></script>
+<script src="assets/bai-hoc/van-anh.js?v=1.5.0"></script>
+<script src="assets/bai-hoc/khac.js?v=1.5.0"></script>
 </head>
 <body>
 <main class="khung">
-  <div class="bia">
-    <h1>Xin chào, Minh Khuê! 👋</h1>
-    <p>Tổng hợp kiến thức trọng tâm tất cả các môn lớp 9, góc học lập trình và bí kíp ôn thi vào lớp 10. Học mỗi ngày một chút nhé!</p>
-    <input id="oTim" class="o-tim" type="search" placeholder="🔎 Tìm kiến thức… ví dụ: Vi-ét, định luật Ohm, câu bị động">
-  </div>
+  <section class="bia-chinh">
+    <div class="bia-chu">
+      <h1>Xin chào, Minh Khuê! 👋</h1>
+      <p id="loiNhan"></p>
+      <div class="o-tim-boc">
+        <input id="oTim" class="o-tim" type="search" placeholder="Tìm kiến thức, bài tập… ví dụ: Vi-ét, định luật Ohm" aria-label="Tìm kiến thức">
+      </div>
+    </div>
+    <div class="bia-so" id="soLieu"></div>
+  </section>
 
-  <div id="ketQuaTim" class="an"></div>
+  <div id="ketQuaTim" class="an" aria-live="polite"></div>
 
   <div id="trangChinh">
-    <h2 class="muc">📚 Các môn học</h2>
-    <div class="luoi" id="dsMon"></div>
+    <a id="tiepTuc" class="tiep-tuc an"></a>
 
-    <h2 class="muc">✨ Góc đặc biệt</h2>
-    <div class="luoi">
-      <a class="the noi" href="lap-trinh.html"><div class="bieu">💻</div><h3>Học lập trình</h3><p>Lộ trình Scratch → Python → Web, bài học có ví dụ, bài tập và khung chạy thử code ngay trên trang.</p></a>
-      <a class="the noi" href="trac-nghiem.html"><div class="bieu">📝</div><h3>Trắc nghiệm tự kiểm tra</h3><p>Câu hỏi ngẫu nhiên cho từng môn, chấm điểm ngay, có giải thích và xem lại câu sai.</p></a>
-      <a class="the noi" href="on-thi.html"><div class="bieu">🎯</div><h3>Ôn thi vào 10</h3><p>Kế hoạch ôn tập, cấu trúc đề, mẹo làm bài và cách giữ sức khoẻ trong mùa thi.</p></a>
+    <div class="muc-dau"><h2>📚 Các môn học</h2><a href="mon.html">Xem tất cả →</a></div>
+    <div class="luoi luoi-mon" id="dsMon"></div>
+
+    <div class="muc-dau"><h2>✨ Luyện thêm</h2></div>
+    <div class="luoi luoi-3">
+      <a class="the the-noi" href="trac-nghiem.html"><div class="bieu">📝</div><div><h3>Trắc nghiệm</h3><p>10 câu ngẫu nhiên mỗi lượt, chấm ngay, có giải thích.</p></div></a>
+      <a class="the the-noi" href="lap-trinh.html"><div class="bieu">💻</div><div><h3>Học lập trình</h3><p>Python từ con số 0, chạy code ngay trên trang.</p></div></a>
+      <a class="the the-noi" href="on-thi.html"><div class="bieu">🎯</div><div><h3>Ôn thi vào 10</h3><p>Kế hoạch, mẹo làm bài, đếm ngược ngày thi.</p></div></a>
     </div>
-
-    <h2 class="muc">💬 Lời nhắn hôm nay</h2>
-    <div class="the"><p id="loiNhan" style="font-size:1.05rem;color:inherit"></p></div>
   </div>
 </main>
 
 <script>
-// Trang chu: ve the mon hoc + tim kiem khong dau tren toan bo bai hoc
+// Trang chu (1.5): phan dau gon (chao + o tim + so lieu), the "Tiep tuc hoc" mo dung chu de vua hoc,
+// the mon co tien do bai tap (tienDo() dung chung voi trang mon), tim kiem khong dau tren ca bai tap.
 document.addEventListener('DOMContentLoaded', function () {
-  function soBt(id) { var r = (window.MO_RONG || {})[id] || {}, n = 0; Object.keys(r).forEach(function (k) { n += (r[k].bt || []).length; }); return n; }
-  var ds = document.getElementById('dsMon');
-  ds.innerHTML = MON.map(function (m) {
-    return '<a class="the" href="mon.html?mon=' + m.id + '"><div class="bieu">' + m.bieu + '</div><h3>' + m.ten +
-      '</h3><p>' + m.moTa + '</p><p style="margin-top:8px"><span class="nhan">' + m.bai.length + ' chủ đề</span><span class="nhan">' + soBt(m.id) + ' bài tập</span></p></a>';
-  }).join('');
-
   var LOI = [
     'Không cần học thật nhiều trong một ngày — chỉ cần ngày nào cũng học. 🌱',
     'Sai một bài không sao, quan trọng là hiểu vì sao sai. ✍️',
@@ -60,7 +58,39 @@ document.addEventListener('DOMContentLoaded', function () {
   ];
   document.getElementById('loiNhan').textContent = LOI[new Date().getDate() % LOI.length];
 
-  // Chi muc tim kiem: chu thuan (bo the HTML) + bo dau
+  // So lieu tong
+  var tongXong = 0, tongBt = 0, tongCd = 0;
+  MON.forEach(function (m) { var t = tienDo(m.id); tongXong += t.xong; tongBt += t.tong; tongCd += m.bai.length; });
+  document.getElementById('soLieu').innerHTML =
+    '<div><b>' + MON.length + '</b><span>môn</span></div><div><b>' + tongCd + '</b><span>chủ đề</span></div>' +
+    '<div><b>' + tongXong + '<small>/' + tongBt + '</small></b><span>bài tập đã làm</span></div>';
+
+  // Tiep tuc hoc
+  try {
+    var cuoi = JSON.parse(localStorage.getItem('hoc-do-cuoi') || 'null');
+    var mc = cuoi && MON.filter(function (x) { return x.id === cuoi.mon; })[0];
+    var bc = mc && mc.bai.filter(function (x) { return x.id === cuoi.bai; })[0];
+    if (bc) {
+      var tt = document.getElementById('tiepTuc'), t = tienDo(mc.id, bc.id);
+      tt.href = 'mon.html?mon=' + mc.id + '#' + bc.id;
+      tt.innerHTML = '<span class="tt-bieu">' + mc.bieu + '</span><span class="tt-chu"><small>Tiếp tục học · ' + mc.ten + '</small><b></b>' +
+        (t.tong ? '<small>Đã làm ' + t.xong + '/' + t.tong + ' bài tập</small>' : '') + '</span><span class="tt-mui">→</span>';
+      tt.querySelector('b').textContent = bc.ten;
+      tt.classList.remove('an');
+    }
+  } catch (e) { /* du lieu luu hong: bo qua the */ }
+
+  var ds = document.getElementById('dsMon');
+  MON.forEach(function (m) {
+    var t = tienDo(m.id), a = document.createElement('a');
+    a.className = 'the the-mon'; a.href = 'mon.html?mon=' + m.id;
+    a.innerHTML = '<div class="bieu">' + m.bieu + '</div><h3>' + m.ten + '</h3><p>' + m.moTa + '</p>' +
+      '<div class="the-chan"><span>' + m.bai.length + ' chủ đề · ' + t.tong + ' bài tập</span><span>' + (t.xong ? '✅ ' + t.xong + '/' + t.tong : '') + '</span></div>' +
+      '<div class="thanh nho"><div style="width:' + (t.tong ? t.xong / t.tong * 100 : 0) + '%"></div></div>';
+    ds.appendChild(a);
+  });
+
+  // Chi muc tim kiem: chu thuan (bo the HTML) + bo dau, gom ca phan mo rong va de bai tap
   var chiMuc = [];
   MON.forEach(function (m) {
     m.bai.forEach(function (b) {
@@ -83,7 +113,9 @@ document.addEventListener('DOMContentLoaded', function () {
     tim.sort(function (a, b) { return diem(b) - diem(a); });
     chinh.classList.add('an'); kq.classList.remove('an');
     kq.innerHTML = '';
-    if (!tim.length) { kq.innerHTML = '<p class="trong">Chưa tìm thấy. Thử từ khoá khác nhé!</p>'; return; }
+    var tieu = document.createElement('p'); tieu.className = 'kq-tieu';
+    tieu.textContent = tim.length ? 'Tìm thấy ' + tim.length + ' chủ đề' : 'Chưa tìm thấy. Thử từ khoá khác nhé!';
+    kq.appendChild(tieu);
     var luoi = document.createElement('div'); luoi.className = 'luoi';
     tim.slice(0, 30).forEach(function (x) {
       var a = document.createElement('a'); a.className = 'the';

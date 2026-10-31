@@ -24,6 +24,14 @@ Thêm một bài = thêm một đối tượng vào mảng `bai`; trang môn và
 
 Câu hỏi trắc nghiệm nằm trong `assets/trac-nghiem.js` (khoá = id môn): `h` câu hỏi, `c` các lựa chọn, `d` chỉ số đáp án đúng (từ 0), `g` giải thích.
 
+## Bố cục (từ 1.5.0)
+
+- **Thanh đầu trang** một hàng, dính trên đầu khi cuộn; ≤ 860 px gom menu vào nút ☰ (Esc / bấm ra ngoài để đóng).
+- **Trang môn** (`mon.html?mon=<id>#<chủ đề>`) hiện **mỗi lần một chủ đề**: mục lục bên trái có tiến độ từng chủ đề
+  (≤ 900 px thay bằng ô chọn chủ đề), thanh chuyển nhanh Lí thuyết · Mở rộng · Bài tập, lọc bài theo mức,
+  nút Chủ đề trước / tiếp theo. Chủ đề vừa học được nhớ trên máy → thẻ **Tiếp tục học** ở trang chủ.
+- Tiến độ bài tập tính ở **một** hàm `tienDo(mon, bai)` (`assets/trang.js`) cho cả trang chủ và trang môn.
+
 ## Bài học chi tiết và bài tập
 
 Mỗi chủ đề có phần **lí thuyết mở rộng** (dạng bài, phương pháp, ví dụ mẫu, lỗi hay mắc) và **bài tập ôn luyện** ba mức

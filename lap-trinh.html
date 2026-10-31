@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Học lập trình – Góc học tập của Minh Khuê</title>
-<link rel="stylesheet" href="assets/style.css?v=1.4.0">
-<script src="assets/phien-ban.js?v=1.4.0"></script>
-<script src="assets/trang.js?v=1.4.0"></script>
-<script src="assets/hinh.js?v=1.4.0"></script>
+<link rel="stylesheet" href="assets/style.css?v=1.5.0">
+<script src="assets/phien-ban.js?v=1.5.0"></script>
+<script src="assets/trang.js?v=1.5.0"></script>
+<script src="assets/hinh.js?v=1.5.0"></script>
 </head>
 <body>
 <main class="khung">
@@ -16,7 +16,8 @@
   <p>Bắt đầu từ con số 0 với <b>Python</b> — ngôn ngữ dễ đọc, dùng trong chương trình Tin học THPT và cả ở các công ty lớn. Mỗi ví dụ đều có nút <b>▶ Thử ngay</b> để chạy code trên trang.</p>
 </div>
 
-<div class="bo-cuc">
+<div class="chon-dt"><label for="chonBai">Bài</label><select id="chonBai"></select></div>
+<div class="bo-cuc co-chon">
 <aside class="muc-luc">
   <b>Lộ trình</b>
   <a href="#lo-trinh">0. Lộ trình & công cụ</a>
@@ -479,6 +480,19 @@ for i in range(1, 6):
       soan.value = soan.value.slice(0, a) + '    ' + soan.value.slice(soan.selectionEnd);
       soan.selectionStart = soan.selectionEnd = a + 4;
     }
+  });
+
+  // Dien thoai: muc luc ben trai an di (truoc day nam CHAN truoc noi dung) -> o chon bai dinh tren dau,
+  // sinh tu chinh cac lien ket cua muc luc nen khong phai khai hai noi. Nut noi "Chay code" toi khung chay.
+  document.addEventListener('DOMContentLoaded', function () {
+    var chon = document.getElementById('chonBai');
+    document.querySelectorAll('aside.muc-luc a[href^="#"]').forEach(function (a) {
+      var o = document.createElement('option'); o.value = a.getAttribute('href'); o.textContent = a.textContent; chon.appendChild(o);
+    });
+    chon.addEventListener('change', function () { var t = document.querySelector(chon.value); if (t) t.scrollIntoView({ behavior: 'smooth' }); });
+    var noi = document.createElement('a');
+    noi.href = '#san-choi'; noi.className = 'nut-noi'; noi.textContent = '▶ Chạy code';
+    document.body.appendChild(noi);
   });
 
   // Gan nut "Thu ngay" vao moi vi du code: chep vao khung chay va cuon xuong

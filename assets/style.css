@@ -108,3 +108,178 @@ figure.hinh figcaption{color:var(--phu);font-size:.88rem;margin-top:6px;text-ali
 .nhan.m1{background:#dcfce7;color:#166534}.nhan.m2{background:#fef3c7;color:#92400e}.nhan.m3{background:#fee2e2;color:#991b1b}
 .tien-do{max-width:520px;margin:10px auto 0;text-align:center;color:var(--phu);font-size:.92rem}
 .mo-rong{border-left:3px solid var(--chinh-nhat);padding-left:12px;margin-top:10px}
+
+/* ===================== BỐ CỤC 1.5 =====================
+   Thanh dau mot hang, dinh tren dau; kieu chu de doc; cac khoi dung chung moi trang. */
+:root{--cao-dau:60px;--rong-doc:72ch}
+html{scroll-padding-top:calc(var(--cao-dau) + 12px)}
+body{font-size:16px;-webkit-font-smoothing:antialiased}
+header.dau{position:sticky;top:0;z-index:50;padding:0;box-shadow:0 2px 12px rgba(76,29,149,.25)}
+.dau-hang{display:flex;align-items:center;gap:10px;height:var(--cao-dau);flex-wrap:nowrap!important}
+header.dau .logo{white-space:nowrap;font-size:1.12rem;margin-right:auto}
+header.dau nav.menu{margin-left:0;flex-wrap:nowrap;gap:2px}
+header.dau nav.menu a{background:transparent;white-space:nowrap;padding:7px 12px}
+header.dau nav.menu a:hover{background:rgba(255,255,255,.18)}
+header.dau nav.menu a.dang{background:rgba(255,255,255,.28);font-weight:600}
+.nut-tron{flex:none;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:1.05rem;cursor:pointer}
+.nut-tron:hover{background:rgba(255,255,255,.3)}
+.nut-menu{display:none}
+:focus-visible{outline:3px solid var(--nhan);outline-offset:2px;border-radius:6px}
+@media (max-width:860px){
+  .logo-dai{display:none}
+  .nut-menu{display:inline-block}
+  header.dau nav.menu{display:none;position:absolute;top:var(--cao-dau);left:0;right:0;flex-direction:column;gap:0;
+    background:linear-gradient(135deg,#6d28d9,#be185d);padding:6px 12px 12px;box-shadow:0 12px 24px rgba(0,0,0,.25)}
+  header.dau nav.menu.mo{display:flex}
+  header.dau nav.menu a{padding:12px 14px;border-radius:10px;font-size:1rem}
+  header.dau .khung{position:relative}
+}
+.ve-dau{position:fixed;right:18px;bottom:18px;z-index:40;width:46px;height:46px;border-radius:50%;border:0;background:var(--chinh);color:#fff;
+  font-size:1.3rem;box-shadow:var(--bong);cursor:pointer;opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s}
+.ve-dau.hien{opacity:1;transform:none;pointer-events:auto}
+footer .khung{max-width:760px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ---- Trang mon: dau trang gon, canh trai ---- */
+.dau-trang{padding:28px 0 6px}
+.dau-trang h1{margin:0 0 4px;font-size:clamp(1.5rem,3.2vw,2.1rem)}
+.dau-trang p{margin:0;color:var(--phu)}
+.dau-mon{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin:22px 0 18px;padding:18px 22px;
+  background:var(--the);border:1px solid var(--vien);border-radius:var(--bo);box-shadow:var(--bong)}
+.dau-mon-chu{display:flex;gap:16px;align-items:center;min-width:0;flex:1 1 420px}
+.dau-mon-bieu{font-size:2.4rem;width:64px;height:64px;flex:none;display:grid;place-items:center;border-radius:16px;background:var(--chinh-nhat)}
+.dau-mon h1{margin:0;font-size:clamp(1.35rem,2.6vw,1.9rem)}
+.dau-mon p{margin:2px 0 0;color:var(--phu);font-size:.95rem}
+.dau-mon-phai{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.dau-mon-phai .nut{margin:0;text-decoration:none;display:inline-block}
+a.nut{color:#fff;text-decoration:none}
+.tien-do-mon{min-width:190px}
+.tdm-so{font-size:.88rem;color:var(--phu)}
+.tdm-so b{color:var(--chu);font-size:1.05rem}
+.thanh.nho{height:6px;margin:5px 0 0}
+
+.bo-cuc-mon{display:grid;grid-template-columns:270px minmax(0,1fr);gap:24px;align-items:start;margin-bottom:30px}
+.bo-cuc-mon .muc-luc{position:sticky;top:calc(var(--cao-dau) + 14px);max-height:calc(100vh - var(--cao-dau) - 28px);padding:10px}
+.muc-luc-tieu{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--phu);font-weight:700;padding:4px 8px 8px}
+a.ml-muc{display:flex;align-items:flex-start;gap:9px;padding:8px;border-radius:10px;line-height:1.35}
+a.ml-muc .ml-so{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:.78rem;font-weight:700;background:var(--nen);border:1px solid var(--vien)}
+a.ml-muc .ml-ten{flex:1}
+a.ml-muc .ml-td{flex:none;font-size:.74rem;color:var(--phu);padding-top:3px}
+a.ml-muc .ml-td.du{color:#16a34a;font-weight:700}
+a.ml-muc.dang{background:var(--chinh-nhat);font-weight:600}
+a.ml-muc.dang .ml-so{background:var(--chinh);color:#fff;border-color:var(--chinh)}
+.mon-khac{margin-top:10px;border:0;border-top:1px solid var(--vien);border-radius:0;padding:10px 4px 0}
+.mon-khac summary{font-size:.9rem;color:var(--phu)}
+.chon-dt{display:none}
+
+.chu-de{min-width:0}
+.chu-de-dau{background:var(--the);border:1px solid var(--vien);border-radius:var(--bo);padding:16px 22px 0;box-shadow:var(--bong);
+  position:sticky;top:var(--cao-dau);z-index:5}
+.chu-de-so{font-size:.82rem;color:var(--phu);font-weight:600}
+.chu-de-dau h2{margin:2px 0 8px;color:var(--chinh);font-size:clamp(1.2rem,2.4vw,1.55rem);line-height:1.3}
+.nhay{display:flex;gap:4px;overflow-x:auto;margin:0 -8px;scrollbar-width:none}
+.nhay a{flex:none;padding:9px 12px;border-bottom:3px solid transparent;text-decoration:none;color:var(--phu);font-weight:600;font-size:.93rem}
+.nhay a:hover{color:var(--chinh);border-color:var(--chinh-nhat)}
+.dem{display:inline-block;min-width:20px;padding:0 6px;border-radius:99px;background:var(--chinh-nhat);color:var(--chinh);font-size:.75rem;text-align:center}
+.khoi{background:var(--the);border:1px solid var(--vien);border-radius:var(--bo);padding:18px 24px;margin-top:16px;box-shadow:var(--bong);
+  scroll-margin-top:calc(var(--cao-dau) + 120px)}
+.khoi-tieu{margin:0 0 10px;font-size:1.08rem;color:var(--chu)}
+.khoi > p, .khoi > ul, .khoi > ol, .khoi > details{max-width:var(--rong-doc)}
+.bt-dau{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.bt-dau .khoi-tieu{margin:0}
+.loc{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--vien);background:var(--nen);color:var(--chu);border-radius:99px;padding:5px 12px;font:inherit;font-size:.85rem;cursor:pointer}
+.chip.dang{background:var(--chinh);border-color:var(--chinh);color:#fff}
+.chip.dang .dem{background:rgba(255,255,255,.25);color:#fff}
+.td-chu-de{margin:12px 0 4px;font-size:.9rem;color:var(--phu);max-width:360px}
+.loi-giai{padding-top:6px}
+.truoc-sau{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.truoc-sau a{display:flex;flex-direction:column;gap:2px;padding:14px 18px;border-radius:var(--bo);border:1px solid var(--vien);background:var(--the);
+  text-decoration:none;color:var(--chu);box-shadow:var(--bong);transition:border-color .15s}
+.truoc-sau a:hover{border-color:var(--chinh)}
+.truoc-sau small{color:var(--phu)}
+.truoc-sau span{font-weight:600}
+.ts-sau{text-align:right}
+
+@media (max-width:900px){
+  .bo-cuc-mon{grid-template-columns:1fr}
+  .bo-cuc-mon .muc-luc{display:none}
+  .chon-dt{display:flex;align-items:center;gap:10px;position:sticky;top:var(--cao-dau);z-index:6;background:var(--nen);padding:8px 0;margin:-6px 0 6px}
+  .chon-dt label{font-weight:700;font-size:.9rem;color:var(--phu)}
+  .chon-dt select{flex:1;min-width:0;font:inherit;font-size:16px;padding:10px 12px;border-radius:10px;border:1px solid var(--vien);background:var(--the);color:var(--chu)}
+  .chu-de-dau{position:static}
+  .dau-mon{padding:14px 16px;margin-top:14px}
+  .dau-mon-bieu{width:52px;height:52px;font-size:2rem}
+  .dau-mon-phai{width:100%;justify-content:space-between}
+  .khoi{padding:16px}
+  .truoc-sau{grid-template-columns:1fr}
+  .ts-sau{text-align:left}
+}
+
+/* ---- The mon (trang chu + danh sach mon): tien do ngay tren the ---- */
+.the-mon{display:flex;flex-direction:column}
+.the-mon p{flex:1}
+.the-chan{display:flex;justify-content:space-between;font-size:.8rem;color:var(--phu);margin-top:12px}
+
+/* ---- Trang chu ---- */
+.bia-chinh{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;margin:24px 0 8px;padding:26px 28px;border-radius:20px;
+  background:linear-gradient(135deg,var(--chinh-nhat),var(--the) 70%);border:1px solid var(--vien)}
+.bia-chinh h1{margin:0 0 4px;font-size:clamp(1.55rem,3.6vw,2.3rem)}
+.bia-chinh p{margin:0;color:var(--phu)}
+.o-tim-boc .o-tim{margin:16px 0 0;max-width:620px}
+.bia-so{display:flex;gap:10px}
+.bia-so div{background:var(--the);border:1px solid var(--vien);border-radius:14px;padding:12px 16px;text-align:center;min-width:92px}
+.bia-so b{display:block;font-size:1.5rem;color:var(--chinh);line-height:1.2}
+.bia-so small{font-size:.85rem;color:var(--phu)}
+.bia-so span{font-size:.8rem;color:var(--phu)}
+.tiep-tuc{display:flex;align-items:center;gap:14px;margin:16px 0 0;padding:14px 18px;border-radius:var(--bo);background:var(--chinh);color:#fff;text-decoration:none;box-shadow:var(--bong)}
+.tiep-tuc:hover{filter:brightness(1.08)}
+.tt-bieu{font-size:1.8rem;width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.2);display:grid;place-items:center;flex:none}
+.tt-chu{flex:1;display:flex;flex-direction:column;min-width:0}
+.tt-chu small{opacity:.85;font-size:.82rem}
+.tt-chu b{font-size:1.05rem}
+.tt-mui{font-size:1.5rem}
+.muc-dau{display:flex;justify-content:space-between;align-items:baseline;margin:28px 0 0}
+.muc-dau h2{margin:0;font-size:1.3rem}
+.muc-dau a{font-size:.92rem;text-decoration:none}
+.luoi-mon{margin-top:14px}
+.luoi-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-top:14px}
+.the-noi{display:flex;gap:14px;align-items:flex-start}
+.the-noi .bieu{font-size:1.8rem;width:52px;height:52px;flex:none;display:grid;place-items:center;border-radius:14px;background:var(--chinh-nhat)}
+.the-noi h3{margin:0 0 2px}
+.kq-tieu{color:var(--phu);margin:18px 0 0}
+@media (max-width:760px){
+  .bia-chinh{grid-template-columns:1fr;padding:20px 18px;margin-top:14px}
+  .bia-so div{flex:1;min-width:0;padding:10px 6px}
+  .luoi-mon{grid-template-columns:1fr 1fr;gap:12px}
+  .luoi-mon .the{padding:14px}
+  .luoi-mon .the p{display:none}
+  .luoi-mon .bieu{font-size:1.6rem}
+  .luoi-mon h3{font-size:1rem}
+}
+
+/* ---- Trang co muc luc ben trai (lap trinh): muc luc dinh duoi thanh dau ---- */
+.bo-cuc aside.muc-luc{top:calc(var(--cao-dau) + 14px);max-height:calc(100vh - var(--cao-dau) - 28px)}
+section.bai{scroll-margin-top:calc(var(--cao-dau) + 70px)}
+.nut-noi{position:fixed;right:76px;bottom:18px;z-index:40;background:var(--chinh);color:#fff;text-decoration:none;font-weight:600;
+  padding:12px 16px;border-radius:99px;box-shadow:var(--bong)}
+@media (max-width:900px){
+  .bo-cuc.co-chon{grid-template-columns:1fr}
+  .bo-cuc.co-chon aside.muc-luc{display:none}
+}
+.bia{padding:28px 0 12px}
+/* .nut dung cho ca <a> (truoc chi button.nut -> <a class="nut"> mat nen, chu trang tren nen trang) */
+a.nut{background:var(--chinh);color:#fff;border:0;padding:9px 16px;border-radius:10px;font-weight:600;display:inline-block}
+a.nut:hover{filter:brightness(1.08)}
+/* Luat cu "aside.muc-luc a{display:block}" (do uu tien 0,1,2) de len a.ml-muc -> phai neu ro cung do uu tien */
+aside.muc-luc a.ml-muc{display:flex;padding:8px}
+@media (max-width:900px){
+  .dau-mon p{display:none}
+  .dau-mon-phai{flex-wrap:nowrap}
+  .tien-do-mon{flex:1;min-width:0}
+}
+/* Cot noi dung trong luoi phai co duoc nho hon <pre>/<table> ben trong (min-width mac dinh = auto -> tran ngang 378 px o 390 px) */
+.bo-cuc{grid-template-columns:250px minmax(0,1fr)}
+.bo-cuc > div{min-width:0}
+@media (max-width:900px){ .bo-cuc.co-chon{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:760px){ .bo-cuc{grid-template-columns:minmax(0,1fr)} }
