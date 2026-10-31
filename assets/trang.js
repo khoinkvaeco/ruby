@@ -5,6 +5,7 @@
     ['index.html', '🏠 Trang chủ'],
     ['mon.html', '📚 Các môn'],
     ['lap-trinh.html', '💻 Học lập trình'],
+    ['trac-nghiem.html', '📝 Trắc nghiệm'],
     ['on-thi.html', '🎯 Ôn thi vào 10']
   ];
 

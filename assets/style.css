@@ -63,3 +63,16 @@ footer{color:var(--phu);text-align:center;padding:30px 0;font-size:.9rem}
   aside.muc-luc{position:static;max-height:none}
   nav.menu{margin-left:0}
 }
+/* Trac nghiem */
+.cau{background:var(--the);border:1px solid var(--vien);border-radius:var(--bo);padding:18px 22px;box-shadow:var(--bong);margin:16px 0}
+.cau .so{color:var(--phu);font-size:.9rem}
+.cau h3{margin:.3em 0 .8em}
+.lua-chon{display:block;width:100%;text-align:left;background:var(--nen);color:var(--chu);border:2px solid var(--vien);border-radius:10px;padding:10px 14px;margin:8px 0;font:inherit;cursor:pointer}
+.lua-chon:hover:not(:disabled){border-color:var(--chinh)}
+.lua-chon.dung{border-color:#16a34a;background:#dcfce7;color:#14532d}
+.lua-chon.sai{border-color:#dc2626;background:#fee2e2;color:#7f1d1d}
+.lua-chon:disabled{cursor:default}
+.giai{margin-top:10px;padding:10px 14px;border-radius:8px;background:var(--chinh-nhat)}
+.thanh{height:8px;background:var(--vien);border-radius:99px;overflow:hidden;margin:8px 0}
+.thanh>div{height:100%;background:var(--chinh);transition:width .3s}
+.diem-lon{font-size:2.6rem;font-weight:800;color:var(--chinh);margin:.2em 0}

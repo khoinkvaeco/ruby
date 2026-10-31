@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return '<a href="mon.html?mon=' + x.id + '"' + (x.id === m.id ? ' style="font-weight:700;background:var(--chinh-nhat)"' : '') + '>' + x.bieu + ' ' + x.ten + '</a>';
   }).join('');
   nd.innerHTML = '<div class="bia" style="padding-bottom:0"><h1>' + m.bieu + ' ' + m.ten + ' lớp 9</h1><p>' + m.moTa + '</p></div>' +
+    '<p style="text-align:center"><a class="nut" style="display:inline-block;text-decoration:none;background:var(--chinh);color:#fff;padding:9px 16px;border-radius:10px" href="trac-nghiem.html?mon=' + m.id + '">📝 Làm trắc nghiệm ' + m.ten + '</a></p>' +
     '<div class="bo-cuc"><aside class="muc-luc"><b>Mục lục</b>' + mucLuc +
     '<hr style="border:0;border-top:1px solid var(--vien)"><b>Môn khác</b>' + monKhac + '</aside><div>' + cacBai + '</div></div>';
   if (location.hash) { var el = document.querySelector(location.hash); if (el) el.scrollIntoView(); }
