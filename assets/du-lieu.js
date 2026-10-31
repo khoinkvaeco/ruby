@@ -24,6 +24,7 @@ A = 5√2 − 6√2 + 3√2 = 2√2.</details>` },
     { id: 'hpt', ten: 'Phương trình & hệ hai phương trình bậc nhất hai ẩn', noi: `
 <p>Phương trình bậc nhất hai ẩn: <code>ax + by = c</code> (a, b không đồng thời bằng 0), có vô số nghiệm; tập nghiệm biểu diễn bởi một đường thẳng.</p>
 <p>Hệ hai phương trình: hai đường thẳng <b>cắt nhau</b> → 1 nghiệm; <b>song song</b> → vô nghiệm; <b>trùng nhau</b> → vô số nghiệm.</p>
+<figure class="hinh" data-hinh="hpt-vi-tri"></figure>
 <h3>Hai cách giải</h3>
 <ul><li><b>Phương pháp thế:</b> rút một ẩn từ một phương trình, thế vào phương trình kia.</li>
 <li><b>Phương pháp cộng đại số:</b> nhân để hệ số một ẩn đối nhau (hoặc bằng nhau) rồi cộng (trừ) vế theo vế.</li></ul>
@@ -37,6 +38,7 @@ A = 5√2 − 6√2 + 3√2 = 2√2.</details>` },
 <li>Nhân với số <b>dương</b>: giữ chiều; nhân với số <b>âm</b>: <b>đổi chiều</b>.</li>
 <li>Tính chất bắc cầu: a &gt; b, b &gt; c ⇒ a &gt; c.</li></ul>
 <p>Bất phương trình bậc nhất một ẩn: <code>ax + b &gt; 0</code> (a ≠ 0). Ví dụ −2x + 6 &gt; 0 ⇔ −2x &gt; −6 ⇔ x &lt; 3.</p>
+<figure class="hinh" data-hinh="truc-so"></figure>
 <p>Phương trình quy về bậc nhất: phương trình tích <code>(ax+b)(cx+d)=0</code> ⇔ ax+b=0 hoặc cx+d=0; phương trình chứa ẩn ở mẫu: tìm ĐKXĐ → quy đồng, khử mẫu → giải → đối chiếu ĐKXĐ.</p>` },
 
     { id: 'ham-so', ten: 'Hàm số y = ax² (a ≠ 0)', noi: `
@@ -54,6 +56,7 @@ A = 5√2 − 6√2 + 3√2 = 2√2.</details>` },
 Δ &gt; 0: x₁,₂ = (−b ± √Δ) / 2a &nbsp;·&nbsp; Δ = 0: x₁ = x₂ = −b / 2a &nbsp;·&nbsp; Δ &lt; 0: vô nghiệm<br>
 Công thức thu gọn (b = 2b'): Δ' = b'² − ac, x₁,₂ = (−b' ± √Δ') / a
 </div>
+<figure class="hinh" data-hinh="delta"></figure>
 <h3>Định lí Vi-ét</h3>
 <div class="cong-thuc">Nếu có nghiệm x₁, x₂ thì: S = x₁ + x₂ = −b/a, &nbsp; P = x₁·x₂ = c/a</div>
 <ul><li>a + b + c = 0 ⇒ x₁ = 1, x₂ = c/a.</li>
@@ -75,7 +78,8 @@ Công thức thu gọn (b = 2b'): Δ' = b'² − ac, x₁,₂ = (−b' ± √Δ'
 <tr><td>tan</td><td>√3/3</td><td>1</td><td>√3</td></tr>
 <tr><td>cot</td><td>√3</td><td>1</td><td>√3/3</td></tr></table></div>
 <p><b>Hệ thức cạnh và góc:</b> cạnh góc vuông = cạnh huyền × sin góc đối = cạnh huyền × cos góc kề; cạnh góc vuông = cạnh góc vuông kia × tan góc đối.</p>
-<p><b>Hệ thức lượng</b> (đường cao AH = h, hình chiếu BH = c', CH = b'): b² = a·b', c² = a·c', h² = b'·c', b·c = a·h, 1/h² = 1/b² + 1/c².</p>` },
+<p><b>Hệ thức lượng</b> (đường cao AH = h, hình chiếu BH = c', CH = b'): b² = a·b', c² = a·c', h² = b'·c', b·c = a·h, 1/h² = 1/b² + 1/c².</p>
+<figure class="hinh" data-hinh="he-thuc-luong"></figure>` },
 
     { id: 'duong-tron', ten: 'Đường tròn, góc với đường tròn, tứ giác nội tiếp', noi: `
 <ul>
@@ -88,6 +92,7 @@ Công thức thu gọn (b = 2b'): Δ' = b'² − ac, x₁,₂ = (−b' ± √Δ'
 <li>Tam giác: tâm đường tròn <b>ngoại tiếp</b> = giao ba đường trung trực; tâm <b>nội tiếp</b> = giao ba đường phân giác. Tam giác vuông: tâm ngoại tiếp là trung điểm cạnh huyền.</li>
 </ul>
 <figure class="hinh" data-hinh="noi-tiep"></figure><figure class="hinh" data-hinh="tiep-tuyen"></figure>
+<figure class="hinh" data-hinh="tu-giac-nt"></figure>
 <div class="cong-thuc">Độ dài đường tròn C = 2πR &nbsp;·&nbsp; Cung n°: l = πRn/180<br>Diện tích hình tròn S = πR² &nbsp;·&nbsp; Hình quạt n°: S = πR²n/360 = lR/2<br>Hình vành khuyên: S = π(R² − r²)</div>
 <div class="meo">💡 Bài hình thi vào 10 hầu như luôn có câu "chứng minh tứ giác nội tiếp". Tìm hai góc vuông nhìn cùng một cạnh — đó là cách nhanh nhất.</div>` },
 
@@ -102,7 +107,8 @@ Công thức thu gọn (b = 2b'): Δ' = b'² − ac, x₁,₂ = (−b' ± √Δ'
     { id: 'da-giac', ten: 'Đa giác đều & phép quay', noi: `
 <ul><li>Đa giác đều: tất cả các cạnh bằng nhau và tất cả các góc bằng nhau. Mỗi góc của n-giác đều bằng (n − 2)·180°/n.</li>
 <li>Mọi đa giác đều đều có một đường tròn ngoại tiếp và một đường tròn nội tiếp, cùng tâm.</li>
-<li>Phép quay tâm O góc α biến đa giác đều n cạnh thành chính nó khi α = k·360°/n.</li></ul>` },
+<li>Phép quay tâm O góc α biến đa giác đều n cạnh thành chính nó khi α = k·360°/n.</li></ul>
+<figure class="hinh" data-hinh="da-giac-deu"></figure>` },
 
     { id: 'thong-ke', ten: 'Thống kê & xác suất', noi: `
 <ul><li><b>Tần số</b>: số lần một giá trị xuất hiện. <b>Tần số tương đối</b> = tần số / tổng số dữ liệu (thường ghi %).</li>
@@ -110,6 +116,7 @@ Công thức thu gọn (b = 2b'): Δ' = b'² − ac, x₁,₂ = (−b' ± √Δ'
 <li><b>Phép thử ngẫu nhiên</b>, <b>không gian mẫu</b> Ω (tập mọi kết quả có thể).</li></ul>
 <div class="cong-thuc">Xác suất của biến cố A (các kết quả đồng khả năng): P(A) = số kết quả thuận lợi cho A / số phần tử của Ω</div>
 <figure class="hinh" data-hinh="bieu-do-cot"></figure>
+<figure class="hinh" data-hinh="cay-xac-suat"></figure>
 <details><summary>Ví dụ: gieo hai đồng xu</summary>Ω = {SS, SN, NS, NN} có 4 kết quả. P(có đúng một mặt sấp) = 2/4 = 1/2.</details>` }
   ]
 });
@@ -128,6 +135,7 @@ MON.push({
 <tr><td>Truyện trinh thám</td><td>Có vụ án, thám tử, quá trình điều tra suy luận, tình huống bất ngờ.</td><td>Truyện Sherlock Holmes (Conan Doyle)…</td></tr>
 <tr><td>Bi kịch</td><td>Xung đột gay gắt, nhân vật bi kịch, lời thoại, chỉ dẫn sân khấu.</td><td>Trích đoạn kịch trong SGK</td></tr>
 <tr><td>Tùy bút, tản văn</td><td>Cái tôi tác giả đậm nét, kết hợp tự sự – miêu tả – biểu cảm – nghị luận.</td><td></td></tr></table></div>
+<figure class="hinh" data-hinh="song-that"></figure>
 <div class="meo">💡 Sách giáo khoa mỗi bộ (Kết nối tri thức, Chân trời sáng tạo, Cánh diều) chọn văn bản khác nhau. Đề thi vào 10 thường cho <b>văn bản ngoài SGK</b>, nên điều quan trọng là nắm <b>đặc điểm thể loại</b> và <b>cách phân tích</b>.</div>` },
 
     { id: 'truyen-kieu', ten: 'Nguyễn Du và Truyện Kiều', noi: `
@@ -136,7 +144,8 @@ MON.push({
 <li>Bố cục ba phần: Gặp gỡ và đính ước – Gia biến và lưu lạc – Đoàn tụ.</li>
 <li><b>Giá trị hiện thực:</b> phơi bày xã hội phong kiến bất công, sức mạnh đồng tiền chà đạp con người.</li>
 <li><b>Giá trị nhân đạo:</b> cảm thương số phận con người, đặc biệt người phụ nữ; đề cao tài, sắc, tình yêu tự do và khát vọng công lí.</li>
-<li><b>Nghệ thuật:</b> bút pháp ước lệ tượng trưng, tả cảnh ngụ tình, miêu tả nội tâm, ngôn ngữ dân tộc đạt đỉnh cao.</li></ul>` },
+<li><b>Nghệ thuật:</b> bút pháp ước lệ tượng trưng, tả cảnh ngụ tình, miêu tả nội tâm, ngôn ngữ dân tộc đạt đỉnh cao.</li></ul>
+<figure class="hinh" data-hinh="bo-cuc-kieu"></figure>` },
 
     { id: 'nlxh', ten: 'Viết bài nghị luận xã hội', noi: `
 <h3>Dàn ý chung</h3>
@@ -147,6 +156,7 @@ MON.push({
 <li>Phản đề: nêu và bác bỏ quan điểm trái chiều.</li>
 <li>Bài học nhận thức và hành động.</li></ul></li>
 <li><b>Kết bài:</b> khẳng định lại vấn đề, liên hệ bản thân.</li></ol>
+<figure class="hinh" data-hinh="dan-y-nlxh"></figure>
 <div class="meo">💡 Đoạn văn nghị luận khoảng 200 chữ: một câu chủ đề – giải thích ngắn – 2–3 lí lẽ có dẫn chứng – phản đề – bài học. Chuẩn bị sẵn một "kho dẫn chứng" về người thật việc thật (vận động viên, nhà khoa học, tấm gương thanh niên…).</div>` },
 
     { id: 'nlvh', ten: 'Viết bài nghị luận văn học', noi: `
@@ -157,6 +167,7 @@ MON.push({
 <li>Kết bài: khẳng định giá trị, cảm nghĩ.</li></ol>
 <h3>Phân tích truyện</h3>
 <p>Tập trung vào: tình huống truyện, nhân vật (ngoại hình, hành động, lời nói, nội tâm), chi tiết đặc sắc, ngôi kể, chủ đề – thông điệp.</p>
+<figure class="hinh" data-hinh="doan-phan-tich"></figure>
 <div class="meo">💡 Công thức một đoạn phân tích: <b>Trích dẫn → Chỉ ra nghệ thuật → Tác dụng / ý nghĩa → Liên hệ, đánh giá.</b></div>` },
 
     { id: 'tieng-viet', ten: 'Tiếng Việt trọng tâm', noi: `
@@ -169,6 +180,7 @@ MON.push({
 <li><b>Biện pháp tu từ:</b> so sánh, ẩn dụ, hoán dụ, nhân hoá, điệp ngữ, liệt kê, nói quá, nói giảm nói tránh, chơi chữ, đảo ngữ, câu hỏi tu từ.</li>
 <li><b>Nghĩa của từ, sự phát triển nghĩa</b> (nghĩa gốc – nghĩa chuyển), từ ngữ địa phương, biệt ngữ xã hội.</li>
 </ul>
+<figure class="hinh" data-hinh="cau-ghep"></figure>
 <div class="meo">💡 Câu hỏi "nêu tác dụng của biện pháp tu từ" trả lời đủ 3 ý: <b>(1)</b> làm câu thơ/văn sinh động, gợi hình gợi cảm; <b>(2)</b> nhấn mạnh nội dung cụ thể nào; <b>(3)</b> thể hiện tình cảm, thái độ của tác giả.</div>` }
   ]
 });
@@ -193,10 +205,12 @@ MON.push({
 <tr><td>Quá khứ hoàn thành</td><td>S + had + V3/ed</td><td>before, after, by the time (hành động xảy ra trước một hành động quá khứ)</td></tr>
 <tr><td>Tương lai đơn</td><td>S + will + V</td><td>tomorrow, next…, I think</td></tr>
 <tr><td>Tương lai gần</td><td>S + am/is/are going to + V</td><td>dự định, có dấu hiệu chắc chắn</td></tr></table></div>
+<figure class="hinh" data-hinh="thi-truc"></figure>
 <p><b>used to + V</b>: thói quen trong quá khứ nay không còn. <i>I used to play marbles.</i></p>` },
 
     { id: 'bi-dong', ten: 'Câu bị động (Passive voice)', noi: `
 <div class="cong-thuc">S + be (chia theo thì) + V3/ed (+ by O)</div>
+<figure class="hinh" data-hinh="bi-dong"></figure>
 <div class="cuon"><table><tr><th>Thì</th><th>Chủ động</th><th>Bị động</th></tr>
 <tr><td>Hiện tại đơn</td><td>They clean the room.</td><td>The room <b>is cleaned</b>.</td></tr>
 <tr><td>Quá khứ đơn</td><td>He wrote the letter.</td><td>The letter <b>was written</b>.</td></tr>
@@ -205,6 +219,7 @@ MON.push({
 
     { id: 'tuong-thuat', ten: 'Câu tường thuật (Reported speech)', noi: `
 <p>Lùi thì: hiện tại đơn → quá khứ đơn; hiện tại tiếp diễn → quá khứ tiếp diễn; hiện tại hoàn thành/quá khứ đơn → quá khứ hoàn thành; will → would; can → could.</p>
+<figure class="hinh" data-hinh="lui-thi"></figure>
 <p>Đổi trạng từ: now → then; today → that day; tomorrow → the next day; yesterday → the day before; here → there; this → that; ago → before.</p>
 <ul><li>Câu hỏi Yes/No: <i>He asked me <b>if/whether</b> I liked music.</i></li>
 <li>Câu hỏi Wh-: <i>She asked me <b>where I lived</b>.</i> (không đảo trợ động từ)</li>
@@ -253,8 +268,10 @@ Công: A = F·s &nbsp;·&nbsp; Công suất: 𝒫 = A / t (đơn vị W; 1 kW = 
 <li><b>Lăng kính</b> tán sắc ánh sáng trắng thành dải màu đỏ → tím.</li>
 <li><b>Thấu kính hội tụ</b> (rìa mỏng): vật ngoài tiêu cự cho ảnh thật, ngược chiều; vật trong tiêu cự cho ảnh ảo, cùng chiều, lớn hơn vật (kính lúp).</li>
 <li><b>Thấu kính phân kì</b> (rìa dày): luôn cho ảnh ảo, cùng chiều, nhỏ hơn vật.</li></ul>
-<figure class="hinh" data-hinh="khuc-xa"></figure><figure class="hinh" data-hinh="thau-kinh"></figure>
+<figure class="hinh" data-hinh="khuc-xa"></figure>
+<figure class="hinh" data-hinh="lang-kinh"></figure><figure class="hinh" data-hinh="thau-kinh"></figure>
 <p>Ba tia đặc biệt: tia qua quang tâm truyền thẳng; tia song song trục chính → ló qua (hoặc có đường kéo dài qua) tiêu điểm F'; tia qua tiêu điểm F → ló song song trục chính.</p>
+<figure class="hinh" data-hinh="phan-ki"></figure>
 <div class="cong-thuc">Công thức thấu kính (hội tụ, ảnh thật): 1/f = 1/d + 1/d' &nbsp;·&nbsp; Độ phóng đại h'/h = d'/d<br>Kính lúp: số bội giác G = 25/f (f tính bằng cm)</div>` },
 
     { id: 'dien', ten: 'Vật lí: Điện — định luật Ohm, đoạn mạch', noi: `
@@ -272,7 +289,8 @@ Năng lượng điện: W = U·I·t &nbsp;·&nbsp; Công suất điện: 𝒫 = 
 <ul><li>Khi số đường sức từ xuyên qua tiết diện cuộn dây kín <b>biến thiên</b> thì trong cuộn dây xuất hiện <b>dòng điện cảm ứng</b>.</li>
 <li><b>Dòng điện xoay chiều</b>: chiều luân phiên thay đổi. Tạo ra bằng máy phát điện xoay chiều (nam châm quay hoặc cuộn dây quay).</li>
 <li>Tác dụng của dòng điện xoay chiều: nhiệt, quang, từ, sinh lí.</li>
-<li>Năng lượng tái tạo: mặt trời, gió, nước, sinh khối, địa nhiệt; năng lượng hoá thạch gây ô nhiễm, phát thải khí nhà kính.</li></ul>` },
+<li>Năng lượng tái tạo: mặt trời, gió, nước, sinh khối, địa nhiệt; năng lượng hoá thạch gây ô nhiễm, phát thải khí nhà kính.</li></ul>
+<figure class="hinh" data-hinh="cam-ung"></figure>` },
 
     { id: 'kim-loai', ten: 'Hoá học: Kim loại & phi kim', noi: `
 <p><b>Dãy hoạt động hoá học:</b> K, Na, Ca, Mg, Al, Zn, Fe, Pb, (H), Cu, Ag, Au</p>
@@ -287,6 +305,7 @@ Năng lượng điện: W = U·I·t &nbsp;·&nbsp; Công suất điện: 𝒫 = 
 
     { id: 'huu-co', ten: 'Hoá học: Hợp chất hữu cơ', noi: `
 <p>Hợp chất hữu cơ là hợp chất của carbon (trừ CO, CO₂, H₂CO₃, muối carbonate, carbide…).</p>
+<figure class="hinh" data-hinh="huu-co"></figure>
 <div class="cuon"><table><tr><th>Chất</th><th>Công thức</th><th>Tính chất / ứng dụng chính</th></tr>
 <tr><td>Methane (alkane)</td><td>CH₄</td><td>Chỉ có liên kết đơn; phản ứng thế với Cl₂ (ánh sáng); cháy: CH₄ + 2O₂ → CO₂ + 2H₂O. Khí thiên nhiên, khí biogas.</td></tr>
 <tr><td>Ethylene (alkene)</td><td>C₂H₄</td><td>Có một liên kết đôi; làm mất màu nước bromine; phản ứng trùng hợp tạo polyethylene (PE); kích thích quả chín.</td></tr>
@@ -322,7 +341,8 @@ Năng lượng điện: W = U·I·t &nbsp;·&nbsp; Công suất điện: 𝒫 = 
 <ul><li><b>Tiến hoá</b>: sự thay đổi đặc điểm di truyền của quần thể qua các thế hệ.</li>
 <li><b>Chọn lọc tự nhiên</b> (Darwin): cá thể mang biến dị có lợi sống sót và sinh sản nhiều hơn.</li>
 <li><b>Chọn lọc nhân tạo</b>: con người chọn giữ những biến dị có lợi cho mình → tạo giống vật nuôi, cây trồng.</li>
-<li>Sự sống phát triển từ đơn giản đến phức tạp; loài người tiến hoá qua các dạng vượn người hoá thạch → người cổ → người hiện đại (<i>Homo sapiens</i>).</li></ul>` }
+<li>Sự sống phát triển từ đơn giản đến phức tạp; loài người tiến hoá qua các dạng vượn người hoá thạch → người cổ → người hiện đại (<i>Homo sapiens</i>).</li></ul>
+<figure class="hinh" data-hinh="tien-hoa"></figure>` }
   ]
 });
 
@@ -334,7 +354,8 @@ MON.push({
     { id: 'tg-1918', ten: 'Lịch sử thế giới 1918–1945', noi: `
 <ul><li>Nước Nga Xô viết, Liên Xô thành lập (12/1922), công cuộc xây dựng chủ nghĩa xã hội.</li>
 <li>Khủng hoảng kinh tế 1929–1933; chủ nghĩa phát xít lên cầm quyền ở Đức, I-ta-li-a, Nhật Bản. Mỹ thực hiện Chính sách mới của Ru-dơ-ven.</li>
-<li><b>Chiến tranh thế giới thứ hai (1939–1945)</b>: bắt đầu 1/9/1939 (Đức tấn công Ba Lan); Liên Xô thắng trận Xta-lin-grát; phát xít Đức đầu hàng 9/5/1945; Mỹ ném bom nguyên tử xuống Hi-rô-si-ma, Na-ga-xa-ki; Nhật đầu hàng 15/8/1945.</li></ul>` },
+<li><b>Chiến tranh thế giới thứ hai (1939–1945)</b>: bắt đầu 1/9/1939 (Đức tấn công Ba Lan); Liên Xô thắng trận Xta-lin-grát; phát xít Đức đầu hàng 9/5/1945; Mỹ ném bom nguyên tử xuống Hi-rô-si-ma, Na-ga-xa-ki; Nhật đầu hàng 15/8/1945.</li></ul>
+<figure class="hinh" data-hinh="cttg2"></figure>` },
 
     { id: 'vn-1918', ten: 'Việt Nam 1918–1945', noi: `
 <div class="cuon"><table><tr><th>Thời gian</th><th>Sự kiện</th></tr>
@@ -348,14 +369,16 @@ MON.push({
 <tr><td>22/12/1944</td><td>Thành lập Đội Việt Nam Tuyên truyền Giải phóng quân.</td></tr>
 <tr><td>9/3/1945</td><td>Nhật đảo chính Pháp; chỉ thị "Nhật – Pháp bắn nhau và hành động của chúng ta".</td></tr>
 <tr><td>8/1945</td><td>Tổng khởi nghĩa giành chính quyền (Hà Nội 19/8, Huế 23/8, Sài Gòn 25/8).</td></tr>
-<tr><td>2/9/1945</td><td>Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hoà.</td></tr></table></div>` },
+<tr><td>2/9/1945</td><td>Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hoà.</td></tr></table></div>
+<figure class="hinh" data-hinh="moc-1911"></figure>` },
 
     { id: 'tg-1945', ten: 'Thế giới từ 1945 đến nay', noi: `
 <ul><li>Trật tự hai cực I-an-ta; Liên hợp quốc thành lập (10/1945).</li>
 <li><b>Chiến tranh lạnh</b> (1947–1989) giữa Mỹ và Liên Xô; kết thúc tại gặp gỡ Man-ta (12/1989).</li>
 <li>Liên Xô tan rã (12/1991); trật tự đa cực hình thành.</li>
 <li>Phong trào giải phóng dân tộc ở châu Á, châu Phi, Mỹ La-tinh; ASEAN thành lập 8/8/1967 (Việt Nam gia nhập 28/7/1995).</li>
-<li>Cách mạng khoa học – kĩ thuật, xu thế toàn cầu hoá.</li></ul>` },
+<li>Cách mạng khoa học – kĩ thuật, xu thế toàn cầu hoá.</li></ul>
+<figure class="hinh" data-hinh="tg-sau-1945"></figure>` },
 
     { id: 'vn-1945', ten: 'Việt Nam từ 1945 đến nay', noi: `
 <div class="cuon"><table><tr><th>Thời gian</th><th>Sự kiện</th></tr>
@@ -377,9 +400,11 @@ MON.push({
 <ul><li>Việt Nam có 54 dân tộc, dân số đông (hơn 100 triệu người), mật độ cao, phân bố không đều (tập trung ở đồng bằng, ven biển).</li>
 <li>Cơ cấu dân số đang trong thời kì "dân số vàng", có xu hướng già hoá.</li>
 <li>Nông nghiệp: lúa gạo (ĐBSCL, ĐBSH), cây công nghiệp (Tây Nguyên, Đông Nam Bộ), thuỷ sản.</li>
-<li>Công nghiệp: khai khoáng, năng lượng, chế biến, điện tử. Dịch vụ: giao thông, thương mại, du lịch, bưu chính viễn thông.</li></ul>` },
+<li>Công nghiệp: khai khoáng, năng lượng, chế biến, điện tử. Dịch vụ: giao thông, thương mại, du lịch, bưu chính viễn thông.</li></ul>
+<figure class="hinh" data-hinh="dan-so"></figure>` },
 
     { id: 'dia-vung', ten: 'Địa lí: Các vùng kinh tế', noi: `
+<figure class="hinh" data-hinh="cac-vung"></figure>
 <div class="cuon"><table><tr><th>Vùng</th><th>Thế mạnh nổi bật</th></tr>
 <tr><td>Trung du và miền núi Bắc Bộ</td><td>Khoáng sản, thuỷ điện (Hoà Bình, Sơn La), cây chè, chăn nuôi trâu bò.</td></tr>
 <tr><td>Đồng bằng sông Hồng</td><td>Dân cư đông, thâm canh lúa, công nghiệp và dịch vụ phát triển (Hà Nội, Hải Phòng).</td></tr>
@@ -404,13 +429,15 @@ MON.push({
 <li><b>Khách quan và công bằng</b>: nhìn nhận đúng sự thật, đối xử bình đẳng, không thiên vị.</li>
 <li><b>Bảo vệ hoà bình</b>: giải quyết mâu thuẫn bằng thương lượng, không bạo lực.</li>
 <li><b>Quản lí thời gian hiệu quả</b>: lập kế hoạch, xác định việc quan trọng – khẩn cấp (ma trận Eisenhower), tránh trì hoãn.</li>
-<li><b>Thích ứng với thay đổi</b>: bình tĩnh, tìm hiểu, điều chỉnh suy nghĩ và hành động.</li></ul>` },
+<li><b>Thích ứng với thay đổi</b>: bình tĩnh, tìm hiểu, điều chỉnh suy nghĩ và hành động.</li></ul>
+<figure class="hinh" data-hinh="eisenhower"></figure>` },
     { id: 'phap-luat', ten: 'Kinh tế & pháp luật', noi: `
 <ul><li><b>Tiêu dùng thông minh</b>: lập kế hoạch chi tiêu, so sánh giá, chất lượng, đọc nhãn mác; tránh bị lừa đảo khi mua hàng trực tuyến.</li>
 <li><b>Vi phạm pháp luật</b>: hành vi trái pháp luật, có lỗi, do người có năng lực trách nhiệm pháp lí thực hiện.</li>
 <li><b>Bốn loại trách nhiệm pháp lí</b>: hình sự, hành chính, dân sự, kỉ luật.</li>
 <li>Người từ đủ 14 đến dưới 16 tuổi chịu trách nhiệm hình sự về tội rất nghiêm trọng, đặc biệt nghiêm trọng (theo quy định của Bộ luật Hình sự).</li>
-<li><b>Quyền và nghĩa vụ lao động</b>: mọi công dân có quyền làm việc, tự do chọn nghề; cấm sử dụng lao động chưa thành niên làm công việc nặng nhọc, độc hại.</li></ul>` }
+<li><b>Quyền và nghĩa vụ lao động</b>: mọi công dân có quyền làm việc, tự do chọn nghề; cấm sử dụng lao động chưa thành niên làm công việc nặng nhọc, độc hại.</li></ul>
+<figure class="hinh" data-hinh="trach-nhiem"></figure>` }
   ]
 });
 
@@ -423,13 +450,15 @@ MON.push({
 <ul><li>Máy tính có mặt ở mọi lĩnh vực: y tế, giao thông, giáo dục, ngân hàng…; các thiết bị gắn bộ xử lí thông tin (máy giặt, ô tô…).</li>
 <li><b>Đánh giá độ tin cậy thông tin</b>: kiểm tra nguồn, tác giả, thời gian, đối chiếu nhiều nguồn; cảnh giác tin giả.</li>
 <li><b>Đạo đức – pháp luật</b>: tôn trọng bản quyền, không chia sẻ thông tin cá nhân của người khác, không bắt nạt trên mạng.</li>
-<li>Bảo vệ bản thân: mật khẩu mạnh, xác thực hai lớp, không bấm liên kết lạ.</li></ul>` },
+<li>Bảo vệ bản thân: mật khẩu mạnh, xác thực hai lớp, không bấm liên kết lạ.</li></ul>
+<figure class="hinh" data-hinh="kiem-tin"></figure>` },
     { id: 'bang-tinh', ten: 'Bảng tính điện tử nâng cao', noi: `
 <div class="cuon"><table><tr><th>Hàm</th><th>Ý nghĩa</th><th>Ví dụ</th></tr>
 <tr><td>SUM, AVERAGE, MAX, MIN, COUNT</td><td>Tổng, trung bình, lớn nhất, nhỏ nhất, đếm ô số</td><td><code>=AVERAGE(C2:C30)</code></td></tr>
 <tr><td>COUNTIF(vùng, điều kiện)</td><td>Đếm ô thoả điều kiện</td><td><code>=COUNTIF(D2:D30,"&gt;=8")</code></td></tr>
 <tr><td>SUMIF(vùng, điều kiện, vùng tính tổng)</td><td>Tính tổng có điều kiện</td><td><code>=SUMIF(B2:B10,"Bút",C2:C10)</code></td></tr>
 <tr><td>IF(điều kiện, đúng, sai)</td><td>Chọn giá trị theo điều kiện</td><td><code>=IF(E2&gt;=5,"Đạt","Chưa đạt")</code></td></tr></table></div>
+<figure class="hinh" data-hinh="bang-tinh"></figure>
 <p>Địa chỉ tương đối (A1) thay đổi khi sao chép công thức; địa chỉ tuyệt đối ($A$1) giữ nguyên. Xác thực dữ liệu (Data Validation) giúp hạn chế nhập sai.</p>` },
     { id: 'giai-quyet', ten: 'Giải quyết vấn đề với máy tính', noi: `
 <ul><li>Các bước: xác định bài toán (đầu vào – đầu ra) → tìm thuật toán → viết chương trình → chạy thử, sửa lỗi.</li>
@@ -449,11 +478,13 @@ MON.push({
 <ul><li>Nghề nghiệp có vai trò với bản thân (thu nhập, phát triển) và xã hội.</li>
 <li>Các ngành nghề trong lĩnh vực kĩ thuật, công nghệ; thị trường lao động thay đổi theo chuyển đổi số.</li>
 <li>Sau lớp 9: học THPT, học giáo dục nghề nghiệp (trung cấp, GDTX kết hợp học nghề).</li>
-<li>Chọn nghề dựa trên: <b>sở thích – năng lực – nhu cầu xã hội</b>. Có thể làm các trắc nghiệm sở thích nghề (ví dụ mô hình Holland) để tham khảo.</li></ul>` },
+<li>Chọn nghề dựa trên: <b>sở thích – năng lực – nhu cầu xã hội</b>. Có thể làm các trắc nghiệm sở thích nghề (ví dụ mô hình Holland) để tham khảo.</li></ul>
+<figure class="hinh" data-hinh="chon-nghe"></figure>` },
     { id: 'dien-nha', ten: 'Mô đun: Lắp đặt mạng điện trong nhà', noi: `
 <ul><li>Thiết bị: aptomat (cầu dao tự động), công tắc, ổ cắm, cầu chì; dây dẫn, ống luồn dây.</li>
 <li>Dụng cụ: kìm, tua vít, bút thử điện, đồng hồ vạn năng.</li>
 <li>Vẽ sơ đồ nguyên lí → sơ đồ lắp đặt → lắp đặt → kiểm tra.</li>
-<li><b>An toàn điện</b>: ngắt nguồn trước khi làm, dùng dụng cụ cách điện, kiểm tra bằng bút thử điện.</li></ul>` }
+<li><b>An toàn điện</b>: ngắt nguồn trước khi làm, dùng dụng cụ cách điện, kiểm tra bằng bút thử điện.</li></ul>
+<figure class="hinh" data-hinh="mach-nha"></figure>` }
   ]
 });

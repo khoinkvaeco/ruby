@@ -89,3 +89,10 @@ figure.hinh svg .o2{fill:var(--the);stroke:var(--chu);stroke-width:2}
 figure.hinh svg .cham{fill:var(--chu)}
 figure.hinh svg .tc{fill:var(--chinh)}
 figure.hinh figcaption{color:var(--phu);font-size:.88rem;margin-top:6px;text-align:left}
+/* Dai thong bao phien ban */
+.dai-bao{background:#ecfdf5;color:#065f46;border-bottom:1px solid #a7f3d0}
+[data-che-do="toi"] .dai-bao{background:#064e3b;color:#d1fae5;border-color:#065f46}
+.dai-bao .khung{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.dai-bao a{color:inherit;font-weight:700}
+.dai-bao button:last-child{margin-left:auto;background:none;border:0;color:inherit;font-size:1.1rem;cursor:pointer}
+.dai-bao .nut{margin:0}

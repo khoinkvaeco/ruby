@@ -4,8 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Học lập trình – Góc học tập của Minh Khuê</title>
-<link rel="stylesheet" href="assets/style.css">
-<script src="assets/trang.js"></script>
+<link rel="stylesheet" href="assets/style.css?v=1.3.0">
+<script src="assets/phien-ban.js?v=1.3.0"></script>
+<script src="assets/trang.js?v=1.3.0"></script>
+<script src="assets/hinh.js?v=1.3.0"></script>
 </head>
 <body>
 <main class="khung">
@@ -73,6 +75,7 @@ print("Sở thích: đọc sách, lập trình")</code></pre></details>
     <tr><td><code>str</code></td><td>chuỗi chữ</td><td><code>ten = "Khuê"</code></td></tr>
     <tr><td><code>bool</code></td><td>đúng / sai</td><td><code>da_lam_bai = True</code></td></tr>
   </table></div>
+<figure class="hinh" data-hinh="bien-hop"></figure>
 <pre><code>ten = "Minh Khuê"
 tuoi = 14
 diem_toan = 9.5
@@ -101,6 +104,7 @@ print("Diện tích:", round(math.pi * r ** 2, 2))</code></pre></details>
 <section class="bai" id="bai4">
   <h2>4. Rẽ nhánh if – elif – else</h2>
   <p>Python dùng <b>thụt lề</b> (4 dấu cách) để biết lệnh nào thuộc khối nào. So sánh: <code>== != &lt; &gt; &lt;= &gt;=</code>; kết hợp: <code>and</code>, <code>or</code>, <code>not</code>.</p>
+<figure class="hinh" data-hinh="so-do-khoi"></figure>
 <pre><code>diem = float(input("Nhập điểm trung bình: "))
 if diem >= 8:
     print("Học lực Tốt 🌟")
@@ -121,6 +125,7 @@ else:
 <section class="bai" id="bai5">
   <h2>5. Vòng lặp for, while</h2>
   <p><code>for</code> khi biết trước số lần lặp; <code>while</code> lặp khi điều kiện còn đúng. <code>range(a, b)</code> tạo dãy a, a+1, …, b−1.</p>
+<figure class="hinh" data-hinh="vong-lap"></figure>
 <pre><code># Bảng cửu chương 7
 for i in range(1, 11):
     print(f"7 x {i} = {7 * i}")
@@ -151,6 +156,7 @@ print("Số chữ số:", dem)</code></pre>
 
 <section class="bai" id="bai6">
   <h2>6. Danh sách (list)</h2>
+<figure class="hinh" data-hinh="list-chi-so"></figure>
 <pre><code>diem = [8.5, 9, 7.25, 10, 6.5]
 print("Điểm đầu tiên:", diem[0])        # chỉ số bắt đầu từ 0
 print("Điểm cuối:", diem[-1])
@@ -368,6 +374,7 @@ for i in range(1, 6):
 
   // Gan nut "Thu ngay" vao moi vi du code: chep vao khung chay va cuon xuong
   document.addEventListener('DOMContentLoaded', function () {
+    veHinh();
     document.querySelectorAll('section.bai pre').forEach(function (pre) {
       var nut = document.createElement('button');
       nut.className = 'nut'; nut.textContent = '▶ Thử ngay';

@@ -26,9 +26,48 @@
     document.body.insertBefore(dau, document.body.firstChild);
 
     var chan = document.createElement('footer');
+    var pb = window.PHIEN_BAN;
     chan.innerHTML = 'Góc học tập của Minh Khuê · Lớp 9 · Chương trình GDPT 2018<br>' +
-      'Nội dung tóm tắt để ôn tập — luôn đối chiếu với sách giáo khoa và lời thầy cô.';
+      'Nội dung tóm tắt để ôn tập — luôn đối chiếu với sách giáo khoa và lời thầy cô.' +
+      (pb ? '<br><a href="phien-ban.html" id="nhanPhienBan">Phiên bản ' + pb.so + ' · cập nhật ' + pb.ngay + ' · Có gì mới?</a>' : '');
     document.body.appendChild(chan);
+  }
+
+  function thongBao(html, nut) { // dai thong bao tren dau trang
+    var d = document.createElement('div');
+    d.className = 'dai-bao';
+    d.innerHTML = '<div class="khung"><span>' + html + '</span></div>';
+    if (nut) d.querySelector('.khung').appendChild(nut);
+    var x = document.createElement('button'); x.textContent = '✕'; x.title = 'Đóng';
+    x.addEventListener('click', function () { d.remove(); });
+    d.querySelector('.khung').appendChild(x);
+    var dau = document.querySelector('header.dau');
+    dau.parentNode.insertBefore(d, dau.nextSibling);
+  }
+
+  // Hai cau hoi khac nhau:
+  // (1) "Trang vua duoc cap nhat tu lan truoc minh mo chua?" -> so voi phien ban da xem luu tren may.
+  // (2) "Ban dang mo co cu hon ban tren mang khong?" (trinh duyet giu tep cu trong bo nho dem) ->
+  //     hoi lai tep phien-ban.js tren may chu, khong dung bo nho dem. Mo bang file:// thi bo qua (khong co may chu).
+  function kiemPhienBan() {
+    var pb = window.PHIEN_BAN;
+    if (!pb) return;
+    var daXem = localStorage.getItem('phien-ban-da-xem');
+    if (daXem && daXem !== pb.so && trangHienTai() !== 'phien-ban.html') {
+      thongBao('🎉 Trang đã được cập nhật lên <b>phiên bản ' + pb.so + '</b> (trước đó ' + daXem + '). <a href="phien-ban.html">Xem có gì mới</a>');
+    }
+    localStorage.setItem('phien-ban-da-xem', pb.so);
+
+    if (location.protocol === 'file:' || !window.fetch) return;
+    fetch('assets/phien-ban.js?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; })
+      .then(function (t) {
+        var m = /so:\s*'([^']+)'/.exec(t);
+        if (!m || m[1] === pb.so) return;
+        var nut = document.createElement('button');
+        nut.className = 'nut'; nut.textContent = '🔄 Tải bản mới';
+        nut.addEventListener('click', function () { location.reload(); });
+        thongBao('⬆️ Đã có <b>phiên bản ' + m[1] + '</b> mới hơn bản bạn đang xem (' + pb.so + ').', nut);
+      }).catch(function () { /* mat mang: giu im lang, trang van dung binh thuong */ });
   }
 
   // Nho lua chon sang/toi tren may (localStorage), lan sau mo lai van giu
@@ -58,5 +97,6 @@
   document.addEventListener('DOMContentLoaded', function () {
     veDau();
     cheDo();
+    kiemPhienBan();
   });
 })();
