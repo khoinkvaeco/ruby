@@ -65,4 +65,13 @@ trong các thẻ `<script>`/`<link>` của mọi trang HTML cho khớp, rồi ch
 node tools/kiem-tra.js
 ```
 
+Sửa giao diện (CSS/bố cục) thì chạy thêm — cần Playwright + Chromium, mở mọi trang ở 10 khổ màn 320 → 1366 px:
+
+```bash
+node tools/kiem-giao-dien.js
+```
+
+⚠️ Luật CSS cho màn hẹp phải đứng **sau** mọi luật chung của cùng phần tử — bản 1.6.0 vi phạm điều này nên trên điện thoại
+cột nội dung chỉ còn 240 px; bài kiểm trên ra đời từ lỗi đó.
+
 Lệnh này soát: số phiên bản khớp ở mọi trang · mọi chỗ đặt hình đều có hình thật · đáp án trắc nghiệm hợp lệ.

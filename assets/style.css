@@ -317,3 +317,26 @@ tr.giu-nguyen td:nth-child(3){color:var(--phu);font-style:italic}
 @media (max-width:760px){ .khung-ban-do{aspect-ratio:4/5} }
 /* Chu nam DUOI iframe: iframe tai xong thi che mat; khong tai duoc thi nguoi dung van thay loi chi dan */
 .ban-do-cho{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:var(--phu)}
+/* 1.6.1 — SUA LOI dien thoai (nguoi dung bao kem anh iPhone): luat ".bo-cuc-mon{240px ...}" cua 1.5.1 nam SAU
+   @media (max-width:900px) nen de len no -> o 390 px luoi thanh "240px 94px", muc luc an nen noi dung roi vao
+   o 240 px (62 % be ngang), thanh nhay bi cat. Luat man hep phai dung SAU moi luat chung cua .bo-cuc-mon. */
+@media (max-width:900px){
+  .bo-cuc-mon, .bo-cuc-mon.thu-gon{grid-template-columns:minmax(0,1fr)}
+}
+/* 1.6.1 — Thanh dau tran ngang ~100 px o 861–1000 px (menu 5 muc + logo dai can ~1003 px, nut ☰ chi bat tu 860 px).
+   Do lai: nut ☰ bat tu 1020 px tro xuong. Chep lai dung cac luat cua khoi <= 860 px. */
+@media (max-width:1020px){
+  .logo-dai{display:none}
+  .nut-menu{display:inline-block}
+  header.dau nav.menu{display:none;position:absolute;top:var(--cao-dau);left:0;right:0;flex-direction:column;gap:0;
+    background:linear-gradient(135deg,#6d28d9,#be185d);padding:6px 12px 12px;box-shadow:0 12px 24px rgba(0,0,0,.25)}
+  header.dau nav.menu.mo{display:flex}
+  header.dau nav.menu a{padding:12px 14px;border-radius:10px;font-size:1rem}
+  header.dau .khung{position:relative}
+}
+/* Thanh nhay trong chu de tren dien thoai: gon lai + cho xuong dong, khong cat mat "Bai tap" */
+@media (max-width:600px){
+  .chu-de-dau{padding:12px 14px 0}
+  .nhay{flex-wrap:wrap;margin:0 -4px;gap:0}
+  .nhay a{padding:8px 8px;font-size:.88rem}
+}

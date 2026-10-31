@@ -2,9 +2,14 @@
 // roi doi ?v=... trong cac the <script>/<link> cua moi trang HTML cho khop (chay `node tools/kiem-tra.js` de soat).
 // ?v= khien trinh duyet tai tep moi thay vi dung ban cu trong bo nho dem.
 window.PHIEN_BAN = {
-  so: '1.6.0',
+  so: '1.6.1',
   ngay: '31/10/2026',
   lichSu: [
+    { so: '1.6.1', ngay: '31/10/2026', moi: [
+      'Sửa lỗi điện thoại: nội dung chủ đề chỉ rộng khoảng 2/3 màn hình và thanh "Lí thuyết · Mở rộng · Bài tập" bị cắt — nay chiếm trọn bề ngang',
+      'Sửa lỗi máy tính bảng / cửa sổ nhỏ (861–1020 px): thanh menu tràn ngang — nay chuyển sang nút ☰',
+      'Thêm công cụ kiểm tra giao diện ở 10 khổ màn (320 → 1366 px) cho mọi trang'
+    ] },
     { so: '1.6.0', ngay: '31/10/2026', moi: [
       'Trang mới "Chương trình 2026 có gì mới?": sách giáo khoa dùng chung (Kết nối tri thức), Thông tư 17/2025 sửa Lịch sử và Địa lí, giáo dục AI từ 2026–2027, Khung năng lực số, Đề án tiếng Anh, thi vào 10 (quy định hiện hành + dự thảo 2 môn) — kèm nguồn',
       'Địa lí các vùng cập nhật theo 34 tỉnh, thành và 6 vùng kinh tế – xã hội mới (bài học, sơ đồ, bài tập, trắc nghiệm)',
